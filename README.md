@@ -13,12 +13,14 @@
 | **[Evening 3](#evening-3-architecture-development)** | Architecture Development | 5 exercises | Case Studies: Mars, EarlyBird, Dis*Ease |
 | **[Evening 4](#evening-4-architecture-documentation)** | Documentation & Synthesis | 2 exercises | Review all prior work |
 
-**Related Repositories:**
-- [Mars](https://github.com/ANcpLua/Mars) - Mars moons calculator and architecture analysis exercises
-- [EarlyBird](https://github.com/ANcpLua/EarlyBird) - Interface design and application core exercises
-- [MateMate](https://github.com/ANcpLua/MateMate) - Mermaid diagram tooling
+**Related Repositories (Archived):**
+- [Mars](https://github.com/ANcpLua/Mars) - Archived: Mars exercises now in `evening-2/` and `evening-3/`
+- [EarlyBird](https://github.com/ANcpLua/EarlyBird) - Archived: EarlyBird exercises now in `evening-2/` and `evening-3/`
+- [MateMate](https://github.com/ANcpLua/MateMate) - Archived: MateMate exercises now in `evening-3/`
 - [earlybird-sdd](https://github.com/ANcpLua/earlybird-sdd) - Hub repository with documentation
 - [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) - AI components
+
+> **Note:** All exercises are now consolidated in this repository for easier navigation. Original repos remain for reference.
 
 ---
 
@@ -29,10 +31,10 @@
 
 ### Exercises
 
-| ExID | Exercise | Type | Page | Description |
-|------|----------|------|------|-------------|
-| - | What Decisions Are Hard to Change? | Group | 13 | Identify architectural decisions, their influenced non-functional aspects (security, efficiency, changeability), and determine which "-ility" appears most frequently. |
-| - | Tools Corner | Optional | - | Present tools for developing/documenting architectures (e.g., Structurizr, C4, arc42). |
+| ExID | Exercise | Type | Solution | Description |
+|------|----------|------|----------|-------------|
+| - | What Decisions Are Hard to Change? | Group | - | Identify architectural decisions, their influenced non-functional aspects (security, efficiency, changeability), and determine which "-ility" appears most frequently. |
+| - | Tools Corner | Optional | [optional/tools-corner](optional/tools-corner) | Present tools for developing/documenting architectures that you have practical experience with. |
 
 ---
 
@@ -46,13 +48,13 @@
 | ExID | Exercise | Type | Solution | Description |
 |------|----------|------|----------|-------------|
 | **ArchitecturalQuality01** | Quality of Building Blocks | Group | - | Analyze internal quality (cohesion) of a building block using dependency matrix. |
-| **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | [isearchproduct-interface.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/01-isearchproduct-specification/isearchproduct-interface.md) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
-| **ArchitecturalQuality04** | ISearchProduct Specification | Group | [interface-quality-checklist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/02-interface-quality-review/interface-quality-checklist.md) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
-| **ArchitecturalQuality05** | Specification of a 0-Interface | Group | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Design and document generic `IList` interface. |
-| **ArchitecturalQuality07** | List Interface Specification | Group | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Peer-review partner group's `IList` specification from ArchitecturalQuality05. |
-| **ArchitecturalQuality08** | Climate Model Analysis | Group | [climate-model-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/02-climate-model-analysis/climate-model-analysis.md) | Analyze climate model subsystems dependencies and identify architectural weaknesses. |
-| **ArchitecturalQuality09** | Heat Flow Calculator | Self-Check | - | Identify coupling weaknesses and "Tell Don't Ask" violations. |
-| **ArchitecturalQuality10** | Charts/Products Architecture | Group | [architectural-principles-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/01-architecture-real-life-story/architectural-principles-analysis.md) | Analyze Charts/Products architecture evolution and identify violated principles. |
+| **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | [evening-2/01-isearchproduct-specification](evening-2/01-isearchproduct-specification) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
+| **ArchitecturalQuality04** | ISearchProduct Specification | Group | [evening-2/02-interface-quality-review](evening-2/02-interface-quality-review) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
+| **ArchitecturalQuality05** | Specification of a 0-Interface | Group | [evening-2/03-ilist-interface-design](evening-2/03-ilist-interface-design) | Design and document generic `IList` interface. |
+| **ArchitecturalQuality07** | List Interface Specification | Group | [evening-2/03-ilist-interface-design](evening-2/03-ilist-interface-design) | Peer-review partner group's `IList` specification from ArchitecturalQuality05. |
+| **ArchitecturalQuality08** | Climate Model Analysis | Group | [evening-2/02-climate-model-analysis](evening-2/02-climate-model-analysis) | Analyze climate model subsystems dependencies and identify architectural weaknesses. |
+| **ArchitecturalQuality09** | Heat Flow Calculator | Self-Check | [self-check/09-heat-flow-calculator](self-check/09-heat-flow-calculator) | Identify coupling weaknesses and "Tell Don't Ask" violations. |
+| **ArchitecturalQuality10** | Charts/Products Architecture | Group | [evening-2/01-architecture-real-life-story](evening-2/01-architecture-real-life-story) | Analyze Charts/Products architecture evolution and identify violated principles. |
 
 **Case Study Required:** `2_Case Study Early Bird Requirements V150.pdf` (for ArchitecturalQuality03, ArchitecturalQuality04)
 
@@ -67,11 +69,11 @@
 
 | ExID | Exercise | Type | Solution | Description |
 |------|----------|------|----------|-------------|
-| **MateMate02** | Service-Based Architecture | Group | [MateMate](https://github.com/ANcpLua/MateMate) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
-| **Mars02** | Mars Moons Application Core | Home | [README.md](https://github.com/ANcpLua/Mars/blob/main/Mars/03-mars-moons-application-core/README.md) | Design 4-component architecture for Mars moons visibility calculator. |
-| **EarlyBird12** | EarlyBird Application Core | Home | [application-core-design.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/04-application-core-architecture/application-core-design.md) | Design EarlyBird application core with change impact analysis. |
-| **Dis\*Ease01** | Hospital System Architecture | Group | - | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
-| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
+| **MateMate02** | Service-Based Architecture | Group | [evening-3/MateMate02-service-based-architecture](evening-3/MateMate02-service-based-architecture) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
+| **Mars02** | Mars Moons Application Core | Home | [evening-3/03-mars-moons-application-core](evening-3/03-mars-moons-application-core) | Design 4-component architecture for Mars moons visibility calculator. |
+| **EarlyBird12** | EarlyBird Application Core | Home | [evening-3/04-application-core-architecture](evening-3/04-application-core-architecture) | Design EarlyBird application core with change impact analysis. |
+| **Dis\*Ease01** | Hospital System Architecture | Group | [optional/requirements-class-diagram](optional/requirements-class-diagram) | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
+| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [optional/ai-architecture-embedding](optional/ai-architecture-embedding) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
 
 **Case Studies Required:**
 - `3_Case_Study_Mars_V161.pdf` (for Mars02)
@@ -122,24 +124,33 @@
 ### Exercise Locations
 
 ```
-Software-Architecture (this repo - central index)
-├── Mars/
-│   ├── ArchitecturalQuality08 - Climate Model Analysis
-│   ├── ArchitecturalQuality10 - Charts/Products Architecture
-│   └── Mars02 - Mars Moons Application Core
+Software-Architecture/
+├── evening-1/
+│   └── (Exercises done in-class)
 │
-├── EarlyBird/
-│   ├── ArchitecturalQuality03 - ISearchProduct Interface
-│   ├── ArchitecturalQuality04 - Interface Quality Checklist
-│   ├── ArchitecturalQuality05 - IList Interface Design
-│   ├── ArchitecturalQuality07 - Interface Review
-│   └── EarlyBird12 - Application Core Architecture
+├── evening-2/
+│   ├── 01-isearchproduct-specification (ArchitecturalQuality03)
+│   ├── 02-interface-quality-review (ArchitecturalQuality04)
+│   ├── 03-ilist-interface-design (ArchitecturalQuality05, ArchitecturalQuality07)
+│   ├── 01-architecture-real-life-story (ArchitecturalQuality10)
+│   └── 02-climate-model-analysis (ArchitecturalQuality08)
 │
-├── MateMate/
-│   └── MateMate02 - Service-Based Architecture
+├── evening-3/
+│   ├── MateMate02-service-based-architecture (MateMate02)
+│   ├── matemate-service-elicitation-results
+│   ├── 03-mars-moons-application-core (Mars02)
+│   └── 04-application-core-architecture (EarlyBird12)
 │
-└── EarlyBirdAI/
-    └── ArchitectureDevelopment02 - AI Architecture Development
+├── evening-4/
+│   └── (Presentation and discussion)
+│
+├── self-check/
+│   └── 09-heat-flow-calculator (ArchitecturalQuality09)
+│
+└── optional/
+    ├── tools-corner
+    ├── ai-architecture-embedding (ArchitectureDevelopment02)
+    └── requirements-class-diagram (Dis*Ease01)
 ```
 
 ---

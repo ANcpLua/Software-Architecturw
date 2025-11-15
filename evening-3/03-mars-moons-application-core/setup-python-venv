@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Thin wrapper to run the Python bootstrapper with a concise command name.
+#
+# Usage:
+#   ./setup-python-venv path/to/solution [--recreate] [--no-requirements]
+#
+# Equivalent to:
+#   python3 setup-python-venv.py path/to/solution [--recreate] [--no-requirements]
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+exec python3 "${SCRIPT_DIR}/setup-python-venv.py" "$@"
