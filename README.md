@@ -1,7 +1,18 @@
+<!--
+repo: Software-Architecture
+author: Dr. Martin Hasitschka
+type: knowledge-base
+version: 1.0
+-->
+
 # Software Architecture
 
 > Software Engineering is about systematic, methodical creation of software.
 
+<!-- toc -->
+<!-- tocstop -->
+
+<!-- agent:section:start name="foundation" -->
 ## Foundation
 
 Software Engineering covers the complete development process:
@@ -13,7 +24,9 @@ Software Engineering covers the complete development process:
 | Design & Development | Implementing the solution |
 | Testing & Evaluation | Verifying correctness and quality |
 | Deployment | Bringing it to production |
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="core-principle" -->
 ## Core Principle
 
 ```
@@ -21,7 +34,9 @@ Software Engineering ≠ Advanced Programming
 ```
 
 The distinction matters. Programming is execution. Engineering is decision-making.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="reality" -->
 ## The Reality
 
 | What People Think | What Actually Matters |
@@ -38,7 +53,9 @@ The distinction matters. Programming is execution. Engineering is decision-makin
   └─ Most software failures are from bad decisions
       └─ Not from bad code
 ```
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="critical-skills" -->
 ## Critical Skills
 
 The hierarchy of what matters:
@@ -49,7 +66,9 @@ The hierarchy of what matters:
 4. **Implementation** - Writing code is easy; everything above is hard
 
 > "Good engineers write code. Great engineers make good decisions."
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="common-mistakes" -->
 ## Common Engineering Mistakes
 
 | Mistake | Impact | Alternative |
@@ -59,7 +78,9 @@ The hierarchy of what matters:
 | Skipping tests | Users become testers | If you don't test it, your users will |
 | Tight coupling | Changes require surgery | Future refactors should be straightforward |
 | Chasing trends | Instability and rewrites | The right tool beats the latest tool |
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="nasa-standards" -->
 ## NASA Software Engineering Requirements
 
 NASA NPR 7150.2D defines Software Engineering chapters:
@@ -75,7 +96,9 @@ Chapter 4: Software Engineering
 ```
 
 Historical note: Apollo 11 used 30 lines of code to calculate transcendental functions for navigation.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="ai-intersection" -->
 ## The Intersection with AI
 
 ### Two Dimensions
@@ -114,7 +137,9 @@ Each generation became more readable to humans. The trend continues.
 - Decide what to build
 - Manage AI coding agents
 - Focus on higher-level problem solving
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="spec-driven-development" -->
 ## Spec-Driven Development
 
 Modern workflow with AI tooling:
@@ -132,7 +157,9 @@ Each specification file becomes:
 - Human-readable for engineers
 - Version-controlled artifact
 - Living documentation
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="job-market" -->
 ## The Job Market Reality
 
 Data from 2025:
@@ -154,7 +181,9 @@ Data from 2025:
 - Pure implementation work
 - Routine coding tasks
 - Pattern-based development
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="industry-domains" -->
 ## Industry Experience Domains
 
 Real-world software engineering spans:
@@ -171,7 +200,9 @@ Project characteristics:
 - Scale: Small to 1000+ person-years
 - Type: Greenfield and maintenance
 - Technologies: Evolving continuously
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="practical-wisdom" -->
 ## Practical Wisdom
 
 ### On Requirements
@@ -197,7 +228,9 @@ Project characteristics:
 | Production surprises | Controlled validation |
 | Fear of changes | Confidence in refactoring |
 | Unknown quality | Measured quality |
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="continuous-learning" -->
 ## The Continuous Learning Requirement
 
 Technology patterns (historical):
@@ -212,7 +245,9 @@ Technology patterns (historical):
 **Pattern:** Underestimating transformative technologies is consistent.
 
 **Implication:** Continuous learning is not optional. It's survival.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="knowledge-hierarchy" -->
 ## Knowledge Hierarchy
 
 ```
@@ -224,7 +259,9 @@ Level 4: Knowing how to make decisions under uncertainty
 ```
 
 This course focuses on Levels 3-4.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="blended-learning" -->
 ## Blended Learning Model
 
 ### Time Allocation
@@ -251,7 +288,9 @@ This course focuses on Levels 3-4.
 - Group exercises
 - Individual exercises
 - Knowledge verification
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="assessment" -->
 ## Assessment Model
 
 ### No Final Exam
@@ -280,7 +319,9 @@ Grade Calculation (if ≥60% achieved):
 ```
 
 **Philosophy:** Theory (60%) establishes baseline. Practice determines excellence.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="ai-usage-policy" -->
 ## AI Usage Policy
 
 ### Encouraged
@@ -306,7 +347,9 @@ AI suggests → You decide → You own the result
 ```
 
 End-to-end accountability remains with the engineer.
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="knowledge-distribution" -->
 ## Knowledge Distribution
 
 > "True knowledge is knowing that we know nothing."
@@ -316,7 +359,9 @@ This repository preserves and shares what has been learned. The content reflects
 - Academic rigor in teaching
 - Practical application in real systems
 - Evolution of software engineering practice
+<!-- agent:section:end -->
 
+<!-- agent:section:start name="structure-philosophy" -->
 ## Structure Philosophy
 
 ```
@@ -329,11 +374,13 @@ Simplicity
 ```
 
 Inspired by precision. Guided by clarity. Structured for transmission.
+<!-- agent:section:end -->
 
 ---
 
+<!-- agent:metadata -->
 **Foundation:** Based on teaching materials by Dr. Martin Hasitschka
 **Purpose:** Preserve and transmit software engineering wisdom
 **Audience:** Those who take craft seriously
 **Maintenance:** Living document, evolving with practice
-
+<!-- /agent:metadata -->
