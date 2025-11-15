@@ -47,7 +47,7 @@
 
 | ExID | Exercise | Type | Solution | Description |
 |------|----------|------|----------|-------------|
-| **ArchitecturalQuality01** | Quality of Building Blocks | Group | - | Analyze internal quality (cohesion) of a building block using dependency matrix. |
+| **ArchitecturalQuality01** | Quality of Building Blocks | Group | [evening-2/00-quality-of-building-blocks](evening-2/00-quality-of-building-blocks) | Analyze internal quality (cohesion) of a building block using dependency matrix. |
 | **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | [evening-2/01-isearchproduct-specification](evening-2/01-isearchproduct-specification) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
 | **ArchitecturalQuality04** | ISearchProduct Specification | Group | [evening-2/02-interface-quality-review](evening-2/02-interface-quality-review) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
 | **ArchitecturalQuality05** | Specification of a 0-Interface | Group | [evening-2/03-ilist-interface-design](evening-2/03-ilist-interface-design) | Design and document generic `IList` interface. |
@@ -129,6 +129,7 @@ Software-Architecture/
 │   └── (Exercises done in-class)
 │
 ├── evening-2/
+│   ├── 00-quality-of-building-blocks (ArchitecturalQuality01)
 │   ├── 01-isearchproduct-specification (ArchitecturalQuality03)
 │   ├── 02-interface-quality-review (ArchitecturalQuality04)
 │   ├── 03-ilist-interface-design (ArchitecturalQuality05, ArchitecturalQuality07)
