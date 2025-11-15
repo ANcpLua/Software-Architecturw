@@ -43,16 +43,16 @@
 
 ### Exercises
 
-| ExID | Exercise | Type | Page | File | Description |
-|------|----------|------|------|------|-------------|
-| **ArchitecturalQuality01** | Quality of Building Blocks | Group | 8 | - | Analyze internal quality (cohesion) of a building block using dependency matrix. |
-| **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | 71 | [isearchproduct-interface.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/01-isearchproduct-specification/isearchproduct-interface.md) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
-| **ArchitecturalQuality04** | ISearchProduct Specification | Group | 73 | [interface-quality-checklist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/02-interface-quality-review/interface-quality-checklist.md) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
-| **ArchitecturalQuality05** | Specification of a 0-Interface | Group | 74 | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Design and document generic `IList` interface. |
-| **ArchitecturalQuality07** | List Interface Specification | Group | 75 | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Peer-review partner group's `IList` specification from ArchitecturalQuality05. |
-| **ArchitecturalQuality08** | Climate Model | Group | 125 | [climate-model-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/02-climate-model-analysis/climate-model-analysis.md) | Analyze climate model subsystems dependencies and identify architectural weaknesses. |
-| **ArchitecturalQuality09** | Heat Flow Calculator | Self-Check | 83 | - | Identify coupling weaknesses and "Tell Don't Ask" violations. |
-| **ArchitecturalQuality10** | Architecture - A Real-Life Story | Group | 124 | [architectural-principles-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/01-architecture-real-life-story/architectural-principles-analysis.md) | Analyze Charts/Products architecture evolution and identify violated principles. |
+| ExID | Exercise | Type | Solution | Description |
+|------|----------|------|----------|-------------|
+| **ArchitecturalQuality01** | Quality of Building Blocks | Group | - | Analyze internal quality (cohesion) of a building block using dependency matrix. |
+| **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | [isearchproduct-interface.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/01-isearchproduct-specification/isearchproduct-interface.md) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
+| **ArchitecturalQuality04** | ISearchProduct Specification | Group | [interface-quality-checklist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/02-interface-quality-review/interface-quality-checklist.md) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
+| **ArchitecturalQuality05** | Specification of a 0-Interface | Group | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Design and document generic `IList` interface. |
+| **ArchitecturalQuality07** | List Interface Specification | Group | [peer-review-ilist.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/03-ilist-interface-design/peer-review-ilist.md) | Peer-review partner group's `IList` specification from ArchitecturalQuality05. |
+| **ArchitecturalQuality08** | Climate Model Analysis | Group | [climate-model-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/02-climate-model-analysis/climate-model-analysis.md) | Analyze climate model subsystems dependencies and identify architectural weaknesses. |
+| **ArchitecturalQuality09** | Heat Flow Calculator | Self-Check | - | Identify coupling weaknesses and "Tell Don't Ask" violations. |
+| **ArchitecturalQuality10** | Charts/Products Architecture | Group | [architectural-principles-analysis.md](https://github.com/ANcpLua/Mars/blob/main/Mars/01-architecture-real-life-story/architectural-principles-analysis.md) | Analyze Charts/Products architecture evolution and identify violated principles. |
 
 **Case Study Required:** `2_Case Study Early Bird Requirements V150.pdf` (for ArchitecturalQuality03, ArchitecturalQuality04)
 
@@ -65,13 +65,13 @@
 
 ### Exercises
 
-| ExID | Exercise | Type | Page | File | Description |
-|------|----------|------|------|------|-------------|
-| **MateMate02** | Service-Based Architecture Development | Group | 34 | [MateMate](https://github.com/ANcpLua/MateMate) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
-| **Mars02** | A Very Small Application Core | Home | 126-128 | [README.md](https://github.com/ANcpLua/Mars/blob/main/Mars/03-mars-moons-application-core/README.md) | Design 4-component architecture for Mars moons visibility calculator. |
-| **EarlyBird12** | A Bigger Application Core | Home | 129 | [application-core-design.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/04-application-core-architecture/application-core-design.md) | Design EarlyBird application core with change impact analysis. |
-| **Dis\*Ease01** | Requirements Class-Diagram-Based Architecture | Group | 50 | - | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
-| **ArchitectureDevelopment02** | AI Architecture Development (Embedding Approach) | Home | 71 | [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
+| ExID | Exercise | Type | Solution | Description |
+|------|----------|------|----------|-------------|
+| **MateMate02** | Service-Based Architecture | Group | [MateMate](https://github.com/ANcpLua/MateMate) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
+| **Mars02** | Mars Moons Application Core | Home | [README.md](https://github.com/ANcpLua/Mars/blob/main/Mars/03-mars-moons-application-core/README.md) | Design 4-component architecture for Mars moons visibility calculator. |
+| **EarlyBird12** | EarlyBird Application Core | Home | [application-core-design.md](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/04-application-core-architecture/application-core-design.md) | Design EarlyBird application core with change impact analysis. |
+| **Dis\*Ease01** | Hospital System Architecture | Group | - | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
+| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
 
 **Case Studies Required:**
 - `3_Case_Study_Mars_V161.pdf` (for Mars02)
