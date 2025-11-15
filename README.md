@@ -71,7 +71,7 @@
 |------|----------|------|----------|-------------|
 | **MateMate02** | Service-Based Architecture | Group | [evening-3/MateMate02-service-based-architecture](evening-3/MateMate02-service-based-architecture) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
 | **Mars02** | Mars Moons Application Core | Home | [evening-3/03-mars-moons-application-core](evening-3/03-mars-moons-application-core) | Design 4-component architecture for Mars moons visibility calculator. |
-| **EarlyBird12** | EarlyBird Application Core | Home | [evening-3/04-application-core-architecture](evening-3/04-application-core-architecture) | Design EarlyBird application core with change impact analysis. |
+| **EarlyBird12** | A Bigger Application Core | Home | [evening-3/04-bigger-application-core](evening-3/04-bigger-application-core) | Design EarlyBird application core with change impact analysis. |
 | **Dis\*Ease01** | Hospital System Architecture | Group | [optional/requirements-class-diagram](optional/requirements-class-diagram) | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
 | **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [optional/ai-architecture-embedding](optional/ai-architecture-embedding) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
 
@@ -139,7 +139,7 @@ Software-Architecture/
 │   ├── MateMate02-service-based-architecture (MateMate02)
 │   ├── matemate-service-elicitation-results
 │   ├── 03-mars-moons-application-core (Mars02)
-│   └── 04-application-core-architecture (EarlyBird12)
+│   └── 04-bigger-application-core (EarlyBird12)
 │
 ├── evening-4/
 │   └── (Presentation and discussion)
