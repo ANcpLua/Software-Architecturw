@@ -1,5 +1,5 @@
 # Software Architecture Course - Exercise Repository
-
+qwewqe
 **Foundation:** Empirically-validated software engineering principles (1968-2025)
 **Course Structure:** 4 evenings, 21 exercises
 **Learning Mode:** Remote-friendly with group and home exercises
