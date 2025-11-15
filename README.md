@@ -73,7 +73,6 @@
 | **Mars02** | Mars Moons Application Core | Home | [evening-3/03-mars-moons-application-core](evening-3/03-mars-moons-application-core) | Design 4-component architecture for Mars moons visibility calculator. |
 | **EarlyBird12** | A Bigger Application Core | Home | [evening-3/04-bigger-application-core](evening-3/04-bigger-application-core) | Design EarlyBird application core with change impact analysis. |
 | **Dis\*Ease01** | Hospital System Architecture | Group | [optional/requirements-class-diagram](optional/requirements-class-diagram) | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
-| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [optional/ai-architecture-embedding](optional/ai-architecture-embedding) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
 
 **Case Studies Required:**
 - `3_Case_Study_Mars_V161.pdf` (for Mars02)
@@ -88,10 +87,11 @@
 
 ### Exercises
 
-| ExID | Exercise | Type | Page | Description |
-|------|----------|------|------|-------------|
-| - | Presentation & Discussion | Group | 2 | Present and discuss architecture documentation from prior exercises (ArchitecturalQuality03-07, MateMate02, Mars02, EarlyBird12). |
-| - | Architectural Frameworks | Home | 92 | Design an architectural framework better than existing ones. |
+| ExID | Exercise | Type | Solution | Description |
+|------|----------|------|----------|-------------|
+| - | Presentation & Discussion | Group | - | Present and discuss architecture documentation from prior exercises (ArchitecturalQuality03-07, MateMate02, Mars02, EarlyBird12). |
+| - | Architectural Frameworks | Home | [evening-4/architectural-frameworks](evening-4/architectural-frameworks) | Design an architectural framework better than existing ones. Example: MateMate extended framework. |
+| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [evening-4/ai-embedding-approach](evening-4/ai-embedding-approach) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
 
 ---
 
@@ -143,14 +143,14 @@ Software-Architecture/
 │   └── 04-bigger-application-core (EarlyBird12)
 │
 ├── evening-4/
-│   └── (Presentation and discussion)
+│   ├── architectural-frameworks (MateMate extended framework example)
+│   └── ai-embedding-approach (ArchitectureDevelopment02)
 │
 ├── self-check/
 │   └── 09-heat-flow-calculator (ArchitecturalQuality09)
 │
 └── optional/
     ├── tools-corner
-    ├── ai-architecture-embedding (ArchitectureDevelopment02)
     └── requirements-class-diagram (Dis*Ease01)
 ```
 
