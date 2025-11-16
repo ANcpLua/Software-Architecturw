@@ -70,8 +70,7 @@ and documentation frameworks.
 
 </details>
 
-> [!TIP]
-> Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
+**Recommended:** Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
 
 ### Evening 4: Architecture Documentation
 > Industry-standard documentation frameworks and patterns
