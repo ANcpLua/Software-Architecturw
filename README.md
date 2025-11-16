@@ -166,10 +166,16 @@ Requirements-driven architecture, AI-assisted design
 
 ## Repository Structure
 
-**Evening 1 - Importance of Architecture**
+<details open>
+<summary><b>Evening 1 - Importance of Architecture</b></summary>
+
 - 01-architectural-decisions-hard-to-change
 
-**Evening 2 - Architectural Quality**
+</details>
+
+<details open>
+<summary><b>Evening 2 - Architectural Quality</b></summary>
+
 - 01-building-block-quality-analysis
 - 02-isearchproduct-interface-specification
 - 03-isearchproduct-peer-review
@@ -179,7 +185,11 @@ Requirements-driven architecture, AI-assisted design
 - 07-charts-products-architecture-story
 - 08-climate-model-architecture-analysis
 
-**Evening 3 - Architecture Development**
+</details>
+
+<details open>
+<summary><b>Evening 3 - Architecture Development</b></summary>
+
 - 01-disease-architecture-from-class-diagram
 - 02-ai-driven-requirement-clustering
 - 03-mars-application-core
@@ -187,9 +197,15 @@ Requirements-driven architecture, AI-assisted design
 - 05-matemate-service-based-architecture
 - matemate-service-elicitation-results
 
-**Evening 4 - Architecture Documentation**
+</details>
+
+<details open>
+<summary><b>Evening 4 - Architecture Documentation</b></summary>
+
 - 01-tools-corner
 - 02-custom-architecture-frameworks
+
+</details>
 
 ---
 
