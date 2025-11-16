@@ -25,44 +25,121 @@ and documentation frameworks.
 
 ## Course Structure
 
+<table>
+<tr>
+<td width="50%">
+
 ### Evening 1: Importance of Architecture
+> Understanding why architecture matters and the cost of decisions
 
-Focus on understanding why architecture matters and the cost of architectural decisions.
+<details open>
+<summary><b>Exercise Overview</b></summary>
 
-- **01-architectural-decisions-hard-to-change** - Decision significance analysis, ADR templates, cost-of-change
-  frameworks
+```
+01-architectural-decisions-hard-to-change
+└─ Decision significance analysis, ADR templates,
+   cost-of-change frameworks
+```
+
+</details>
+
+</td>
+<td width="50%">
 
 ### Evening 2: Architectural Quality
+> Quality analysis using dependency matrices, interface design, and architectural principles
 
-Deep dive into quality analysis using dependency matrices, interface design, and architectural principles.
+<details open>
+<summary><b>Exercise Overview (8 exercises)</b></summary>
 
-- **01-building-block-quality-analysis** - Dependency matrix analysis and cohesion measurement
-- **02-isearchproduct-interface-specification** - O-Interface specification methodology
-- **03-isearchproduct-peer-review** - Interface quality checklist (11-question framework)
-- **04-ilist-interface-design** - Generic IList interface design
-- **05-ilist-peer-review** - Peer review of IList specification
-- **06-heat-flow-analysis-tell-dont-ask** - Tell, Don't Ask principle demonstration
-- **07-charts-products-architecture-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP
-  violations)
-- **08-climate-model-architecture-analysis** - Stability analysis with change frequency (SDP violations)
+```
+01-building-block-quality-analysis
+└─ Dependency matrix analysis and cohesion measurement
+
+02-isearchproduct-interface-specification
+└─ O-Interface specification methodology
+
+03-isearchproduct-peer-review
+└─ Interface quality checklist (11-question framework)
+
+04-ilist-interface-design
+└─ Generic IList interface design
+
+05-ilist-peer-review
+└─ Peer review of IList specification
+
+06-heat-flow-analysis-tell-dont-ask
+└─ Tell, Don't Ask principle demonstration
+
+07-charts-products-architecture-story
+└─ Real-world copy-paste architecture case study
+   (SRP, CCP, DIP violations)
+
+08-climate-model-architecture-analysis
+└─ Stability analysis with change frequency
+   (SDP violations)
+```
+
+</details>
+
+</td>
+</tr>
+<tr>
+<td width="50%">
 
 ### Evening 3: Architecture Development
+> Systematic architecture development from requirements
 
-Methods for systematic architecture development from requirements.
+<details open>
+<summary><b>Exercise Overview (6 exercises)</b></summary>
 
-- **01-disease-architecture-from-class-diagram** - Hospital management system (26 classes → 6 subsystems)
-- **02-ai-driven-requirement-clustering** - AI-driven architecture using embeddings (44 requirements → 11 components)
-- **03-mars-application-core** - Pure application core implementation (Python)
-- **04-earlybird-application-core** - Evolution scenario analysis for EarlyBird system
-- **05-matemate-service-based-architecture** - SE4 method application (chess application)
-- **matemate-service-elicitation-results** - Service elicitation phase results (10 services)
+```
+01-disease-architecture-from-class-diagram
+└─ Hospital management system
+   (26 classes → 6 subsystems)
+
+02-ai-driven-requirement-clustering
+└─ AI-driven architecture using embeddings
+   (44 requirements → 11 components)
+
+03-mars-application-core
+└─ Pure application core implementation (Python)
+
+04-earlybird-application-core
+└─ Evolution scenario analysis for EarlyBird system
+
+05-matemate-service-based-architecture
+└─ SE4 method application (chess application)
+
+matemate-service-elicitation-results
+└─ Service elicitation phase results (10 services)
+```
+
+</details>
+
+</td>
+<td width="50%">
 
 ### Evening 4: Architecture Documentation
+> Industry-standard documentation frameworks and patterns
 
-Industry-standard documentation frameworks and patterns.
+<details open>
+<summary><b>Exercise Overview (2 exercises)</b></summary>
 
-- **01-tools-corner** - Kiro IDE orchestrator (optional home exercise)
-- **02-custom-architecture-frameworks** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
+```
+01-tools-corner
+└─ Kiro IDE orchestrator (optional home exercise)
+
+02-custom-architecture-frameworks
+└─ Complete MateMate example using arc42
+   (7 chapters) + C4 Model (C1, C2)
+```
+
+</details>
+
+</td>
+</tr>
+</table>
 
 ---
 
