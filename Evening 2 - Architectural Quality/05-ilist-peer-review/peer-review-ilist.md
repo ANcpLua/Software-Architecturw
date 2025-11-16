@@ -179,7 +179,7 @@ T RemoveAt(int index);
 
 ## 4. Checklist Scoring
 
-Using the [extended checklist](../02-interface-quality-review/interface-quality-checklist.md) (11 questions):
+Using the [extended checklist](../03-isearchproduct-peer-review/interface-quality-checklist.md) (11 questions):
 
 | Question                                   | Score | Evidence                                                                       |
 |--------------------------------------------|-------|--------------------------------------------------------------------------------|
@@ -230,6 +230,6 @@ With these changes, the interface would reach a "Good" quality level (≈ 70–8
 
 ## See Also
 
-- [The 11-question evaluation methodology](../02-interface-quality-review/interface-quality-checklist.md)
+- [The 11-question evaluation methodology](../03-isearchproduct-peer-review/interface-quality-checklist.md)
 - [Exercise slides 147-148](exercise-slide-147-148.pdf)
   – Design and review IList interface
