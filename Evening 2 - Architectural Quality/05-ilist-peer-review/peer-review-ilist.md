@@ -2,7 +2,7 @@
 
 **Exercise ID:** ArchitecturalQuality07
 **Checklist Used:
-** [../02-interface-quality-review/interface-quality-checklist.md](../02-interface-quality-review/interface-quality-checklist.md)
+** [../03-isearchproduct-peer-review/interface-quality-checklist.md](../03-isearchproduct-peer-review/interface-quality-checklist.md)
 
 ---
 
