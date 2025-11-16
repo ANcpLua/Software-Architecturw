@@ -336,5 +336,5 @@ Use PostgreSQL for all data storage.
 ## See Also
 
 - [README.md](README.md) - Exercise overview and learning objectives
-- [Architectural Decisions slide](slides/Architectural_Decisions_or_not?_p13.png)
+- [Architectural Decisions slide](slides/architectural-decisions-analysis-slide-p13.png)
 - Evening 2 exercises on architectural quality

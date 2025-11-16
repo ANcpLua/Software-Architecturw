@@ -790,7 +790,6 @@ Follow the specs. Raise issues when boundaries feel wrong. Let humans decide. Bu
 
 - Website: https://kiro.dev/
 - Docs: https://kiro.dev/docs
-- Changelog: https://kiro.dev/docs/changelog
 
 **MateMate Project Files:**
 
