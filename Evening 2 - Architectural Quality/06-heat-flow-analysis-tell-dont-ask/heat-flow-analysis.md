@@ -12,8 +12,8 @@ A heat flow regulation system has the following architecture:
 
 - **Room** class stores desired and actual temperatures
 - **HeatFlowRegulator** periodically calls:
-  - `room.get_desired_temp()`
-  - `room.get_actual_temp()`
+    - `room.get_desired_temp()`
+    - `room.get_actual_temp()`
 - **HeatFlowRegulator** compares temperatures and calls **Furnace** to heat if needed
 
 **Question:** What are the architectural weaknesses?
@@ -27,6 +27,7 @@ A heat flow regulation system has the following architecture:
 **Problem:** The `HeatFlowRegulator` pulls data out of `Room` and makes decisions based on that data.
 
 **Impact:**
+
 - Business logic about when to heat is in the **wrong place** (regulator instead of room)
 - The `Room` object becomes a passive data structure
 - Violates encapsulation - room's internal state is exposed
@@ -39,6 +40,7 @@ A heat flow regulation system has the following architecture:
 **Problem:** Room's internal temperature data is exposed via getters.
 
 **Impact:**
+
 - Changes to temperature representation require changes in `HeatFlowRegulator`
 - Multiple clients could access and misuse this data
 - Difficult to maintain invariants (e.g., desired temp must be valid)
@@ -46,11 +48,13 @@ A heat flow regulation system has the following architecture:
 ### 3. Tight Coupling
 
 **Problem:** `HeatFlowRegulator` must know:
+
 - How to interpret Room's temperature values
 - The logic for when heating is needed
 - How to coordinate with Furnace
 
 **Impact:**
+
 - Changes to heating logic require modifying `HeatFlowRegulator`
 - Cannot easily add room-specific heating strategies
 - Difficult to test Room in isolation
@@ -60,6 +64,7 @@ A heat flow regulation system has the following architecture:
 **Problem:** This is procedural programming with objects as data structures.
 
 **Current flow:**
+
 ```
 Regulator → Room.get_desired_temp()
 Regulator → Room.get_actual_temp()
@@ -67,6 +72,7 @@ Regulator → if (desired > actual) then Furnace.heat()
 ```
 
 This is equivalent to:
+
 ```c
 if (room.desired_temp > room.actual_temp) {
     heat_room(&room);
@@ -76,6 +82,7 @@ if (room.desired_temp > room.actual_temp) {
 ### 5. Poor Scalability
 
 **Problem:** What if we need room-specific heating rules?
+
 - Occupied rooms heat to 21°C
 - Unoccupied rooms heat to 16°C
 - Bedrooms cool at night
@@ -89,7 +96,8 @@ if (room.desired_temp > room.actual_temp) {
 
 ### Design Principle
 
-**Tell, Don't Ask:** Objects should be told what to do, not queried for their state so others can make decisions for them.
+**Tell, Don't Ask:** Objects should be told what to do, not queried for their state so others can make decisions for
+them.
 
 ### Revised Design
 
@@ -135,9 +143,9 @@ class HeatFlowRegulator:
 
 ## Key Principle Summary
 
-| Approach | Characteristics | Problem |
-|----------|----------------|---------|
-| **Ask** (Bad) | Pull data, make decisions externally | Violates encapsulation, creates coupling |
+| Approach        | Characteristics                              | Problem                                   |
+|-----------------|----------------------------------------------|-------------------------------------------|
+| **Ask** (Bad)   | Pull data, make decisions externally         | Violates encapsulation, creates coupling  |
 | **Tell** (Good) | Give commands, let objects decide internally | Maintains encapsulation, reduces coupling |
 
 ---
@@ -145,12 +153,14 @@ class HeatFlowRegulator:
 ## Real-World Analogy
 
 **Bad (Ask):**
-> Manager to employee: "What's your current task? What's your deadline? OK, I've calculated you should work on the Smith report next."
+> Manager to employee: "What's your current task? What's your deadline? OK, I've calculated you should work on the Smith
+> report next."
 
 **Good (Tell):**
 > Manager to employee: "Please handle the Smith report by Friday."
 
-The employee (object) knows their own schedule and workload, and can make the best decision about how to integrate the new task.
+The employee (object) knows their own schedule and workload, and can make the best decision about how to integrate the
+new task.
 
 ---
 
@@ -174,13 +184,15 @@ The employee (object) knows their own schedule and workload, and can make the be
 ## Self-Check Questions
 
 1. Why is exposing temperature data via getters problematic?
-   - **Answer:** It allows external objects to make decisions that belong to Room
+    - **Answer:** It allows external objects to make decisions that belong to Room
 
 2. How does "Tell, Don't Ask" improve testability?
-   - **Answer:** Room can be tested independently; just verify it calls furnace correctly
+    - **Answer:** Room can be tested independently; just verify it calls furnace correctly
 
 3. What happens if we want different heating strategies per room?
-   - **Answer:** With "Tell", we use inheritance/strategy pattern. With "Ask", we need complex conditionals in regulator.
+    - **Answer:** With "Tell", we use inheritance/strategy pattern. With "Ask", we need complex conditionals in
+      regulator.
 
 4. Is "Tell, Don't Ask" always the right approach?
-   - **Answer:** No. For true data queries (reports, displays), asking is appropriate. The principle targets behavioral decisions.
+    - **Answer:** No. For true data queries (reports, displays), asking is appropriate. The principle targets behavioral
+      decisions.

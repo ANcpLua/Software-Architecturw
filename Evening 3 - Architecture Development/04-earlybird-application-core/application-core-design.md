@@ -333,5 +333,6 @@ The core depends only on abstractions (interfaces), never on concrete adapter im
 
 ## See Also
 
-- [Example O-Interface design](../../Evening 2 - Architectural Quality/02-isearchproduct-interface-specification/isearchproduct-interface.md)
+- [Example O-Interface design](../../Evening 2 - Architectural
+  Quality/02-isearchproduct-interface-specification/isearchproduct-interface.md)
 - [earlybird-requirements-v150.pdf](earlybird-requirements-v150.pdf) - Complete domain requirements

@@ -1,16 +1,19 @@
 # Software Architecture Course Exercises
 
-Comprehensive software architecture exercises covering architectural principles, quality analysis, development methods, and documentation frameworks.
+Comprehensive software architecture exercises covering architectural principles, quality analysis, development methods,
+and documentation frameworks.
 
 ---
 
 ## Quick Links
 
 **Architecture Guides:**
+
 - [ArchitectureForHumans.md](ArchitectureForHumans.md) - Human-readable architecture documentation guide
 - [ArchitectureForAIs.md](ArchitectureForAIs.md) - AI-optimized architecture documentation guide
 
 **Related Repositories:**
+
 - [EarlyBird](https://github.com/ANcpLua/EarlyBird) - Breakfast delivery system (main implementation)
 - [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) - AI-driven architecture (requirements clustering)
 - [earlybird-sdd](https://github.com/ANcpLua/earlybird-sdd) - Software design document
@@ -23,11 +26,14 @@ Comprehensive software architecture exercises covering architectural principles,
 ## Course Structure
 
 ### Evening 1: Importance of Architecture
+
 Focus on understanding why architecture matters and the cost of architectural decisions.
 
-- **01-architectural-decisions-hard-to-change** - Decision significance analysis, ADR templates, cost-of-change frameworks
+- **01-architectural-decisions-hard-to-change** - Decision significance analysis, ADR templates, cost-of-change
+  frameworks
 
 ### Evening 2: Architectural Quality
+
 Deep dive into quality analysis using dependency matrices, interface design, and architectural principles.
 
 - **01-building-block-quality-analysis** - Dependency matrix analysis and cohesion measurement
@@ -36,10 +42,12 @@ Deep dive into quality analysis using dependency matrices, interface design, and
 - **04-ilist-interface-design** - Generic IList interface design
 - **05-ilist-peer-review** - Peer review of IList specification
 - **06-heat-flow-analysis-tell-dont-ask** - Tell, Don't Ask principle demonstration
-- **07-charts-products-architecture-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP violations)
+- **07-charts-products-architecture-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP
+  violations)
 - **08-climate-model-architecture-analysis** - Stability analysis with change frequency (SDP violations)
 
 ### Evening 3: Architecture Development
+
 Methods for systematic architecture development from requirements.
 
 - **01-disease-architecture-from-class-diagram** - Hospital management system (26 classes → 6 subsystems)
@@ -50,6 +58,7 @@ Methods for systematic architecture development from requirements.
 - **matemate-service-elicitation-results** - Service elicitation phase results (10 services)
 
 ### Evening 4: Architecture Documentation
+
 Industry-standard documentation frameworks and patterns.
 
 - **01-tools-corner** - Kiro IDE orchestrator (optional home exercise)
@@ -67,7 +76,8 @@ Industry-standard documentation frameworks and patterns.
 
 **Documentation:** arc42 template, C4 Model, Architecture Decision Records (ADR)
 
-**Development Methods:** SE4 (Service Elicitation → Subsystem Establishment → Explanation → Evaluation), Requirements-driven architecture, AI-assisted design
+**Development Methods:** SE4 (Service Elicitation → Subsystem Establishment → Explanation → Evaluation),
+Requirements-driven architecture, AI-assisted design
 
 ---
 
@@ -119,6 +129,7 @@ Master professional documentation using arc42 and C4 Model.
 ## Exercise Standards
 
 Each exercise includes:
+
 - README with learning objectives and task description
 - Analysis or solution document with comprehensive content
 - Slides with visual diagrams and specifications
@@ -138,6 +149,7 @@ Each exercise includes:
 ## Running Code Exercises
 
 ### Mars Application Core (Python)
+
 ```bash
 cd "Evening 3 - Architecture Development/03-mars-application-core"
 python3 mars_moon_core.py
@@ -145,6 +157,7 @@ python3 -m unittest -v
 ```
 
 ### AI-Driven Requirement Clustering (Python + Vector Database)
+
 ```bash
 cd "Evening 3 - Architecture Development/02-ai-driven-requirement-clustering"
 python3 main.py  # Run clustering experiment
@@ -175,4 +188,5 @@ python3 qdrant_ingest.py  # Load results
 
 ## Contributing
 
-This repository is part of a software architecture course. Exercises are based on established architectural principles and industry best practices.
+This repository is part of a software architecture course. Exercises are based on established architectural principles
+and industry best practices.

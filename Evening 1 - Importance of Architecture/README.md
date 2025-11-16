@@ -14,15 +14,16 @@
 Identify architectural decisions and analyze their impact on software quality attributes.
 
 **Steps:**
+
 1. Identify architectural decisions that are hard to change
 2. For each decision, list the influenced non-functional aspects:
-   - Security
-   - Efficiency
-   - Changeability
-   - Reliability
-   - Testability
-   - Usability
-   - etc.
+    - Security
+    - Efficiency
+    - Changeability
+    - Reliability
+    - Testability
+    - Usability
+    - etc.
 3. Determine which "-ility" appears most frequently
 
 ### What You'll Learn
@@ -34,11 +35,13 @@ Identify architectural decisions and analyze their impact on software quality at
 
 ### Key Insight
 
-> Architectural decisions often influence non-functional aspects of software. This is why architects are often the requirements engineers for non-functional requirements.
+> Architectural decisions often influence non-functional aspects of software. This is why architects are often the
+> requirements engineers for non-functional requirements.
 
 ### Example Architectural Decisions
 
 Hard to change:
+
 - Programming language
 - Database technology
 - Communication patterns (sync/async)
@@ -46,6 +49,7 @@ Hard to change:
 - Authentication/authorization approach
 
 Easy to change:
+
 - Variable names
 - UI colors
 - Log message formats

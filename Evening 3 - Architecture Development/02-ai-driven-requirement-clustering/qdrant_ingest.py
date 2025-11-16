@@ -7,17 +7,15 @@ cluster the vectors, and tag each requirement with an existing component label.
 from __future__ import annotations
 
 import json
+import numpy as np
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
-
-import numpy as np
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as qmodels
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
-
+from typing import Dict, Iterable, List, Tuple
 
 DATA_PATH = Path("data/earlybird_requirements.json")
 COLLECTION_NAME = "earlybird_requirements"
@@ -86,9 +84,9 @@ def assign_cluster_labels(requirements: List[Requirement]) -> List[Tuple[int, st
 
 
 def upload_to_qdrant(
-    requirements: List[Requirement],
-    embeddings: np.ndarray,
-    assignments: List[Tuple[int, str]],
+        requirements: List[Requirement],
+        embeddings: np.ndarray,
+        assignments: List[Tuple[int, str]],
 ) -> QdrantClient:
     dim = embeddings.shape[1]
     client = QdrantClient(path=":memory:")

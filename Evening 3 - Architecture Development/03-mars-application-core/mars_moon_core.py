@@ -8,7 +8,6 @@ from dataclasses import dataclass
 MARS_MINUTES_PER_HOUR: int = 100
 MARS_MINUTES_PER_DAY: int = 25 * MARS_MINUTES_PER_HOUR  # 2500
 
-
 # ===== Data structures =====
 
 Interval = tuple[int, int]
@@ -168,14 +167,14 @@ _duration_extractor = DurationExtractor()
 
 
 def moon(
-    D_start_h: int,
-    D_start_m: int,
-    D_end_h: int,
-    D_end_m: int,
-    P_start_h: int,
-    P_start_m: int,
-    P_end_h: int,
-    P_end_m: int,
+        D_start_h: int,
+        D_start_m: int,
+        D_end_h: int,
+        D_end_m: int,
+        P_start_h: int,
+        P_start_m: int,
+        P_end_h: int,
+        P_end_m: int,
 ) -> int:
     """Calculate joint visibility of Deimos and Phobos in Mars-minutes.
 

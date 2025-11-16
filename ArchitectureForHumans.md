@@ -28,9 +28,11 @@ separate application logic from technology concerns.
 Implements **functional requirements** from the business domain.
 
 **Constraints:**
+
 - Should NOT "know" about: OS, web frameworks, databases, UI technologies
 
 **Examples:**
+
 - Order validation
 - Price calculation
 - Business rules
@@ -42,12 +44,14 @@ Implements **functional requirements** from the business domain.
 Implements **non-functional requirements**.
 
 **Handles:**
+
 - Databases
 - Web servers
 - Message queues
 - OS interaction
 
 **Examples:**
+
 - HTTP handlers
 - Database adapters
 - Logging infrastructure
@@ -59,6 +63,7 @@ Implements **non-functional requirements**.
 "Eternal truths of computer science"
 
 **Examples:**
+
 - String manipulation
 - Math libraries
 - Differential equation solvers
@@ -99,6 +104,7 @@ Microservices are A-services, not T-services.
 Each building block has one concern.
 
 **Applies to:**
+
 - Components
 - If-statements
 - Branches
@@ -237,6 +243,7 @@ Compute at source.
 Specify everything needed for cooperation.
 
 **Includes:**
+
 - Syntax
 - Semantics
 - Error handling
@@ -421,6 +428,7 @@ Components "ord" and "gos" changed together 96% of time
 "Common vocabulary to describe software architecture" — Simon Brown
 
 **Define consistently:**
+
 - Component
 - System
 - Layer
@@ -717,7 +725,8 @@ This is the power of blood type separation.
 
 NASA Mars mission measuring gravitational wave interference.
 Measurements only work when both moons (Deimos and Phobos) are simultaneously visible.
-Must calculate time-overlap of two time intervals to decide if powering up measurement equipment is worth the energy cost.
+Must calculate time-overlap of two time intervals to decide if powering up measurement equipment is worth the energy
+cost.
 
 **Technical Challenge:**
 
@@ -872,7 +881,8 @@ Display interface bundled:
 
 **Lesson:**
 
-Mix different concerns in one interface → clients can't opt out of irrelevant data → unexpected failures when data format changes.
+Mix different concerns in one interface → clients can't opt out of irrelevant data → unexpected failures when data
+format changes.
 
 ---
 
@@ -921,7 +931,8 @@ Version control reveals coupling that design documents hide.
 
 **Resolution:**
 
-Move `CreditCheck` logic from CustomerManagement to SharedServices component that both OrderExecution and CustomerManagement can legally use.
+Move `CreditCheck` logic from CustomerManagement to SharedServices component that both OrderExecution and
+CustomerManagement can legally use.
 
 **Lesson:**
 

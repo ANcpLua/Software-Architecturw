@@ -13,11 +13,13 @@ Analyze the internal quality (cohesion) of a building block using a dependency m
 
 **The Building Block:** مکان نکهش (Location Display - appears to be in Persian/Arabic)
 
-**Task:** Ignore the arrows for now. What can you say about the quality of the building block مکان نکهش just by looking at the matrix?
+**Task:** Ignore the arrows for now. What can you say about the quality of the building block مکان نکهش just by looking
+at the matrix?
 
 ## The Dependency Matrix
 
 The slide shows:
+
 - A central building block (مکان نکهش)
 - Multiple dependent components (shown with dashed green arrows)
 - A dependency matrix showing relationships between components
@@ -33,10 +35,13 @@ The slide shows:
 ## Key Concepts
 
 ### Cohesion
+
 How closely related the responsibilities within a building block are. High cohesion = good quality.
 
 ### Dependency Matrix
+
 A table showing which components depend on which other components:
+
 - Rows and columns represent components
 - Dots (•) indicate dependencies
 - Empty cells mean no dependency
@@ -52,7 +57,8 @@ A table showing which components depend on which other components:
 
 This is an **in-class group exercise** - analyze the matrix together and discuss findings.
 
-**Key Question:** Based on the dependency pattern in the matrix, is this building block well-designed or does it need refactoring?
+**Key Question:** Based on the dependency pattern in the matrix, is this building block well-designed or does it need
+refactoring?
 
 ## Related Principles
 

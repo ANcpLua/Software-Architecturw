@@ -6,11 +6,13 @@
 
 ## Overview
 
-Specify the `ISearchProduct` programming interface for the EarlyBird breakfast delivery system's ProductManager component.
+Specify the `ISearchProduct` programming interface for the EarlyBird breakfast delivery system's ProductManager
+component.
 
 ## Exercise Task
 
 Design a clear, well-documented interface specification that:
+
 - Defines how programmers can use the interface
 - Specifies what programmers can expect from the interface
 - Follows O-Interface principles (technology-independent)
@@ -25,14 +27,17 @@ Design a clear, well-documented interface specification that:
 ## Key Concepts
 
 **O-Interface (Zero-Interface):**
+
 - Technology-independent interface specification
 - No database or framework dependencies
 - Pure abstraction of functionality
 
 **Important Note:**
-ISearchProduct is a **programming interface**, not a user interface. It defines how other components interact with the ProductManager programmatically.
+ISearchProduct is a **programming interface**, not a user interface. It defines how other components interact with the
+ProductManager programmatically.
 
 ## See Also
 
-- [Interface Quality Checklist](../03-isearchproduct-peer-review/interface-quality-checklist.md) - Use this to evaluate interface quality
+- [Interface Quality Checklist](../03-isearchproduct-peer-review/interface-quality-checklist.md) - Use this to evaluate
+  interface quality
 - [Sample Peer Review](../03-isearchproduct-peer-review/peer-review-isearchproduct.md) - Example quality review

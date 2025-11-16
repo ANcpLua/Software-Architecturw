@@ -11,10 +11,12 @@
 Analyze the architectural weaknesses in a heat flow regulation system.
 
 The `Room` class knows its desired and actual temperatures. At regular intervals, the `HeatFlowRegulator` calls:
+
 - `get_desired_temp()`
 - `get_actual_temp()`
 
-And compares the results. If the desired temperature is higher than actual, `HeatFlowRegulator` calls the `Furnace` class to heat up the room.
+And compares the results. If the desired temperature is higher than actual, `HeatFlowRegulator` calls the `Furnace`
+class to heat up the room.
 
 **Question:** Do you see any weaknesses in this architecture?
 

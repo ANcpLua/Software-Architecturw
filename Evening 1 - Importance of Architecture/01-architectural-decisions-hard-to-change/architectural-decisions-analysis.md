@@ -8,7 +8,8 @@
 
 ## Question: What Decisions Are Hard to Change?
 
-This analysis explores which software decisions have high change costs and why understanding this matters for architecture.
+This analysis explores which software decisions have high change costs and why understanding this matters for
+architecture.
 
 ---
 
@@ -31,12 +32,14 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### 2.1 Technology Stack Decisions
 
 **Examples:**
+
 - Programming language (Java vs. Python vs. C#)
 - Primary database (PostgreSQL vs. MongoDB vs. Cassandra)
 - Operating system (Linux vs. Windows)
 - Web framework (React vs. Angular vs. Vue)
 
 **Why Hard to Change:**
+
 - Entire codebase written in chosen language
 - Developer expertise specialized
 - Libraries and tools ecosystem-dependent
@@ -50,12 +53,14 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### 2.2 Data Structure and Storage Decisions
 
 **Examples:**
+
 - Data schema design
 - File formats (JSON vs. XML vs. Protobuf)
 - Data persistence approach (relational vs. document vs. key-value)
 - Caching strategy
 
 **Why Hard to Change:**
+
 - Historical data stored in old format
 - Migration tools needed
 - Backward compatibility required
@@ -69,12 +74,14 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### 2.3 Communication Protocol Decisions
 
 **Examples:**
+
 - REST vs. GraphQL vs. gRPC
 - Synchronous vs. asynchronous messaging
 - Message queue technology (RabbitMQ vs. Kafka)
 - API versioning strategy
 
 **Why Hard to Change:**
+
 - External clients depend on API
 - Integration contracts established
 - Monitoring and logging configured
@@ -87,12 +94,14 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### 2.4 Security and Authentication Decisions
 
 **Examples:**
+
 - Authentication mechanism (OAuth2 vs. SAML vs. JWT)
 - Encryption algorithms
 - Authorization model (RBAC vs. ABAC)
 - Session management approach
 
 **Why Hard to Change:**
+
 - User credentials stored with chosen method
 - Compliance requirements locked in
 - Third-party integrations configured
@@ -105,12 +114,14 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### 2.5 Deployment Architecture Decisions
 
 **Examples:**
+
 - Monolith vs. microservices
 - Cloud provider (AWS vs. Azure vs. GCP)
 - Container orchestration (Kubernetes vs. Docker Swarm)
 - Infrastructure as Code tool (Terraform vs. CloudFormation)
 
 **Why Hard to Change:**
+
 - Operations runbooks written
 - Team skills specialized
 - Monitoring and alerting configured
@@ -124,6 +135,7 @@ A decision is architecturally significant (hard to change) if changing it would:
 ## 3. What Makes Changes Costly?
 
 ### 3.1 Direct Costs
+
 - Developer time for rewrite
 - Testing and QA effort
 - Migration tool development
@@ -131,6 +143,7 @@ A decision is architecturally significant (hard to change) if changing it would:
 - Licensing costs
 
 ### 3.2 Indirect Costs
+
 - Feature development stops
 - Customer disruption
 - Training requirements
@@ -138,6 +151,7 @@ A decision is architecturally significant (hard to change) if changing it would:
 - Risk of introducing bugs
 
 ### 3.3 Opportunity Costs
+
 - Delayed new features
 - Lost competitive advantage
 - Market timing missed
@@ -149,6 +163,7 @@ A decision is architecturally significant (hard to change) if changing it would:
 ### Low-Change-Cost Decisions
 
 **Examples:**
+
 - UI component libraries (within same framework)
 - Logging libraries
 - Testing frameworks
@@ -156,6 +171,7 @@ A decision is architecturally significant (hard to change) if changing it would:
 - Internal class names
 
 **Why Easier:**
+
 - Localized impact
 - No external dependencies
 - Easy to encapsulate
@@ -193,6 +209,7 @@ Change Cost
 **Change Decision (Year 5):** Migrate to Java
 
 **What Made It Hard:**
+
 1. **Codebase Size:** 500,000 lines of PHP
 2. **Team:** 15 PHP developers, no Java experience
 3. **Dependencies:** 200+ PHP libraries
@@ -201,6 +218,7 @@ Change Cost
 6. **External:** Payment processor integration used PHP SDK
 
 **Migration Cost:**
+
 - Duration: 18 months
 - Team: 20 developers (hired Java experts)
 - Budget: €2.5 million
@@ -213,22 +231,26 @@ Change Cost
 ## 7. Strategies to Manage Hard-to-Change Decisions
 
 ### 7.1 Defer Irreversible Decisions
+
 - Use abstractions to delay commitment
 - Prototype before committing
 - Choose reversible options when possible
 
 ### 7.2 Document Decision Rationale
+
 - Record why decision was made
 - List alternatives considered
 - Note assumptions and constraints
 
 ### 7.3 Design for Change
+
 - Use interfaces and abstractions
 - Minimize coupling
 - Encapsulate volatile parts
 - Apply dependency inversion
 
 ### 7.4 Prototype High-Risk Decisions
+
 - Build spikes to validate
 - Test with realistic loads
 - Verify assumptions early

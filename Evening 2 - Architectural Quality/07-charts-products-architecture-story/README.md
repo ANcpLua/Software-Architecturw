@@ -8,13 +8,16 @@
 
 ## Overview
 
-Analyze a real-world architecture evolution story where copy-paste architecture led to violation of fundamental architectural principles. This exercise demonstrates the consequences of poor architectural decisions and highlights the importance of early architect involvement.
+Analyze a real-world architecture evolution story where copy-paste architecture led to violation of fundamental
+architectural principles. This exercise demonstrates the consequences of poor architectural decisions and highlights the
+importance of early architect involvement.
 
 ---
 
 ## Exercise Task
 
 **Scenario:**
+
 1. Product1 needed chart functionality (bar charts, pie charts, etc.)
 2. Common Core was extended to include chart functionality
 3. Product2 needed charts - sources were copied to create Charts2 component
@@ -27,7 +30,8 @@ Analyze a real-world architecture evolution story where copy-paste architecture 
 
 ## Files
 
-- [architectural-principles-analysis.md](architectural-principles-analysis.md) - Complete analysis of violated principles
+- [architectural-principles-analysis.md](architectural-principles-analysis.md) - Complete analysis of violated
+  principles
 - `slides/` - Exercise slides showing the architecture evolution
 
 ---
@@ -35,6 +39,7 @@ Analyze a real-world architecture evolution story where copy-paste architecture 
 ## Principles to Consider
 
 This exercise tests knowledge of:
+
 - **SRP** (Single Responsibility Principle)
 - **OCP** (Open-Closed Principle)
 - **DIP** (Dependency Inversion Principle)
@@ -48,12 +53,14 @@ This exercise tests knowledge of:
 ## Key Learning
 
 **The Problem:** Copy-paste architecture creates:
+
 - Code duplication
 - Inconsistent bug fixes
 - Maintenance nightmares
 - Violated architectural principles
 
 **The Solution:** Early architect involvement to:
+
 - Identify shared abstractions
 - Prevent code duplication
 - Ensure proper separation of concerns

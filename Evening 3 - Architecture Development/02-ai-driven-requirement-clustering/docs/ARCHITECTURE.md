@@ -1,6 +1,5 @@
 # EarlyBird System Architecture
 
-
 ## Cluster 0: Order Assembly
 
 - Order assembly (packing clerk workflow)

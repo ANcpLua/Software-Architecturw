@@ -9,7 +9,8 @@
 
 ## Context
 
-After the brainstorming workshop for the MateMate chess application, you've identified the services that subsystems will need to provide to each other and to actors.
+After the brainstorming workshop for the MateMate chess application, you've identified the services that subsystems will
+need to provide to each other and to actors.
 
 ## Services Identified
 
@@ -27,6 +28,7 @@ After the brainstorming workshop for the MateMate chess application, you've iden
 ## Next Steps in SE4
 
 After **Service Elicitation**, continue with:
+
 - **Subsystem Establishment** - Map services to subsystems
 - **System Explanation** - Create architecture views
 - **System Evaluation** - Review with checklists and scenarios

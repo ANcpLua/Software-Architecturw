@@ -8,11 +8,13 @@
 
 ## Exercise Overview
 
-This exercise demonstrates a novel approach to architecture development using **AI embeddings** to automatically discover architectural components from functional requirements.
+This exercise demonstrates a novel approach to architecture development using **AI embeddings** to automatically
+discover architectural components from functional requirements.
 
 ### The Embedding Approach
 
 **Core Concept:**
+
 1. Feed functional requirements into an embedding model (e.g., sentence-transformers, OpenAI embeddings)
 2. Store requirement embeddings in a vector database
 3. Use clustering algorithms to group semantically similar requirements
@@ -42,9 +44,11 @@ Sample EarlyBird requirements that would be embedded:
 "Johann Sebastian Bach lived from 1685 to 1750."
 ```
 
-These example sentences demonstrate the clustering concept - semantically similar sentences (about animals) cluster together, while unrelated ones (about Bach) form separate clusters.
+These example sentences demonstrate the clustering concept - semantically similar sentences (about animals) cluster
+together, while unrelated ones (about Bach) form separate clusters.
 
 For EarlyBird, actual requirements would be:
+
 - "Customer can search for breakfast products"
 - "System displays available menu items"
 - "Customer can add items to shopping basket"
@@ -62,36 +66,42 @@ For EarlyBird, actual requirements would be:
 Based on EarlyBird requirements, the embedding approach should discover clusters like:
 
 **1. Product Search & Catalog Component**
+
 - Search for products
 - Display menu items
 - Filter by category/price/dietary requirements
 - Show product details
 
 **2. Shopping Basket Component**
+
 - Add items to basket
 - Modify quantities
 - Remove items
 - Calculate subtotals
 
 **3. Order Management Component**
+
 - Create order from basket
 - Calculate total with delivery fee
 - Generate order confirmation
 - Track order status
 
 **4. Delivery & Logistics Component**
+
 - Capture delivery address
 - Validate service area
 - Calculate delivery fee
 - Schedule delivery time
 
 **5. Customer Account Component**
+
 - Register customer
 - Login/authentication
 - Store preferences
 - View order history
 
 **6. Payment Processing Component**
+
 - Select payment method
 - Process payment
 - Handle payment failures
@@ -166,6 +176,7 @@ for cluster_id in range(n_components):
 ### Step 6: Name Components
 
 Analyze each cluster and assign meaningful component names based on:
+
 - Common themes in requirements
 - Domain knowledge
 - Architectural patterns (e.g., shopping basket is standard e-commerce pattern)
@@ -196,36 +207,42 @@ Analyze each cluster and assign meaningful component names based on:
 ### Component Responsibilities
 
 **Product Catalog**
+
 - Search products
 - Browse categories
 - Display product details
 - Manage product availability
 
 **Shopping Basket**
+
 - Add/remove items
 - Update quantities
 - Calculate subtotals
 - Persist basket state
 
 **Order Management**
+
 - Create orders
 - Calculate totals
 - Generate confirmations
 - Track order lifecycle
 
 **Customer Account**
+
 - Authentication
 - Profile management
 - Preferences
 - Order history
 
 **Delivery Logistics**
+
 - Address validation
 - Service area checking
 - Delivery scheduling
 - Fee calculation
 
 **Payment Processing**
+
 - Payment method selection
 - Transaction processing
 - Receipt generation
@@ -280,15 +297,15 @@ After initial clustering:
 
 ## Comparison: AI vs. Traditional Approaches
 
-| Aspect | Embedding-Based | Traditional (Manual) |
-|--------|----------------|---------------------|
-| **Speed** | Fast (minutes) | Slow (hours/days) |
-| **Bias** | Data-driven | Experience-driven |
-| **Completeness** | All reqs covered | May miss requirements |
-| **Quality** | Needs validation | Often high quality |
-| **Flexibility** | Easy to re-run | Costly to redo |
-| **Dependencies** | Not captured | Explicitly modeled |
-| **Cross-cutting** | Poor clustering | Explicitly identified |
+| Aspect            | Embedding-Based  | Traditional (Manual)  |
+|-------------------|------------------|-----------------------|
+| **Speed**         | Fast (minutes)   | Slow (hours/days)     |
+| **Bias**          | Data-driven      | Experience-driven     |
+| **Completeness**  | All reqs covered | May miss requirements |
+| **Quality**       | Needs validation | Often high quality    |
+| **Flexibility**   | Easy to re-run   | Costly to redo        |
+| **Dependencies**  | Not captured     | Explicitly modeled    |
+| **Cross-cutting** | Poor clustering  | Explicitly identified |
 
 **Best Approach**: Use embeddings for initial discovery, then refine with traditional architectural thinking.
 
@@ -299,21 +316,25 @@ After initial clustering:
 ### Recommended Stack
 
 **Embedding Models:**
+
 - `sentence-transformers/all-MiniLM-L6-v2` (lightweight, fast)
 - `text-embedding-ada-002` (OpenAI, high quality)
 - `BAAI/bge-large-en-v1.5` (state-of-the-art open source)
 
 **Vector Databases:**
+
 - ChromaDB (simple, local)
 - Pinecone (cloud, scalable)
 - Weaviate (open source, production-ready)
 
 **Clustering Algorithms:**
+
 - K-Means (simple, requires specifying k)
 - DBSCAN (finds clusters automatically)
 - Hierarchical Clustering (creates dendrograms)
 
 **Analysis Tools:**
+
 - scikit-learn (clustering algorithms)
 - pandas (data manipulation)
 - matplotlib/seaborn (visualization)
@@ -372,27 +393,27 @@ Clusters with lower distances likely have more interaction.
 ### Expected Output
 
 1. **Clustered Requirements Document**
-   - List of all requirements
-   - Cluster assignment for each requirement
-   - Cluster names (component names)
+    - List of all requirements
+    - Cluster assignment for each requirement
+    - Cluster names (component names)
 
 2. **Architecture Diagram**
-   - Component boxes
-   - High-level dependencies (manually added)
-   - Application core boundary
+    - Component boxes
+    - High-level dependencies (manually added)
+    - Application core boundary
 
 3. **Component Specifications**
-   - For each component:
-     - Name
-     - Responsibilities (requirements in cluster)
-     - Interfaces (inferred)
-     - Dependencies on other components
+    - For each component:
+        - Name
+        - Responsibilities (requirements in cluster)
+        - Interfaces (inferred)
+        - Dependencies on other components
 
 4. **Reflection Document**
-   - How many clusters were tried?
-   - What worked well?
-   - What required manual adjustment?
-   - Comparison with traditional approach
+    - How many clusters were tried?
+    - What worked well?
+    - What required manual adjustment?
+    - Comparison with traditional approach
 
 ---
 
@@ -412,15 +433,18 @@ After completing this exercise, you should be able to:
 ## Further Reading
 
 ### Academic Papers
+
 - "AI for Software Architecture: A Systematic Literature Review" (2023)
 - "Using Natural Language Processing to Extract Architecture from Requirements" (2022)
 
 ### Tools & Frameworks
+
 - [Sentence-Transformers Documentation](https://www.sbert.net/)
 - [ChromaDB Getting Started](https://docs.trychroma.com/)
 - [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
 
 ### Related Concepts
+
 - **AI4SE**: AI for Software Engineering
 - **SE4AI**: Software Engineering for AI systems
 - **Requirements Engineering**: Extracting and managing requirements
@@ -430,9 +454,12 @@ After completing this exercise, you should be able to:
 
 ## Conclusion
 
-The embedding-based approach to architecture development represents a **modern, data-driven methodology** that complements traditional architectural thinking. While it excels at discovering component boundaries from requirements, it works best when combined with human expertise to refine the results and identify cross-cutting concerns.
+The embedding-based approach to architecture development represents a **modern, data-driven methodology** that
+complements traditional architectural thinking. While it excels at discovering component boundaries from requirements,
+it works best when combined with human expertise to refine the results and identify cross-cutting concerns.
 
-The "almost an architecture" result from clustering is a powerful starting point that can significantly accelerate the architecture development process, especially for complex systems with many requirements.
+The "almost an architecture" result from clustering is a powerful starting point that can significantly accelerate the
+architecture development process, especially for complex systems with many requirements.
 
 ---
 

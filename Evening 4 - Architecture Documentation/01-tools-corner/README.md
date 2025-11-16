@@ -2,7 +2,8 @@
 
 **Audience:** AI Agents (Claude Code, Kiro agents, other AI assistants)
 
-**Key Contract:** This file describes what Kiro is, how it works, and how you should use its outputs when developing software.
+**Key Contract:** This file describes what Kiro is, how it works, and how you should use its outputs when developing
+software.
 
 ---
 
@@ -23,7 +24,8 @@ Without these files, you have no ground truth. Stop and ask for them.
 
 ### Core Identity
 
-**Kiro is an agentic IDE developed by AWS** that transforms natural language prompts into structured specifications before code generation.
+**Kiro is an agentic IDE developed by AWS** that transforms natural language prompts into structured specifications
+before code generation.
 
 - **Platform:** AI-powered Integrated Development Environment (IDE)
 - **Foundation:** Built on Code OSS (VS Code open source)
@@ -35,9 +37,9 @@ Without these files, you have no ground truth. Stop and ask for them.
 
 1. **Accepts prompts** in natural language describing features or systems
 2. **Generates three spec files:**
-   - `requirements.md` – User stories with EARS notation
-   - `design.md` – Technical architecture and design decisions
-   - `tasks.md` – Implementation plan with discrete tasks
+    - `requirements.md` – User stories with EARS notation
+    - `design.md` – Technical architecture and design decisions
+    - `tasks.md` – Implementation plan with discrete tasks
 3. **Implements code** from specs (either directly or via agents like you)
 4. **Automates documentation and testing** via agent hooks
 5. **Enforces coding standards** via steering rules
@@ -56,11 +58,13 @@ Without these files, you have no ground truth. Stop and ask for them.
 ### Phase 1: Prompt to Specs
 
 **Human provides prompt:**
+
 ```
 "Build a chess move validation system with FIDE rules"
 ```
 
 **Kiro generates:**
+
 - `requirements.md` with EARS notation:
   ```
   WHEN a user attempts an illegal move
@@ -97,6 +101,7 @@ Without these files, you have no ground truth. Stop and ask for them.
 ### When You Receive Kiro Specs
 
 You will be given:
+
 1. **requirements.md** – Your acceptance criteria
 2. **design.md** – Architectural guidance
 3. **tasks.md** – Your implementation tasks
@@ -107,12 +112,14 @@ You will be given:
 ### Reading requirements.md
 
 **EARS Notation Format:**
+
 ```
 WHEN [condition/trigger]
 THE SYSTEM SHALL [expected behavior]
 ```
 
 **Example:**
+
 ```
 REQ-025: WHEN a user clicks a chess square
          THE SYSTEM SHALL translate pixel coordinates to board coordinates (0-7, 0-7)
@@ -122,6 +129,7 @@ REQ-031: WHEN the game is paused
 ```
 
 **What this means for you:**
+
 - Each requirement is testable
 - Each requirement has a clear trigger condition
 - Each requirement defines expected behavior explicitly
@@ -130,12 +138,14 @@ REQ-031: WHEN the game is paused
 ### Reading design.md
 
 Contains:
+
 - **System architecture** (components, layers)
 - **Design decisions** (why certain patterns were chosen)
 - **Sequence diagrams** (interaction flows)
 - **Implementation notes** (technical considerations)
 
 **What this means for you:**
+
 - Understand the big picture before coding
 - Follow architectural patterns described
 - Use interfaces and abstractions as specified
@@ -144,11 +154,13 @@ Contains:
 ### Reading tasks.md
 
 Contains:
+
 - Discrete, actionable implementation tasks
 - Tasks marked as optional (✱) for MVP or required
 - Task execution order suggestions
 
 **What this means for you:**
+
 - Implement tasks in order
 - Do not skip required tasks
 - Optional tasks can be deferred but remain visible
@@ -161,6 +173,7 @@ Contains:
 ### 1. Spec Context Provider (#spec)
 
 When working in Kiro, you can reference specs directly:
+
 ```
 #spec How should I handle validation errors based on our design?
 ```
@@ -172,6 +185,7 @@ This provides context from all three spec files to guide implementation.
 Kiro can automate repetitive tasks via hooks:
 
 **Example Hook: Documentation Sync**
+
 ```
 Event: File Saved (*.cs files)
 Action:
@@ -181,6 +195,7 @@ Action:
 ```
 
 **Why this matters to you:**
+
 - Documentation updates automatically
 - Tests may be auto-generated
 - You focus on implementation, not boilerplate
@@ -188,16 +203,19 @@ Action:
 ### 3. Steering Rules (AGENTS.md)
 
 Kiro projects may include steering files that define:
+
 - Coding standards
 - Architectural patterns
 - Best practices
 - Naming conventions
 
 **Location:**
+
 - Global: `~/.kiro/steering/AGENTS.md`
 - Project: `AGENTS.md` in workspace root
 
 **Why this matters to you:**
+
 - Follow standards defined in AGENTS.md
 - Architectural patterns are enforced
 - Consistency across codebase
@@ -205,11 +223,13 @@ Kiro projects may include steering files that define:
 ### 4. Diagnostics Tool
 
 Kiro provides:
+
 - Syntax errors
 - Type errors
 - Semantic errors
 
 **Why this matters to you:**
+
 - Kiro catches errors early
 - Lint violations reduced
 - Type safety enforced
@@ -217,11 +237,13 @@ Kiro provides:
 ### 5. Multimodal Development
 
 Kiro can understand:
+
 - Whiteboard sketches → code
 - Architecture diagrams → component design
 - UML diagrams → class structures
 
 **Why this matters to you:**
+
 - Design artifacts are machine-readable
 - Visual specifications translate directly to code
 - Traceability from diagram to implementation
@@ -233,12 +255,14 @@ Kiro can understand:
 ### Step 1: Understand Your Scope
 
 Read ARCHITECTURE.md to extract:
+
 - Your subsystem name
 - Your requirements (from requirements.md)
 - Your Allowed-To-Use rules
 - Your guardrails (Roslyn, build targets, MCP scope)
 
 **Example:**
+
 ```markdown
 Subsystem: InputAdapter (K1)
 Requirements: REQ-023, REQ-025, REQ-027, REQ-031, REQ-032
@@ -269,12 +293,14 @@ These are your acceptance criteria. Everything you write must satisfy them.
 ### Step 3: Check Design Constraints
 
 Read design.md to understand:
+
 - How components interact
 - What interfaces are expected
 - What patterns to follow
 - What performance targets exist
 
 **Example from design.md:**
+
 ```
 InputAdapter communicates with InteractionController via event bus.
 No direct method calls allowed.
@@ -284,12 +310,14 @@ InputAdapter must translate coordinates in <5ms (REQ-025).
 ### Step 4: Implement with Traceability
 
 Write code that:
+
 1. Satisfies all requirements
 2. Respects all design constraints
 3. Traces back to requirement IDs
 4. Follows AGENTS.md standards
 
 **Code Example:**
+
 ```csharp
 namespace MateMate.Technical.InputAdapter
 {
@@ -312,6 +340,7 @@ namespace MateMate.Technical.InputAdapter
 ### Step 5: Write Tests for Every Requirement
 
 **Test Example:**
+
 ```csharp
 [Fact]
 public void REQ025_TranslatesPixelToSquare()
@@ -335,6 +364,7 @@ public void REQ031_IgnoresInputWhenPaused()
 ### Step 6: Validate Against Specs
 
 Before claiming "done":
+
 1. All requirements from requirements.md implemented?
 2. All design constraints from design.md respected?
 3. All tasks from tasks.md completed?
@@ -348,6 +378,7 @@ Before claiming "done":
 ### Kiro Does NOT Make Architecture Decisions for You
 
 **Kiro generates proposals in design.md**, but:
+
 - Humans review and approve architecture
 - Humans create ARCHITECTURE.md with subsystem mapping
 - Humans define Allowed-To-Use rules
@@ -358,6 +389,7 @@ Before claiming "done":
 ### Kiro Does NOT Replace Requirements Engineering
 
 **Kiro generates requirements.md from prompts**, but:
+
 - Humans validate requirements (Watch/Read/Talk/Think)
 - Humans tag requirements (BASIC, LEGAL, PERFORMANCE, EXCITEMENT)
 - Humans refine requirements with `#spec`
@@ -370,6 +402,7 @@ Before claiming "done":
 **Vibe coding** is plausible-sounding logic not traceable to requirements.
 
 **Example vibe code:**
+
 ```csharp
 // Looks good but which requirement does this solve?
 public void OptimizeInputProcessing()
@@ -382,6 +415,7 @@ public void OptimizeInputProcessing()
 **If requirements.md says nothing about caching clicks, this is vibe code.**
 
 **Do not write vibe code.** If you think a feature is needed:
+
 1. Check if a requirement exists
 2. If not, raise an issue: "Proposed new requirement: [description]"
 3. Wait for human approval
@@ -396,6 +430,7 @@ public void OptimizeInputProcessing()
 **Problem:** Requirement reads "The system shall validate input."
 
 **Solution:**
+
 1. Check requirements.md for sibling requirements that clarify
 2. Check design.md for examples
 3. Ask: "REQ-XXX is unclear; here are two interpretations: (A) ... (B) ..."
@@ -407,6 +442,7 @@ public void OptimizeInputProcessing()
 **Problem:** Your implementation needs a dependency not in Allowed-To-Use.
 
 **Solution:**
+
 1. Check ARCHITECTURE.md for workarounds (usually exists)
 2. If none, raise issue: "Need [subsystem] access for REQ-XXX; propose interface: [description]"
 3. Wait for human decision
@@ -417,10 +453,12 @@ public void OptimizeInputProcessing()
 **Problem:** Test fails for REQ-XXX.
 
 **Solution:**
+
 1. Debug implementation
 2. Verify test correctly interprets requirement
 3. If requirement is ambiguous, raise issue
-4. If requirement is impossible, raise issue: "REQ-XXX unachievable with current design; propose alternative: [description]"
+4. If requirement is impossible, raise issue: "REQ-XXX unachievable with current design; propose
+   alternative: [description]"
 5. Do not disable test or mock away the problem
 
 ### Performance SLA Miss
@@ -428,6 +466,7 @@ public void OptimizeInputProcessing()
 **Problem:** Requirement says <5ms, code averages 8ms.
 
 **Solution:**
+
 1. Profile code
 2. Optimize if bottleneck is in your code
 3. If bottleneck is dependency, raise cross-subsystem issue
@@ -476,11 +515,13 @@ Test names include requirement IDs. Test bodies validate expected behavior.
 If logic does not trace to a requirement, do not write it.
 
 **Acceptable:**
+
 - Implementing REQ-025 (requirement exists)
 - Helper methods directly supporting REQ-025
 - Interfaces required by design.md
 
 **Not Acceptable:**
+
 - "This might be useful later"
 - "This improves performance" (unless PERFORMANCE requirement exists)
 - "This is a best practice" (unless design.md or AGENTS.md requires it)
@@ -488,6 +529,7 @@ If logic does not trace to a requirement, do not write it.
 ### Architecture Compliance
 
 Your code must:
+
 1. Respect Allowed-To-Use rules (no forbidden dependencies)
 2. Pass Roslyn Analyzer (if C# project)
 3. Compile with subsystem-specific build targets
@@ -502,11 +544,13 @@ Do not bypass guardrails. Do not disable analyzers. Do not work around constrain
 ### Kiro + Git
 
 Kiro can:
+
 - Generate commit messages via AI
 - Avoid writing to `.git` directories
 - Integrate with PR workflows
 
 **Your workflow:**
+
 - Commit code referencing requirement IDs: `feat: implement REQ-025 pixel-to-square translation`
 - Link PRs to requirements in requirements.md
 - Code review checks traceability
@@ -514,11 +558,13 @@ Kiro can:
 ### Kiro + CI/CD
 
 Kiro works with:
+
 - GitHub Actions
 - GitLab CI
 - Jenkins
 
 **Your workflow:**
+
 - CI runs Roslyn on PR (catches architecture violations)
 - CI runs tests (verifies requirements implemented)
 - CI blocks merge if guardrails fail
@@ -526,11 +572,13 @@ Kiro works with:
 ### Kiro + MCP Servers
 
 Kiro supports Model Context Protocol:
+
 - Remote MCP servers (Streamable HTTP)
 - Local MCP servers (stdio)
 - One-click installation
 
 **Your workflow:**
+
 - Use MCP tools scoped to your subsystem
 - Example: `@input-adapter` tool only accesses InputAdapter code
 - MCP enforces boundaries
@@ -583,6 +631,7 @@ You are assigned to implement **InputAdapter (K1)** subsystem.
 ### Given
 
 **requirements.md:**
+
 ```
 REQ-023: WHEN a user clicks on the chess board
          THE SYSTEM SHALL capture the mouse click event
@@ -598,6 +647,7 @@ REQ-031: WHEN the game is paused
 ```
 
 **design.md:**
+
 ```
 InputAdapter communicates with InteractionController via event bus.
 No direct method calls.
@@ -605,6 +655,7 @@ Performance: coordinate translation <5ms.
 ```
 
 **ARCHITECTURE.md:**
+
 ```
 Subsystem: InputAdapter (K1)
 Blood Type: T (Technical)
@@ -719,6 +770,7 @@ public class InputAdapterTests
 **You are not a free agent when working with Kiro specs.**
 
 Your authority is bounded by:
+
 - Requirements from requirements.md (what you implement)
 - Design from design.md (how you implement)
 - Architecture from ARCHITECTURE.md (what you can depend on)
@@ -735,11 +787,13 @@ Follow the specs. Raise issues when boundaries feel wrong. Let humans decide. Bu
 ## Resources
 
 **Official Kiro Documentation:**
+
 - Website: https://kiro.dev/
 - Docs: https://kiro.dev/docs
 - Changelog: https://kiro.dev/docs/changelog
 
 **MateMate Project Files:**
+
 - `/SDD/KiroForHumans.md` – User guide for Kiro
 - `/SDD/README.md` – Full workflow guide
 - `/SDD/CLAUDE.md` – Claude Code agent contract (parallel to this file)

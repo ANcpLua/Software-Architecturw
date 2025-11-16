@@ -8,14 +8,18 @@
 
 ## Overview
 
-Design a bigger application core for the EarlyBird breakfast delivery system, applying the principles learned from the Mars Moons exercise. This exercise demonstrates how to separate stable business logic from volatile technology concerns in a larger, more realistic system.
+Design a bigger application core for the EarlyBird breakfast delivery system, applying the principles learned from the
+Mars Moons exercise. This exercise demonstrates how to separate stable business logic from volatile technology concerns
+in a larger, more realistic system.
 
 ---
 
 ## Exercise Task
 
 **Scenario:**
-Build upon the small application core principles from Mars02 to design a comprehensive application core for EarlyBird that:
+Build upon the small application core principles from Mars02 to design a comprehensive application core for EarlyBird
+that:
+
 1. Separates business logic from infrastructure
 2. Identifies stable vs. volatile components
 3. Applies change impact analysis for evolution scenarios
@@ -35,11 +39,13 @@ Build upon the small application core principles from Mars02 to design a compreh
 ## Key Concepts
 
 **Application Core:**
+
 - Contains stable business logic
 - Independent of frameworks and databases
 - Protected from technology volatility
 
 **Hexagonal Architecture:**
+
 - Business logic in the center
 - Adapters on the outside
 - Dependencies point inward
@@ -51,30 +57,33 @@ Build upon the small application core principles from Mars02 to design a compreh
 The design document analyzes three realistic change scenarios:
 
 1. **Database Migration** (PostgreSQL → MongoDB)
-   - Impact analysis
-   - Components affected
-   - Isolation strategy
+    - Impact analysis
+    - Components affected
+    - Isolation strategy
 
 2. **API Framework Change** (REST → GraphQL)
-   - Surface area analysis
-   - Adapter redesign
-   - Core protection
+    - Surface area analysis
+    - Adapter redesign
+    - Core protection
 
 3. **New Delivery Channel** (Mobile App)
-   - Reusability assessment
-   - Integration points
-   - Shared core benefits
+    - Reusability assessment
+    - Integration points
+    - Shared core benefits
 
 ---
 
 ## See Also
 
 - [Mars Application Core](../03-mars-application-core/) - Small application core example
-- [ISearchProduct Interface](../../Evening 2 - Architectural Quality/02-isearchproduct-interface-specification/) - O-Interface design
-- [Building Block Quality](../../Evening 2 - Architectural Quality/01-building-block-quality-analysis/) - Cohesion measurement
+- [ISearchProduct Interface](../../Evening 2 - Architectural Quality/02-isearchproduct-interface-specification/) -
+  O-Interface design
+- [Building Block Quality](../../Evening 2 - Architectural Quality/01-building-block-quality-analysis/) - Cohesion
+  measurement
 
 ---
 
 ## Prerequisite
 
-**Important:** Complete Mars02 (Mars Moon Calculator) before this exercise. The small application core principles apply directly to larger systems.
+**Important:** Complete Mars02 (Mars Moon Calculator) before this exercise. The small application core principles apply
+directly to larger systems.

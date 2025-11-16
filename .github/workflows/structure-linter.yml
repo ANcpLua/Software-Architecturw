@@ -11,157 +11,157 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Check markdown links
-      uses: gaurav-nelson/github-action-markdown-link-check@v1
-      with:
-        use-quiet-mode: 'yes'
-        use-verbose-mode: 'yes'
-        config-file: '.github/workflows/markdown-link-check-config.json'
+      - name: Check markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/workflows/markdown-link-check-config.json'
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Validate folder structure
-      run: |
-        echo "Validating Evening directory names..."
-
-        # Check Evening directories use hyphens, not colons
-        if find . -maxdepth 1 -type d -name "Evening*:*" | grep -q .; then
-          echo "ERROR: Found Evening directories with colons. Use hyphens instead."
-          find . -maxdepth 1 -type d -name "Evening*:*"
-          exit 1
-        fi
-
-        # Check expected Evening directories exist
-        required_dirs=(
-          "Evening 1 - Importance of Architecture"
-          "Evening 2 - Architectural Quality"
-          "Evening 3 - Architecture Development"
-          "Evening 4 - Architecture Documentation"
-        )
-
-        for dir in "${required_dirs[@]}"; do
-          if [ ! -d "$dir" ]; then
-            echo "ERROR: Required directory missing: $dir"
+      - name: Validate folder structure
+        run: |
+          echo "Validating Evening directory names..."
+          
+          # Check Evening directories use hyphens, not colons
+          if find . -maxdepth 1 -type d -name "Evening*:*" | grep -q .; then
+            echo "ERROR: Found Evening directories with colons. Use hyphens instead."
+            find . -maxdepth 1 -type d -name "Evening*:*"
             exit 1
           fi
-        done
+          
+          # Check expected Evening directories exist
+          required_dirs=(
+            "Evening 1 - Importance of Architecture"
+            "Evening 2 - Architectural Quality"
+            "Evening 3 - Architecture Development"
+            "Evening 4 - Architecture Documentation"
+          )
+          
+          for dir in "${required_dirs[@]}"; do
+            if [ ! -d "$dir" ]; then
+              echo "ERROR: Required directory missing: $dir"
+              exit 1
+            fi
+          done
+          
+          echo "✓ All Evening directories correctly named"
 
-        echo "✓ All Evening directories correctly named"
+      - name: Validate exercise folder naming
+        run: |
+          echo "Checking exercise folder naming conventions..."
+          
+          # Evening 2 exercises should be numbered 01-08
+          cd "Evening 2 - Architectural Quality"
+          expected=(
+            "01-building-block-quality-analysis"
+            "02-isearchproduct-interface-specification"
+            "03-isearchproduct-peer-review"
+            "04-ilist-interface-design"
+            "05-ilist-peer-review"
+            "06-heat-flow-analysis-tell-dont-ask"
+            "07-charts-products-architecture-story"
+            "08-climate-model-architecture-analysis"
+          )
+          
+          for ex in "${expected[@]}"; do
+            if [ ! -d "$ex" ]; then
+              echo "WARNING: Expected Evening 2 folder missing: $ex"
+            fi
+          done
+          
+          cd ..
+          
+          # Evening 3 exercises should be numbered 01-05
+          cd "Evening 3 - Architecture Development"
+          expected=(
+            "01-disease-architecture-from-class-diagram"
+            "02-ai-driven-requirement-clustering"
+            "03-mars-application-core"
+            "04-earlybird-application-core"
+            "05-matemate-service-based-architecture"
+          )
+          
+          for ex in "${expected[@]}"; do
+            if [ ! -d "$ex" ]; then
+              echo "WARNING: Expected Evening 3 folder missing: $ex"
+            fi
+          done
+          
+          cd ..
+          
+          # Evening 4 exercises
+          cd "Evening 4 - Architecture Documentation"
+          expected=(
+            "01-tools-corner"
+            "02-custom-architecture-frameworks"
+          )
+          
+          for ex in "${expected[@]}"; do
+            if [ ! -d "$ex" ]; then
+              echo "WARNING: Expected Evening 4 folder missing: $ex"
+            fi
+          done
+          
+          echo "✓ Exercise folder naming validated"
 
-    - name: Validate exercise folder naming
-      run: |
-        echo "Checking exercise folder naming conventions..."
-
-        # Evening 2 exercises should be numbered 01-08
-        cd "Evening 2 - Architectural Quality"
-        expected=(
-          "01-building-block-quality-analysis"
-          "02-isearchproduct-interface-specification"
-          "03-isearchproduct-peer-review"
-          "04-ilist-interface-design"
-          "05-ilist-peer-review"
-          "06-heat-flow-analysis-tell-dont-ask"
-          "07-charts-products-architecture-story"
-          "08-climate-model-architecture-analysis"
-        )
-
-        for ex in "${expected[@]}"; do
-          if [ ! -d "$ex" ]; then
-            echo "WARNING: Expected Evening 2 folder missing: $ex"
+      - name: Check for README files
+        run: |
+          echo "Checking for required README files..."
+          
+          required_readmes=(
+            "README.md"
+            "Evening 1 - Importance of Architecture/README.md"
+            "Evening 2 - Architectural Quality/README.md"
+            "Evening 3 - Architecture Development/README.md"
+            "Evening 4 - Architecture Documentation/README.md"
+          )
+          
+          missing=0
+          for readme in "${required_readmes[@]}"; do
+            if [ ! -f "$readme" ]; then
+              echo "ERROR: Missing required README: $readme"
+              missing=$((missing + 1))
+            fi
+          done
+          
+          if [ $missing -gt 0 ]; then
+            echo "Found $missing missing README files"
+            exit 1
           fi
-        done
+          
+          echo "✓ All required README files present"
 
-        cd ..
-
-        # Evening 3 exercises should be numbered 01-05
-        cd "Evening 3 - Architecture Development"
-        expected=(
-          "01-disease-architecture-from-class-diagram"
-          "02-ai-driven-requirement-clustering"
-          "03-mars-application-core"
-          "04-earlybird-application-core"
-          "05-matemate-service-based-architecture"
-        )
-
-        for ex in "${expected[@]}"; do
-          if [ ! -d "$ex" ]; then
-            echo "WARNING: Expected Evening 3 folder missing: $ex"
+      - name: Validate no placeholder text
+        run: |
+          echo "Checking for placeholder text..."
+          
+          # Check for common placeholder patterns
+          placeholders=$(grep -r "TODO\|FIXME\|XXX\|TBD\|\[to be\]\|\[TBD\]" \
+            --include="*.md" \
+            --exclude-dir=".git" \
+            --exclude-dir="node_modules" \
+            . || true)
+          
+          if [ ! -z "$placeholders" ]; then
+            echo "WARNING: Found potential placeholder text:"
+            echo "$placeholders"
+            # Don't fail - just warn
+          else
+            echo "✓ No placeholder text found"
           fi
-        done
 
-        cd ..
-
-        # Evening 4 exercises
-        cd "Evening 4 - Architecture Documentation"
-        expected=(
-          "01-tools-corner"
-          "02-custom-architecture-frameworks"
-        )
-
-        for ex in "${expected[@]}"; do
-          if [ ! -d "$ex" ]; then
-            echo "WARNING: Expected Evening 4 folder missing: $ex"
-          fi
-        done
-
-        echo "✓ Exercise folder naming validated"
-
-    - name: Check for README files
-      run: |
-        echo "Checking for required README files..."
-
-        required_readmes=(
-          "README.md"
-          "Evening 1 - Importance of Architecture/README.md"
-          "Evening 2 - Architectural Quality/README.md"
-          "Evening 3 - Architecture Development/README.md"
-          "Evening 4 - Architecture Documentation/README.md"
-        )
-
-        missing=0
-        for readme in "${required_readmes[@]}"; do
-          if [ ! -f "$readme" ]; then
-            echo "ERROR: Missing required README: $readme"
-            missing=$((missing + 1))
-          fi
-        done
-
-        if [ $missing -gt 0 ]; then
-          echo "Found $missing missing README files"
-          exit 1
-        fi
-
-        echo "✓ All required README files present"
-
-    - name: Validate no placeholder text
-      run: |
-        echo "Checking for placeholder text..."
-
-        # Check for common placeholder patterns
-        placeholders=$(grep -r "TODO\|FIXME\|XXX\|TBD\|\[to be\]\|\[TBD\]" \
-          --include="*.md" \
-          --exclude-dir=".git" \
-          --exclude-dir="node_modules" \
-          . || true)
-
-        if [ ! -z "$placeholders" ]; then
-          echo "WARNING: Found potential placeholder text:"
-          echo "$placeholders"
-          # Don't fail - just warn
-        else
-          echo "✓ No placeholder text found"
-        fi
-
-    - name: Repository statistics
-      run: |
-        echo "=== Repository Statistics ==="
-        echo "Markdown files: $(find . -name '*.md' -type f | wc -l)"
-        echo "PNG files: $(find . -name '*.png' -type f | wc -l)"
-        echo "PDF files: $(find . -name '*.pdf' -type f | wc -l)"
-        echo "Python files: $(find . -name '*.py' -type f | wc -l)"
+      - name: Repository statistics
+        run: |
+          echo "=== Repository Statistics ==="
+          echo "Markdown files: $(find . -name '*.md' -type f | wc -l)"
+          echo "PNG files: $(find . -name '*.png' -type f | wc -l)"
+          echo "PDF files: $(find . -name '*.pdf' -type f | wc -l)"
+          echo "Python files: $(find . -name '*.py' -type f | wc -l)"

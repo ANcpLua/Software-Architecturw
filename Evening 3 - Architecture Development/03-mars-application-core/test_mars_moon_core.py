@@ -5,6 +5,7 @@ Tests all components (A, B, C, D) individually and the integrated moon() functio
 """
 
 import unittest
+
 from mars_moon_core import (
     moon,
     TimeWindowParser,
@@ -192,7 +193,7 @@ class TestDurationExtractor(unittest.TestCase):
         overlap = OverlapResult(minutes=0)
         windows = NormalizedWindows(
             deimos_intervals=[(1000, 2500)],  # Ends at midnight (2500)
-            phobos_intervals=[(0, 500)],      # Starts at midnight (0)
+            phobos_intervals=[(0, 500)],  # Starts at midnight (0)
         )
         result = self.extractor.extract(overlap, windows)
         # 2500 % 2500 = 0, and phobos has 0, so they share boundary point

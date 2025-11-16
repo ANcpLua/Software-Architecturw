@@ -5,11 +5,15 @@
 
 ## Overview
 
-This foundational exercise explores the critical concept of architectural decisions and their impact on software systems. Understanding which decisions are difficult to change helps architects make better choices early in the development process.
+This foundational exercise explores the critical concept of architectural decisions and their impact on software
+systems. Understanding which decisions are difficult to change helps architects make better choices early in the
+development process.
 
 ## Exercise Description
 
-Group discussion exercise exploring which architectural decisions are most costly to change and why. Students analyze decision categories, evaluate their reversibility, and develop strategies for identifying high-impact decisions early in projects.
+Group discussion exercise exploring which architectural decisions are most costly to change and why. Students analyze
+decision categories, evaluate their reversibility, and develop strategies for identifying high-impact decisions early in
+projects.
 
 ## Learning Objectives
 
@@ -26,29 +30,29 @@ Group discussion exercise exploring which architectural decisions are most costl
 Decisions become difficult to reverse due to:
 
 1. **Extensive Dependencies**
-   - Many components rely on the decision
-   - Cross-cutting concerns affected
-   - Integration points established
+    - Many components rely on the decision
+    - Cross-cutting concerns affected
+    - Integration points established
 
 2. **Infrastructure Investment**
-   - Hardware procurement
-   - License costs
-   - Development tool setup
+    - Hardware procurement
+    - License costs
+    - Development tool setup
 
 3. **Team Knowledge and Skills**
-   - Training investments
-   - Expertise built around chosen technology
-   - Team reorganization required for change
+    - Training investments
+    - Expertise built around chosen technology
+    - Team reorganization required for change
 
 4. **External Commitments**
-   - API contracts with external parties
-   - Regulatory compliance
-   - Customer expectations
+    - API contracts with external parties
+    - Regulatory compliance
+    - Customer expectations
 
 5. **Technical Debt Accumulation**
-   - Code written assuming the decision
-   - Test suites built around it
-   - Documentation and training materials
+    - Code written assuming the decision
+    - Test suites built around it
+    - Documentation and training materials
 
 ## Exercise Activities
 
@@ -82,6 +86,7 @@ Consider for discussion:
 ## Examples of Hard-to-Change Decisions
 
 Common examples include:
+
 - Programming language choice
 - Database technology selection
 - Communication protocols
@@ -92,4 +97,5 @@ Common examples include:
 
 ## Notes
 
-This exercise is foundational - understanding what makes architectural decisions significant is the first step in becoming an effective software architect.
+This exercise is foundational - understanding what makes architectural decisions significant is the first step in
+becoming an effective software architect.

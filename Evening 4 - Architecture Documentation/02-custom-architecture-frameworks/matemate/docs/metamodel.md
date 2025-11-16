@@ -361,15 +361,15 @@ graph TB
 
 ### Arrow Encoding
 
-| Style        | Meaning                        | Example                   |
-|--------------|--------------------------------|---------------------------|
-| Solid (→)    | Compile-time dependency        | K3 → K4 (explicit import) |
-| Dashed (⇢)   | Runtime dependency             | K1 ⇢ K3 (event)           |
-| 🟩 Green     | Allowed dependency             | K3 → K4 (passes matrix)   |
-| 🟥 Red       | Forbidden dependency           | K1 → K4 (violates matrix) |
-| Thick (3px)  | High coupling (> 10 calls)     | K3 → K4 (12 calls)        |
-| Medium (2px) | Medium coupling (3-10 calls)   | K3 → K2 (5 calls)         |
-| Thin (1px)   | Low coupling (1-2 calls)       | K3 → K1 (2 calls)         |
+| Style        | Meaning                      | Example                   |
+|--------------|------------------------------|---------------------------|
+| Solid (→)    | Compile-time dependency      | K3 → K4 (explicit import) |
+| Dashed (⇢)   | Runtime dependency           | K1 ⇢ K3 (event)           |
+| 🟩 Green     | Allowed dependency           | K3 → K4 (passes matrix)   |
+| 🟥 Red       | Forbidden dependency         | K1 → K4 (violates matrix) |
+| Thick (3px)  | High coupling (> 10 calls)   | K3 → K4 (12 calls)        |
+| Medium (2px) | Medium coupling (3-10 calls) | K3 → K2 (5 calls)         |
+| Thin (1px)   | Low coupling (1-2 calls)     | K3 → K1 (2 calls)         |
 
 ---
 

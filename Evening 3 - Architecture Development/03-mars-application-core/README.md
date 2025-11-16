@@ -4,8 +4,10 @@
 
 **Related Exercises:**
 
-- [Charts/Products Architecture Analysis](../../Evening 2 - Architectural Quality/07-charts-products-architecture-story/architectural-principles-analysis.md)
-- [Climate Model Analysis](../../Evening 2 - Architectural Quality/08-climate-model-architecture-analysis/climate-model-analysis.md)
+- [Charts/Products Architecture Analysis](../../Evening 2 - Architectural
+  Quality/07-charts-products-architecture-story/architectural-principles-analysis.md)
+- [Climate Model Analysis](../../Evening 2 - Architectural
+  Quality/08-climate-model-architecture-analysis/climate-model-analysis.md)
 
 ---
 
@@ -142,12 +144,12 @@ Follow these steps once per machine:
 
 1. Open the solution folder `Mars` in Rider or PyCharm.
 2. Configure a Python SDK for the project/module:
-   - Preferences/Settings → Python Interpreter → Add
-   - Choose your local Python 3.14 (or 3.12+) or create a new Virtualenv.
-   - If you already have a venv under this folder (e.g., `03-mars-moons-application-core/venv`), you can select it.
+    - Preferences/Settings → Python Interpreter → Add
+    - Choose your local Python 3.14 (or 3.12+) or create a new Virtualenv.
+    - If you already have a venv under this folder (e.g., `03-mars-moons-application-core/venv`), you can select it.
 3. Select one of the shared run configurations from the Run/Debug dropdown:
-   - Run "Mars Moon Core" to see example outputs matching the problem statement.
-   - Run "Mars Moon Core Tests" to execute the full unit test suite.
+    - Run "Mars Moon Core" to see example outputs matching the problem statement.
+    - Run "Mars Moon Core Tests" to execute the full unit test suite.
 
 One-time automatic interpreter setup (no manual clicks):
 
@@ -161,6 +163,7 @@ python3 setup-python-venv.py Mars/03-mars-moons-application-core
 ```
 
 After that you can either:
+
 - Activate it in any terminal: `source Mars/03-mars-moons-application-core/venv/bin/activate`
 - Or in Rider/PyCharm: set the interpreter to `Mars/03-mars-moons-application-core/venv/bin/python3`
 
@@ -178,7 +181,8 @@ python3 mars_moon_core.py
 
 Troubleshooting:
 
-- If you see "Please specify a Python SDK", open Project/Module settings and select the Python interpreter (step 2 above).
+- If you see "Please specify a Python SDK", open Project/Module settings and select the Python interpreter (step 2
+  above).
 - No requirements need to be installed; the `requirements.txt` is intentionally empty because we use only the stdlib.
 
 ### 3.1 Component A – TimeWindowParser

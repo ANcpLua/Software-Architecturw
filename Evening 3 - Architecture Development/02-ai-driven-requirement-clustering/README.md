@@ -3,26 +3,34 @@
 **Exercise ID:** ArchitectureDevelopment02
 **Title:** Using AI to Develop an Architecture - the Embedding Approach
 
-Semantic clustering of [44 EarlyBird breakfast delivery system requirements](data/earlybird_requirements.json) using embeddings and vector database.
+Semantic clustering of [44 EarlyBird breakfast delivery system requirements](data/earlybird_requirements.json) using
+embeddings and vector database.
 
 ---
 
 ## Exercise Overview
 
-This exercise demonstrates how to use **AI embeddings** to automatically discover architectural components from functional requirements. The approach clusters semantically similar requirements, with each cluster suggesting a component in the application core.
+This exercise demonstrates how to use **AI embeddings** to automatically discover architectural components from
+functional requirements. The approach clusters semantically similar requirements, with each cluster suggesting a
+component in the application core.
 
 ### The Exercise Task
 
-Feed embeddings of [functional requirements](data/earlybird_requirements.json) into a vector database ([Qdrant](https://qdrant.tech/)), cluster them, and derive an architecture proposal where each component implements one cluster of requirements.
+Feed embeddings of [functional requirements](data/earlybird_requirements.json) into a vector
+database ([Qdrant](https://qdrant.tech/)), cluster them, and derive an architecture proposal where each component
+implements one cluster of requirements.
 
-**Expected Result:** "Almost an architecture" - a component structure where each component should implement requirements from one cluster.
+**Expected Result:** "Almost an architecture" - a component structure where each component should implement requirements
+from one cluster.
 
 ---
 
 ## Approach
 
-1. **Embeddings:** [all-mpnet-base-v2](https://huggingface.co/sentence-transformers/all-mpnet-base-v2) (768D → [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) to 16D)
-2. **Vector Database:** [Qdrant](https://qdrant.tech/) ([HNSW](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world), [cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity))
+1. **Embeddings:** [all-mpnet-base-v2](https://huggingface.co/sentence-transformers/all-mpnet-base-v2) (
+   768D → [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) to 16D)
+2. **Vector Database:
+   ** [Qdrant](https://qdrant.tech/) ([HNSW](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world), [cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity))
 3. **Clustering:** [Spherical k-means](https://en.wikipedia.org/wiki/K-means_clustering#Spherical_k-means_clustering)
 4. **Selection:** Maximize [Silhouette score](https://en.wikipedia.org/wiki/Silhouette_(clustering)) (peaks at k=11)
 
@@ -61,18 +69,22 @@ See [**ARCHITECTURE.md**](docs/ARCHITECTURE.md) for component descriptions:
 ## Files
 
 ### Input Data
+
 - **data/earlybird_requirements.json** - 44 initial requirements
 
 ### Results
+
 - **results/experiment_results.csv** - Full bootstrap analysis (52 configurations ranked)
 - **results/qdrant_clusters.json** - Requirements grouped by cluster (k=11, d=16)
 
 ### Documentation
+
 - **docs/ARCHITECTURE.md** - Component architecture proposal
 - **docs/earlybird_clustering.png** - Comprehensive visualization
 - **ai-embedding-architecture-analysis.md** - Complete methodology explanation and analysis
 
 ### Tools
+
 - **main.py** - Bootstrap stability-based clustering experiment
 - **qdrant_ingest.py** - Load clustered data into Qdrant vector database
 
@@ -88,6 +100,7 @@ python3 main.py
 ```
 
 **Output:**
+
 - `results/experiment_results.csv` - All 52 configurations ranked by silhouette score
 - `visualizations/` - Stability plots and t-SNE projections
 
@@ -106,6 +119,7 @@ python3 load_qdrant.py
 **Input:** [results/qdrant_clusters.json](results/qdrant_clusters.json) - Requirements grouped by cluster (k=11, d=16)
 
 **Qdrant payload structure:**
+
 ```json
 {
   "req_id": "R1",
@@ -120,6 +134,7 @@ python3 load_qdrant.py
 ## Related Materials
 
 See [**ai-embedding-architecture-analysis.md**](ai-embedding-architecture-analysis.md) for:
+
 - Complete methodology explanation
 - Step-by-step implementation guide
 - Benefits and challenges of embedding-based approach
@@ -131,6 +146,7 @@ See [**ai-embedding-architecture-analysis.md**](ai-embedding-architecture-analys
 ## Learning Outcomes
 
 This exercise demonstrates:
+
 1. **AI4SE (AI for Software Engineering)**: Using AI to assist architecture development
 2. **Requirements Clustering**: Discovering component boundaries from semantics
 3. **Vector Embeddings**: Converting text to numerical representations

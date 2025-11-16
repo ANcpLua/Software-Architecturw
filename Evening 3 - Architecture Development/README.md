@@ -3,20 +3,21 @@
 **Theme:** Systematic Development of Architecture from Requirements
 **PDF:** `1_Architecture_Development_V702.pdf`
 
-This evening teaches how to derive architecture from requirements using SE4-methods, service elicitation, application cores, and AI-assisted clustering.
+This evening teaches how to derive architecture from requirements using SE4-methods, service elicitation, application
+cores, and AI-assisted clustering.
 
 ---
 
 ## Exercises Overview
 
-| ExID | Folder | Description |
-|------|--------|-------------|
-| Dis*Ease01 | [01-disease-architecture-from-class-diagram](01-disease-architecture-from-class-diagram/) | Architecture from domain model (hospital system) |
-| ArchDev02 | [02-ai-driven-requirement-clustering](02-ai-driven-requirement-clustering/) | Embedding-based automatic architecture derivation |
-| Mars02 | [03-mars-application-core](03-mars-application-core/) | Very small, pure Application Core design |
-| EarlyBird12 | [04-earlybird-application-core](04-earlybird-application-core/) | Larger Application Core — EarlyBird architecture |
-| MateMate02 | [05-matemate-service-based-architecture](05-matemate-service-based-architecture/) | Blood Types (A/T/0), Allowed-To-Use matrix |
-| — | [matemate-service-elicitation-results](matemate-service-elicitation-results/) | Service elicitation phase results (10 services) |
+| ExID        | Folder                                                                                    | Description                                       |
+|-------------|-------------------------------------------------------------------------------------------|---------------------------------------------------|
+| Dis*Ease01  | [01-disease-architecture-from-class-diagram](01-disease-architecture-from-class-diagram/) | Architecture from domain model (hospital system)  |
+| ArchDev02   | [02-ai-driven-requirement-clustering](02-ai-driven-requirement-clustering/)               | Embedding-based automatic architecture derivation |
+| Mars02      | [03-mars-application-core](03-mars-application-core/)                                     | Very small, pure Application Core design          |
+| EarlyBird12 | [04-earlybird-application-core](04-earlybird-application-core/)                           | Larger Application Core — EarlyBird architecture  |
+| MateMate02  | [05-matemate-service-based-architecture](05-matemate-service-based-architecture/)         | Blood Types (A/T/0), Allowed-To-Use matrix        |
+| —           | [matemate-service-elicitation-results](matemate-service-elicitation-results/)             | Service elicitation phase results (10 services)   |
 
 ---
 

@@ -9,7 +9,8 @@
 
 ## Exercise Overview
 
-This is the peer review component of the IList interface design exercise. After designing the generic `IList<T>` interface in the previous exercise, you now evaluate it using the comprehensive interface quality checklist.
+This is the peer review component of the IList interface design exercise. After designing the generic `IList<T>`
+interface in the previous exercise, you now evaluate it using the comprehensive interface quality checklist.
 
 **Goal:** Apply systematic interface review criteria to identify design flaws and improvement opportunities.
 
@@ -19,29 +20,30 @@ This is the peer review component of the IList interface design exercise. After 
 
 ### Review Your IList<T> Design
 
-Use the [interface-quality-checklist.md](../03-isearchproduct-peer-review/interface-quality-checklist.md) to evaluate the interface you designed.
+Use the [interface-quality-checklist.md](../03-isearchproduct-peer-review/interface-quality-checklist.md) to evaluate
+the interface you designed.
 
 **Focus Areas:**
 
 1. **Interface Segregation Principle (ISP)**
-   - Are read-only and mutable operations mixed?
-   - Can read-only callers avoid depending on write operations?
+    - Are read-only and mutable operations mixed?
+    - Can read-only callers avoid depending on write operations?
 
 2. **Naming Conventions**
-   - Does it follow platform conventions (`.NET: Count`, `Java: size()`)?
-   - Are method names clear and unambiguous?
+    - Does it follow platform conventions (`.NET: Count`, `Java: size()`)?
+    - Are method names clear and unambiguous?
 
 3. **Return Types**
-   - Does `Remove` indicate success (bool vs void)?
-   - Are appropriate types used?
+    - Does `Remove` indicate success (bool vs void)?
+    - Are appropriate types used?
 
 4. **Documentation**
-   - What happens on index out of range?
-   - Are null elements allowed?
-   - Is it thread-safe?
+    - What happens on index out of range?
+    - Are null elements allowed?
+    - Is it thread-safe?
 
 5. **Completeness**
-   - Are essential operations included (Contains, IndexOf, RemoveAt)?
+    - Are essential operations included (Contains, IndexOf, RemoveAt)?
 
 **Deliverable:** Scored review with specific recommendations
 
@@ -54,6 +56,7 @@ Use the [interface-quality-checklist.md](../03-isearchproduct-peer-review/interf
 **Score:** 45/100 (Needs Improvement)
 
 **Key Findings:**
+
 - ISP violation: read-only and mutable operations mixed
 - Missing operations: Contains, IndexOf, RemoveAt
 - Non-standard naming conventions
@@ -61,6 +64,7 @@ Use the [interface-quality-checklist.md](../03-isearchproduct-peer-review/interf
 - No consideration for covariance
 
 **Recommendations:**
+
 1. Separate into `IReadOnlyList<T>` and `IList<T>`
 2. Use platform conventions (Count, not Size)
 3. Return bool from Remove to indicate success
@@ -95,6 +99,7 @@ public interface IList<T> : ICollection<T>, IReadOnlyList<T>
 ```
 
 **Discussion Questions:**
+
 - Why separate `IReadOnlyList<T>` from `IList<T>`?
 - Why does `Remove` return `bool`?
 - What is `out T` (covariance) and why does it matter?
@@ -105,31 +110,37 @@ public interface IList<T> : ICollection<T>, IReadOnlyList<T>
 ## Common Design Flaws
 
 ### ❌ Flaw 1: No Separation of Read/Write Operations
+
 Forces read-only clients to depend on mutation methods.
 
 **Fix:** Create separate `IReadOnlyList<T>` interface
 
 ### ❌ Flaw 2: void Remove(T item)
+
 Caller can't tell if removal succeeded.
 
 **Fix:** `bool Remove(T item)` returns true if item was found and removed
 
 ### ❌ Flaw 3: Non-Standard Naming
+
 Using `Size` instead of `.NET convention: Count`
 
 **Fix:** Follow platform conventions for developer familiarity
 
 ### ❌ Flaw 4: Get(int)/Set(int, T) Methods
+
 Doesn't feel like array/indexer access.
 
 **Fix:** Use indexer syntax: `T this[int index] { get; set; }`
 
 ### ❌ Flaw 5: Missing Essential Operations
+
 No `Contains`, `IndexOf`, `RemoveAt`
 
 **Fix:** Include operations users expect from a list
 
 ### ❌ Flaw 6: Undocumented Error Behavior
+
 No specification of exceptions thrown.
 
 **Fix:** Document `ArgumentOutOfRangeException` for invalid index, `ArgumentNullException` if applicable
@@ -167,6 +178,7 @@ void DisplayProducts(IReadOnlyList<Product> products)
 ```
 
 **Benefits:**
+
 - Compiler enforces read-only access
 - Intent is explicit in the signature
 - More flexible (accepts immutable collections)
@@ -207,7 +219,8 @@ After completing this exercise, you will be able to:
 
 - **[04-ilist-interface-design](../04-ilist-interface-design/)** - Interface design (Part 1)
 - **[03-isearchproduct-peer-review](../03-isearchproduct-peer-review/)** - Interface quality checklist
-- **[02-isearchproduct-interface-specification](../02-isearchproduct-interface-specification/)** - O-Interface specification
+- **[02-isearchproduct-interface-specification](../02-isearchproduct-interface-specification/)** - O-Interface
+  specification
 
 ---
 

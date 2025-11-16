@@ -6,13 +6,15 @@
 
 ## Overview
 
-This exercise demonstrates how to develop a software architecture starting from a requirements class diagram. The Dis*Ease system serves as a case study for understanding the transition from requirements modeling to architectural design.
+This exercise demonstrates how to develop a software architecture starting from a requirements class diagram. The Dis*
+Ease system serves as a case study for understanding the transition from requirements modeling to architectural design.
 
 ## Exercise Description
 
 **Task:** Design the architecture for the hospital management system (Dis*Ease).
 
 **Constraints:**
+
 - The architecture should consist of **4-6 building blocks**
 - Each class from the requirements class diagram should be assigned to **exactly one building block**
 - Building blocks should be cohesive and follow architectural principles
@@ -30,6 +32,7 @@ This exercise demonstrates how to develop a software architecture starting from 
 ## The Dis*Ease System
 
 The Dis*Ease system is a comprehensive hospital management system that handles:
+
 - **Patient Management** - Patient records, admissions, personal information
 - **Medical Procedures** - Procedure planning, scheduling, execution, and tracking
 - **Staff Management** - Hospital personnel (doctors, nurses, technicians, administrative staff)
@@ -42,16 +45,18 @@ The Dis*Ease system is a comprehensive hospital management system that handles:
 The system's domain model includes:
 
 **Patient & Person Management:**
+
 - `Person` - Base class with personal information (name, birthdate, gender, contact details)
 - `Patient` - Extends Person, represents hospital patients
 - `Hospital` - Hospital information and location
 - `Department` - Hospital departments
 - `Staff` - Hospital personnel (Operations, Administrative, Technical)
-  - `Doctor`, `Nurse`, `Surgeon` (Operations Staff)
-  - `Front Desk Staff`, `Receptionist` (Administrative Staff)
-  - `Technician`, `Technologist`, `Surgical Technologist` (Technical Staff)
+    - `Doctor`, `Nurse`, `Surgeon` (Operations Staff)
+    - `Front Desk Staff`, `Receptionist` (Administrative Staff)
+    - `Technician`, `Technologist`, `Surgical Technologist` (Technical Staff)
 
 **Medical Procedures:**
+
 - `Procedure Plan` - Planned medical procedures
 - `Requested Procedure` - Procedures requested by physicians
 - `Scheduled Procedure Step` - Scheduled steps in a procedure
@@ -61,15 +66,18 @@ The system's domain model includes:
 - `Series` - Imaging series data
 
 **Service & Episodes:**
+
 - `Service Episode` - Patient care episodes
 - `Visit` - Patient visits to hospital
 - `Facility` - Hospital facilities
 
 **Clinical Documents:**
+
 - `Clinical Document` - Medical documentation
 - `Imaging Service Request` - Requests for imaging services
 
 ### Key Relationships
+
 - Patients have service episodes and visits
 - Visits include requested procedures
 - Staff members perform procedures
@@ -106,12 +114,14 @@ The analysis proposes a **6-subsystem architecture**:
 **Alternative:** 4-subsystem coarse-grained architecture also provided.
 
 **Key Principles Applied:**
+
 - Single Responsibility Principle (SRP)
 - Stable Dependencies Principle (SDP)
 - Common Closure Principle (CCP)
 - Acyclic Dependencies Principle (ADP)
 
 See [architecture-analysis.md](architecture-analysis.md) for:
+
 - Complete subsystem design with architecture diagram
 - Class-to-subsystem mapping (all 26 classes)
 - Dependency analysis and rationale
