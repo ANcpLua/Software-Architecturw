@@ -86,16 +86,38 @@ and documentation frameworks.
 
 ## Key Concepts
 
-**Architectural Principles:** SRP, OCP, LSP, ISP, DIP, CCP, CRP, SDP, SAP, ADP
+<table>
+<tr><td>
 
-**Quality Attributes:** Modifiability, testability, maintainability, scalability
+**Architectural Principles**
 
-**Design Patterns:** Application Core, Tell Don't Ask, Interface Segregation, Dependency Inversion
+SRP, OCP, LSP, ISP, DIP, CCP, CRP, SDP, SAP, ADP
 
-**Documentation:** arc42 template, C4 Model, Architecture Decision Records (ADR)
+</td><td>
 
-**Development Methods:** SE4 (Service Elicitation → Subsystem Establishment → Explanation → Evaluation),
-Requirements-driven architecture, AI-assisted design
+**Quality Attributes**
+
+Modifiability, testability, maintainability, scalability
+
+</td></tr>
+<tr><td>
+
+**Design Patterns**
+
+Application Core, Tell Don't Ask, Interface Segregation, Dependency Inversion
+
+</td><td>
+
+**Documentation**
+
+arc42 template, C4 Model, Architecture Decision Records (ADR)
+
+</td></tr>
+</table>
+
+**Development Methods**
+
+SE4 (Service Elicitation → Subsystem Establishment → Explanation → Evaluation), Requirements-driven architecture, AI-assisted design
 
 ---
 
