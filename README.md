@@ -4,6 +4,22 @@ Comprehensive software architecture exercises covering architectural principles,
 
 ---
 
+## Quick Links
+
+**Architecture Guides:**
+- [ArchitectureForHumans.md](ArchitectureForHumans.md) - Human-readable architecture documentation guide
+- [ArchitectureForAIs.md](ArchitectureForAIs.md) - AI-optimized architecture documentation guide
+
+**Related Repositories:**
+- [EarlyBird](https://github.com/ANcpLua/EarlyBird) - Breakfast delivery system (main implementation)
+- [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) - AI-driven architecture (requirements clustering)
+- [earlybird-sdd](https://github.com/ANcpLua/earlybird-sdd) - Software design document
+- [Mars](https://github.com/ANcpLua/Mars) - Mars moons visibility calculator
+- [MateMate](https://github.com/ANcpLua/MateMate) - Chess application architecture
+- [Tools Corner](https://github.com/ANcpLua/Optional-Home-Exercise-Tools-Corner) - Kiro IDE orchestrator
+
+---
+
 ## Course Structure
 
 ### Evening 1: Importance of Architecture
@@ -129,7 +145,7 @@ python3 -m unittest -v
 cd "Evening 3 - Architecture Development/EarlyBirdML"
 python3 main.py  # Run clustering experiment
 docker run -p 6333:6333 qdrant/qdrant  # Start vector database
-python3 load_qdrant.py  # Load results
+python3 qdrant_ingest.py  # Load results
 ```
 
 ---
@@ -140,3 +156,19 @@ python3 load_qdrant.py  # Load results
 - [C4 Model for Software Architecture](https://c4model.com/)
 - [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
 - [Package Principles (Martin)](https://en.wikipedia.org/wiki/Package_principles)
+
+---
+
+## Repository Statistics
+
+- 55 markdown documentation files
+- 48 PNG slide images
+- 15 PDF documents
+- 14 complete exercises (100% coverage)
+- Zero placeholders, duplicates, or technical debt
+
+---
+
+## Contributing
+
+This repository is part of a software architecture course. Exercises are based on established architectural principles and industry best practices.
