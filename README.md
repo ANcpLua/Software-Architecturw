@@ -166,30 +166,30 @@ Requirements-driven architecture, AI-assisted design
 
 ## Repository Structure
 
-```
-Software-Architecture/
-├── Evening 1 - Importance of Architecture/
-│   └── 01-architectural-decisions-hard-to-change/
-├── Evening 2 - Architectural Quality/
-│   ├── 01-building-block-quality-analysis/
-│   ├── 02-isearchproduct-interface-specification/
-│   ├── 03-isearchproduct-peer-review/
-│   ├── 04-ilist-interface-design/
-│   ├── 05-ilist-peer-review/
-│   ├── 06-heat-flow-analysis-tell-dont-ask/
-│   ├── 07-charts-products-architecture-story/
-│   └── 08-climate-model-architecture-analysis/
-├── Evening 3 - Architecture Development/
-│   ├── 01-disease-architecture-from-class-diagram/
-│   ├── 02-ai-driven-requirement-clustering/
-│   ├── 03-mars-application-core/
-│   ├── 04-earlybird-application-core/
-│   ├── 05-matemate-service-based-architecture/
-│   └── matemate-service-elicitation-results/
-└── Evening 4 - Architecture Documentation/
-    ├── 01-tools-corner/
-    └── 02-custom-architecture-frameworks/
-```
+**Evening 1 - Importance of Architecture**
+- 01-architectural-decisions-hard-to-change
+
+**Evening 2 - Architectural Quality**
+- 01-building-block-quality-analysis
+- 02-isearchproduct-interface-specification
+- 03-isearchproduct-peer-review
+- 04-ilist-interface-design
+- 05-ilist-peer-review
+- 06-heat-flow-analysis-tell-dont-ask
+- 07-charts-products-architecture-story
+- 08-climate-model-architecture-analysis
+
+**Evening 3 - Architecture Development**
+- 01-disease-architecture-from-class-diagram
+- 02-ai-driven-requirement-clustering
+- 03-mars-application-core
+- 04-earlybird-application-core
+- 05-matemate-service-based-architecture
+- matemate-service-elicitation-results
+
+**Evening 4 - Architecture Documentation**
+- 01-tools-corner
+- 02-custom-architecture-frameworks
 
 ---
 
