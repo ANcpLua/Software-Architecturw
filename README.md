@@ -30,28 +30,30 @@ Focus on understanding why architecture matters and the cost of architectural de
 ### Evening 2: Architectural Quality
 Deep dive into quality analysis using dependency matrices, interface design, and architectural principles.
 
-- **01-architecture-real-life-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP violations)
 - **01-building-block-quality-analysis** - Dependency matrix analysis and cohesion measurement
-- **02-climate-model-analysis** - Stability analysis with change frequency (SDP violations)
 - **02-isearchproduct-interface-specification** - O-Interface specification methodology
 - **03-isearchproduct-peer-review** - Interface quality checklist (11-question framework)
-- **03-mars-moons-application-core** - Application core implementation (Python)
-- **04-ilist-interface-design** - ISP analysis and covariance patterns
+- **04-ilist-interface-design** - Generic IList interface design
+- **05-ilist-peer-review** - Peer review of IList specification
 - **06-heat-flow-analysis-tell-dont-ask** - Tell, Don't Ask principle demonstration
-- **09-bigger-application-core** - Evolution scenario analysis for EarlyBird system
+- **07-charts-products-architecture-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP violations)
+- **08-climate-model-architecture-analysis** - Stability analysis with change frequency (SDP violations)
 
 ### Evening 3: Architecture Development
 Methods for systematic architecture development from requirements.
 
-- **01-disease-requirements-class-diagram** - Hospital management system (26 classes → 6 subsystems)
-- **EarlyBirdML** - AI-driven architecture using embeddings (44 requirements → 11 components)
-- **MateMate02-service-based-architecture** - SE4 method application (chess application)
+- **01-disease-architecture-from-class-diagram** - Hospital management system (26 classes → 6 subsystems)
+- **02-ai-driven-requirement-clustering** - AI-driven architecture using embeddings (44 requirements → 11 components)
+- **03-mars-application-core** - Pure application core implementation (Python)
+- **04-earlybird-application-core** - Evolution scenario analysis for EarlyBird system
+- **05-matemate-service-based-architecture** - SE4 method application (chess application)
 - **matemate-service-elicitation-results** - Service elicitation phase results (10 services)
 
 ### Evening 4: Architecture Documentation
 Industry-standard documentation frameworks and patterns.
 
-- **architectural-frameworks** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
+- **01-tools-corner** - Kiro IDE orchestrator (optional home exercise)
+- **02-custom-architecture-frameworks** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
 
 ---
 
@@ -76,22 +78,24 @@ Software-Architecture/
 ├── Evening 1 - Importance of Architecture/
 │   └── 01-architectural-decisions-hard-to-change/
 ├── Evening 2 - Architectural Quality/
-│   ├── 01-architecture-real-life-story/
 │   ├── 01-building-block-quality-analysis/
-│   ├── 02-climate-model-analysis/
 │   ├── 02-isearchproduct-interface-specification/
 │   ├── 03-isearchproduct-peer-review/
-│   ├── 03-mars-moons-application-core/
 │   ├── 04-ilist-interface-design/
+│   ├── 05-ilist-peer-review/
 │   ├── 06-heat-flow-analysis-tell-dont-ask/
-│   └── 09-bigger-application-core/
+│   ├── 07-charts-products-architecture-story/
+│   └── 08-climate-model-architecture-analysis/
 ├── Evening 3 - Architecture Development/
-│   ├── 01-disease-requirements-class-diagram/
-│   ├── EarlyBirdML/
-│   ├── MateMate02-service-based-architecture/
+│   ├── 01-disease-architecture-from-class-diagram/
+│   ├── 02-ai-driven-requirement-clustering/
+│   ├── 03-mars-application-core/
+│   ├── 04-earlybird-application-core/
+│   ├── 05-matemate-service-based-architecture/
 │   └── matemate-service-elicitation-results/
 └── Evening 4 - Architecture Documentation/
-    └── architectural-frameworks/
+    ├── 01-tools-corner/
+    └── 02-custom-architecture-frameworks/
 ```
 
 ---
@@ -133,16 +137,16 @@ Each exercise includes:
 
 ## Running Code Exercises
 
-### Mars Moons Application Core (Python)
+### Mars Application Core (Python)
 ```bash
-cd "Evening 2 - Architectural Quality/03-mars-moons-application-core"
+cd "Evening 3 - Architecture Development/03-mars-application-core"
 python3 mars_moon_core.py
 python3 -m unittest -v
 ```
 
-### EarlyBirdML (Python + Vector Database)
+### AI-Driven Requirement Clustering (Python + Vector Database)
 ```bash
-cd "Evening 3 - Architecture Development/EarlyBirdML"
+cd "Evening 3 - Architecture Development/02-ai-driven-requirement-clustering"
 python3 main.py  # Run clustering experiment
 docker run -p 6333:6333 qdrant/qdrant  # Start vector database
 python3 qdrant_ingest.py  # Load results

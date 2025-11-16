@@ -121,5 +121,5 @@ See [architecture-analysis.md](architecture-analysis.md) for:
 
 ## Related Exercises
 
-- [Service Based Architecture Development](../MateMate02-service-based-architecture/) (MateMate02)
-- [Using AI to Develop an Architecture](../EarlyBirdML/) (ArchitectureDevelopment02)
+- [Service Based Architecture Development](../05-matemate-service-based-architecture/) (MateMate02)
+- [Using AI to Develop an Architecture](../02-ai-driven-requirement-clustering/) (ArchitectureDevelopment02)
