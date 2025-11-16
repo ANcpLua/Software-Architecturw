@@ -25,6 +25,9 @@ and documentation frameworks.
 
 ## Course Structure
 
+> [!NOTE]
+> **Course Format:** 4 evenings (2+4+4+4 hours) | **Total:** ~40 hours with homework
+
 <table>
 <tr>
 <td width="50%">
@@ -33,7 +36,7 @@ and documentation frameworks.
 > Understanding why architecture matters and the cost of decisions
 
 <details open>
-<summary><b>Exercise Overview</b></summary>
+<summary><b>1 Exercise</b></summary>
 
 ```
 01-architectural-decisions-hard-to-change
@@ -50,7 +53,7 @@ and documentation frameworks.
 > Quality analysis using dependency matrices, interface design, and architectural principles
 
 <details open>
-<summary><b>Exercise Overview (8 exercises)</b></summary>
+<summary><b>8 Exercises</b></summary>
 
 ```
 01-building-block-quality-analysis
@@ -91,7 +94,7 @@ and documentation frameworks.
 > Systematic architecture development from requirements
 
 <details open>
-<summary><b>Exercise Overview (6 exercises)</b></summary>
+<summary><b>6 Exercises</b></summary>
 
 ```
 01-disease-architecture-from-class-diagram
@@ -117,6 +120,9 @@ matemate-service-elicitation-results
 
 </details>
 
+> [!TIP]
+> Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
+
 </td>
 <td width="50%">
 
@@ -124,7 +130,7 @@ matemate-service-elicitation-results
 > Industry-standard documentation frameworks and patterns
 
 <details open>
-<summary><b>Exercise Overview (2 exercises)</b></summary>
+<summary><b>2 Exercises</b></summary>
 
 ```
 01-tools-corner
