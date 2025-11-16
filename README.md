@@ -1,7 +1,6 @@
 # Software Architecture Course Exercises
 
-Comprehensive software architecture exercises covering architectural principles, quality analysis, development methods,
-and documentation frameworks.
+This repository contains my exercise solutions, personal notes, and interpretations from Dr. Martin Hasitschka's Software Architecture course in my Master's program. I maintain this collection as a study guide and reference for architectural principles, quality analysis, development methods, and documentation frameworks.
 
 ---
 
@@ -25,7 +24,8 @@ and documentation frameworks.
 
 ## Course Structure
 
-**Course Format:** 4 evenings (2+4+4+4 hours) | **Total:** ~40 hours with homework
+> [!NOTE]
+> **Course Format:** 4 evenings (2+4+4+4 hours) | **Total:** ~40 hours with homework
 
 ### Evening 1: Importance of Architecture
 > Understanding why architecture matters and the cost of decisions
@@ -69,7 +69,8 @@ and documentation frameworks.
 
 </details>
 
-**Recommended:** Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
+> [!TIP]
+> Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
 
 ### Evening 4: Architecture Documentation
 > Industry-standard documentation frameworks and patterns
@@ -230,19 +231,3 @@ python3 qdrant_ingest.py  # Load results
 - [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
 - [Package Principles (Martin)](https://en.wikipedia.org/wiki/Package_principles)
 
----
-
-## Repository Statistics
-
-- 55 markdown documentation files
-- 48 PNG slide images
-- 15 PDF documents
-- 14 complete exercises (100% coverage)
-- Zero placeholders, duplicates, or technical debt
-
----
-
-## Contributing
-
-This repository is part of a software architecture course. Exercises are based on established architectural principles
-and industry best practices.
