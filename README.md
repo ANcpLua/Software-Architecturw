@@ -1,235 +1,142 @@
-# Software Architecture Course - Exercise Repository
-qwewqe
-**Foundation:** Empirically-validated software engineering principles (1968-2025)
-**Course Structure:** 4 evenings, 21 exercises
-**Learning Mode:** Remote-friendly with group and home exercises
+# Software Architecture Course Exercises
 
-## Quick Navigation
-
-| Evening | Focus | Exercises | Supporting Materials |
-|---------|-------|-----------|---------------------|
-| **[Evening 1](#evening-1-importance-of-architecture)** | Importance of Architecture | 2 exercises | Course introduction |
-| **[Evening 2](#evening-2-architectural-quality)** | Interface Design & Quality | 7 exercises | Case Study: EarlyBird |
-| **[Evening 3](#evening-3-architecture-development)** | Architecture Development | 5 exercises | Case Studies: Mars, EarlyBird, Dis*Ease |
-| **[Evening 4](#evening-4-architecture-documentation)** | Documentation & Synthesis | 2 exercises | Review all prior work |
-
-**Related Repositories (Archived):**
-- [Mars](https://github.com/ANcpLua/Mars) - Archived: Mars exercises now in `evening-2/` and `evening-3/`
-- [EarlyBird](https://github.com/ANcpLua/EarlyBird) - Archived: EarlyBird exercises now in `evening-2/` and `evening-3/`
-- [MateMate](https://github.com/ANcpLua/MateMate) - Archived: MateMate exercises now in `evening-3/`
-- [earlybird-sdd](https://github.com/ANcpLua/earlybird-sdd) - Hub repository with documentation
-- [EarlyBirdAI](https://github.com/ANcpLua/EarlyBirdAI) - AI components
-
-> **Note:** All exercises are now consolidated in this repository for easier navigation. Original repos remain for reference.
+Comprehensive software architecture exercises covering architectural principles, quality analysis, development methods, and documentation frameworks.
 
 ---
 
-## Evening 1: Importance of Architecture
+## Course Structure
 
-**PDF:** `1_The_Importance_of_Architecture_V702.pdf`
-**Theme:** Why architecture matters - decisions with long-term impact
+### Evening 1: Importance of Architecture
+Focus on understanding why architecture matters and the cost of architectural decisions.
 
-### Exercises
+- **01-architectural-decisions-hard-to-change** - Decision significance analysis, ADR templates, cost-of-change frameworks
 
-| ExID | Exercise | Type | Solution | Description |
-|------|----------|------|----------|-------------|
-| - | What Decisions Are Hard to Change? | Group | - | Identify architectural decisions, their influenced non-functional aspects (security, efficiency, changeability), and determine which "-ility" appears most frequently. |
-| - | Tools Corner | Optional | [optional/tools-corner](optional/tools-corner) | Present tools for developing/documenting architectures that you have practical experience with. |
+### Evening 2: Architectural Quality
+Deep dive into quality analysis using dependency matrices, interface design, and architectural principles.
 
----
+- **01-architecture-real-life-story** - Real-world case study of copy-paste architecture (SRP, CCP, DIP violations)
+- **01-building-block-quality-analysis** - Dependency matrix analysis and cohesion measurement
+- **02-climate-model-analysis** - Stability analysis with change frequency (SDP violations)
+- **02-isearchproduct-interface-specification** - O-Interface specification methodology
+- **03-isearchproduct-peer-review** - Interface quality checklist (11-question framework)
+- **03-mars-moons-application-core** - Application core implementation (Python)
+- **04-ilist-interface-design** - ISP analysis and covariance patterns
+- **06-heat-flow-analysis-tell-dont-ask** - Tell, Don't Ask principle demonstration
+- **09-bigger-application-core** - Evolution scenario analysis for EarlyBird system
 
-## Evening 2: Architectural Quality
+### Evening 3: Architecture Development
+Methods for systematic architecture development from requirements.
 
-**PDF:** `1_Architectural_Quality_V701.pdf`
-**Theme:** Cohesion, coupling, interface quality, peer review
+- **01-disease-requirements-class-diagram** - Hospital management system (26 classes → 6 subsystems)
+- **EarlyBirdML** - AI-driven architecture using embeddings (44 requirements → 11 components)
+- **MateMate02-service-based-architecture** - SE4 method application (chess application)
+- **matemate-service-elicitation-results** - Service elicitation phase results (10 services)
 
-### Exercises
+### Evening 4: Architecture Documentation
+Industry-standard documentation frameworks and patterns.
 
-| ExID | Exercise | Type | Solution | Description |
-|------|----------|------|----------|-------------|
-| **ArchitecturalQuality01** | Quality of Building Blocks | Group | [evening-2/00-quality-of-building-blocks](evening-2/00-quality-of-building-blocks) | Analyze internal quality (cohesion) of a building block using dependency matrix. |
-| **ArchitecturalQuality03** | An A-Interface of EarlyBird | Group | [evening-2/01-isearchproduct-specification](evening-2/01-isearchproduct-specification) | Specify `ISearchProduct` interface for EarlyBird's ProductManager component. |
-| **ArchitecturalQuality04** | ISearchProduct Specification | Group | [evening-2/02-interface-quality-review](evening-2/02-interface-quality-review) | Extend interface specification checklist and peer-review ArchitecturalQuality03. |
-| **ArchitecturalQuality05** | Specification of a 0-Interface | Group | [evening-2/03-ilist-interface-design](evening-2/03-ilist-interface-design) | Design and document generic `IList` interface. |
-| **ArchitecturalQuality07** | List Interface Specification | Group | [evening-2/03-ilist-interface-design](evening-2/03-ilist-interface-design) | Peer-review partner group's `IList` specification from ArchitecturalQuality05. |
-| **ArchitecturalQuality08** | Climate Model Analysis | Group | [evening-2/02-climate-model-analysis](evening-2/02-climate-model-analysis) | Analyze climate model subsystems dependencies and identify architectural weaknesses. |
-| **ArchitecturalQuality09** | Heat Flow Calculator | Self-Check | [self-check/09-heat-flow-calculator](self-check/09-heat-flow-calculator) | Identify coupling weaknesses and "Tell Don't Ask" violations. |
-| **ArchitecturalQuality10** | Charts/Products Architecture | Group | [evening-2/01-architecture-real-life-story](evening-2/01-architecture-real-life-story) | Analyze Charts/Products architecture evolution and identify violated principles. |
-
-**Case Study Required:** `2_Case Study Early Bird Requirements V150.pdf` (for ArchitecturalQuality03, ArchitecturalQuality04)
-
----
-
-## Evening 3: Architecture Development
-
-**PDF:** `1_Architecture_Development_V702.pdf`
-**Theme:** From requirements to architecture - service-based, domain-driven, AI-assisted
-
-### Exercises
-
-| ExID | Exercise | Type | Solution | Description |
-|------|----------|------|----------|-------------|
-| **MateMate02** | Service-Based Architecture | Group | [evening-3/MateMate02-service-based-architecture](evening-3/MateMate02-service-based-architecture) | For MateMate chess app: establish subsystems, determine blood types (A/T/0), create allowed-to-use specification. |
-| **Mars02** | Mars Moons Application Core | Home | [evening-3/03-mars-moons-application-core](evening-3/03-mars-moons-application-core) | Design 4-component architecture for Mars moons visibility calculator. |
-| **EarlyBird12** | A Bigger Application Core | Home | [evening-3/04-bigger-application-core](evening-3/04-bigger-application-core) | Design EarlyBird application core with change impact analysis. |
-| **Dis\*Ease01** | Hospital System Architecture | Group | [optional/requirements-class-diagram](optional/requirements-class-diagram) | Design DIS*EASE hospital system architecture from domain class diagram (4-6 building blocks). |
-
-**Case Studies Required:**
-- `3_Case_Study_Mars_V161.pdf` (for Mars02)
-- `2_Case Study Early Bird Requirements V150.pdf` (for EarlyBird12, ArchitectureDevelopment02)
+- **architectural-frameworks** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
 
 ---
 
-## Evening 4: Architecture Documentation
+## Key Concepts
 
-**PDF:** `1_Architecture_Documentation_V701.pdf`
-**Theme:** Presentation, discussion, synthesis
+**Architectural Principles:** SRP, OCP, LSP, ISP, DIP, CCP, CRP, SDP, SAP, ADP
 
-### Exercises
+**Quality Attributes:** Modifiability, testability, maintainability, scalability
 
-| ExID | Exercise | Type | Solution | Description |
-|------|----------|------|----------|-------------|
-| - | Presentation & Discussion | Group | - | Present and discuss architecture documentation from prior exercises (ArchitecturalQuality03-07, MateMate02, Mars02, EarlyBird12). |
-| - | Architectural Frameworks | Home | [evening-4/architectural-frameworks](evening-4/architectural-frameworks) | Design an architectural framework better than existing ones. Example: MateMate extended framework. |
-| **ArchitectureDevelopment02** | AI-Assisted Architecture | Home | [evening-4/ai-embedding-approach](evening-4/ai-embedding-approach) | Use vector embeddings to cluster EarlyBird requirements into architecture components. |
+**Design Patterns:** Application Core, Tell Don't Ask, Interface Segregation, Dependency Inversion
 
----
+**Documentation:** arc42 template, C4 Model, Architecture Decision Records (ADR)
 
-## Exercise Categories
-
-### By Type
-
-**Group Exercises (In-Class):** ArchitecturalQuality01, ArchitecturalQuality03, ArchitecturalQuality04, ArchitecturalQuality05, ArchitecturalQuality07, ArchitecturalQuality08, ArchitecturalQuality10, MateMate02, Dis*Ease01
-
-**Home Exercises (Asynchronous):** Mars02, EarlyBird12, ArchitectureDevelopment02, Architectural Frameworks
-
-**Self-Check (Individual):** ArchitecturalQuality09
-
-**Optional:** Tools Corner
-
-### By Skill Focus
-
-| Skill | Exercises |
-|-------|-----------|
-| **Interface Design** | ArchitecturalQuality03, ArchitecturalQuality04, ArchitecturalQuality05, ArchitecturalQuality07 |
-| **Architecture Analysis** | ArchitecturalQuality01, ArchitecturalQuality08, ArchitecturalQuality09, ArchitecturalQuality10 |
-| **Architecture Design** | MateMate02, Mars02, EarlyBird12, Dis*Ease01 |
-| **AI-Assisted Architecture** | ArchitectureDevelopment02 |
-| **Documentation & Tooling** | Architectural Frameworks, Tools Corner |
+**Development Methods:** SE4 (Service Elicitation → Subsystem Establishment → Explanation → Evaluation), Requirements-driven architecture, AI-assisted design
 
 ---
 
-## Repository Map
-
-### Exercise Locations
+## Repository Structure
 
 ```
 Software-Architecture/
-├── evening-1/
-│   └── (Exercises done in-class)
-│
-├── evening-2/
-│   ├── 00-quality-of-building-blocks (ArchitecturalQuality01)
-│   ├── 01-isearchproduct-specification (ArchitecturalQuality03)
-│   ├── 02-interface-quality-review (ArchitecturalQuality04)
-│   ├── 03-ilist-interface-design (ArchitecturalQuality05, ArchitecturalQuality07)
-│   ├── 01-architecture-real-life-story (ArchitecturalQuality10)
-│   └── 02-climate-model-analysis (ArchitecturalQuality08)
-│
-├── evening-3/
-│   ├── MateMate02-service-based-architecture (MateMate02)
-│   ├── matemate-service-elicitation-results
-│   ├── 03-mars-moons-application-core (Mars02)
-│   └── 04-bigger-application-core (EarlyBird12)
-│
-├── evening-4/
-│   ├── architectural-frameworks (MateMate extended framework example)
-│   └── ai-embedding-approach (ArchitectureDevelopment02)
-│
-├── self-check/
-│   └── 09-heat-flow-calculator (ArchitecturalQuality09)
-│
-└── optional/
-    ├── tools-corner
-    └── requirements-class-diagram (Dis*Ease01)
+├── Evening 1 - Importance of Architecture/
+│   └── 01-architectural-decisions-hard-to-change/
+├── Evening 2 - Architectural Quality/
+│   ├── 01-architecture-real-life-story/
+│   ├── 01-building-block-quality-analysis/
+│   ├── 02-climate-model-analysis/
+│   ├── 02-isearchproduct-interface-specification/
+│   ├── 03-isearchproduct-peer-review/
+│   ├── 03-mars-moons-application-core/
+│   ├── 04-ilist-interface-design/
+│   ├── 06-heat-flow-analysis-tell-dont-ask/
+│   └── 09-bigger-application-core/
+├── Evening 3 - Architecture Development/
+│   ├── 01-disease-requirements-class-diagram/
+│   ├── EarlyBirdML/
+│   ├── MateMate02-service-based-architecture/
+│   └── matemate-service-elicitation-results/
+└── Evening 4 - Architecture Documentation/
+    └── architectural-frameworks/
 ```
 
 ---
 
-## Learning Strategies
+## Learning Path
 
-### For Remote Learners
+**Foundations** (Evening 1)
+Start with understanding why architecture matters and the cost of decisions.
 
-1. **Follow evening sequence** - Each builds on prior knowledge
-2. **Do group exercises solo** - Present to yourself (Feynman technique)
-3. **Complete Mars02 before EarlyBird12** - Small application core principles apply to large systems
-4. **Document AI usage** - Note prompts and models when using AI assistants
+**Quality Analysis** (Evening 2)
+Learn to analyze existing architectures using principles and metrics.
 
-### For In-Person Students
+**Development** (Evening 3)
+Apply systematic methods to develop architectures from requirements.
 
-1. **Bring digital copies** - Keep exercise solutions accessible for presentations
-2. **Peer review seriously** - ArchitecturalQuality04 and ArchitecturalQuality07 are critical learning moments
-3. **Participate actively** - Be ready to present any home exercise
-
-### General Tips
-
-- **ArchitecturalQuality03 → ArchitecturalQuality04 → ArchitecturalQuality05 → ArchitecturalQuality07** - This is a mini-course on interface quality
-- **All exercises trace to principles** - Every decision has empirical evidence
+**Documentation** (Evening 4)
+Master professional documentation using arc42 and C4 Model.
 
 ---
 
-## Principles Reference
+## Exercise Standards
 
-All exercises apply empirically-validated software engineering principles:
-
-| Principle | Applied In |
-|-----------|-----------|
-| **SRP** - Single Responsibility | All design exercises |
-| **OCP** - Open-Closed | ArchitecturalQuality10, EarlyBird12 |
-| **DIP** - Dependency Inversion | ArchitecturalQuality10, EarlyBird12 |
-| **ISP** - Interface Segregation | ArchitecturalQuality08 |
-| **CCP** - Common Closure | ArchitecturalQuality08, ArchitecturalQuality10 |
-| **CRP** - Common Reuse | ArchitecturalQuality10 |
-| **SDP** - Stable Dependencies | ArchitecturalQuality08, ArchitecturalQuality10 |
-| **SAP** - Stable Abstractions | ArchitecturalQuality10 |
-| **ADP** - Acyclic Dependencies | Mars02 |
-| **Blood Type Separation (A/T/0)** | MateMate02, EarlyBird12 |
-| **Tell Don't Ask** | ArchitecturalQuality09 |
+Each exercise includes:
+- README with learning objectives and task description
+- Analysis or solution document with comprehensive content
+- Slides with visual diagrams and specifications
+- Cross-references to related exercises
 
 ---
 
-## Quality Standards
+## Technologies
 
-All documentation in this repository follows:
-
-1. **Empirical Evidence:** Every architectural decision cites research or case studies
-2. **Professional Diagrams:** GitHub-compatible Mermaid syntax
-3. **No Emojis:** Clean, professional markdown
-4. **Cognitive Load Optimization:** Information chunking, progressive disclosure
-5. **Traceability:** Requirements → Components → Principles → Evidence
+**Languages:** Python, C#, Java
+**Frameworks:** .NET, Spring Boot
+**Tools:** Mermaid (diagrams), PlantUML, Qdrant (vector database)
+**Documentation:** Markdown, arc42, C4 Model
 
 ---
 
-## Course Philosophy
+## Running Code Exercises
 
-> "Good engineers write code. Great engineers make good decisions."
->
-> — Raul Junco (@RaulJuncoV)
+### Mars Moons Application Core (Python)
+```bash
+cd "Evening 2 - Architectural Quality/03-mars-moons-application-core"
+python3 mars_moon_core.py
+python3 -m unittest -v
+```
 
-**Key Principles:**
-1. Build what you need, not what you imagine
-2. Logs, monitoring, and error handling aren't optional
-3. Test your code before your users do
-4. The right tool > the latest tool
+### EarlyBirdML (Python + Vector Database)
+```bash
+cd "Evening 3 - Architecture Development/EarlyBirdML"
+python3 main.py  # Run clustering experiment
+docker run -p 6333:6333 qdrant/qdrant  # Start vector database
+python3 load_qdrant.py  # Load results
+```
 
 ---
 
-**Course Completion:** All 21 exercises
-**Total Time Investment:** ~40 hours (4 evenings × 4 hours + ~24 hours homework)
-**Prerequisite Knowledge:** Software development experience, basic OOP
+## References
 
-**Course:** Software Architecture (Blended Learning)
-**ECTS:** 2-3 ECTS (50-75 hours total workload)
-**Format:** 4 evenings (2+4+4+4 hours each)
-
-**Maintained By:** Course instructors and AI teaching assistants
+- [arc42 Documentation Template](https://arc42.org/)
+- [C4 Model for Software Architecture](https://c4model.com/)
+- [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
+- [Package Principles (Martin)](https://en.wikipedia.org/wiki/Package_principles)
