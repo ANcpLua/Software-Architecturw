@@ -25,9 +25,8 @@ and documentation frameworks.
 
 ## Course Structure
 
-**Course Format:** 4 evenings (2+4+4+4 hours) | **Total:** ~40 hours with homework
-
----
+> [!NOTE]
+> **Course Format:** 4 evenings (2+4+4+4 hours) | **Total:** ~40 hours with homework
 
 ### Evening 1: Importance of Architecture
 > Understanding why architecture matters and the cost of decisions
@@ -71,7 +70,8 @@ and documentation frameworks.
 
 </details>
 
-**Prerequisite:** Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
+> [!TIP]
+> Complete **Mars02** before **EarlyBird12** - small application core principles apply to larger systems.
 
 ### Evening 4: Architecture Documentation
 > Industry-standard documentation frameworks and patterns
