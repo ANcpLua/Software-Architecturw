@@ -42,7 +42,7 @@ This exercise continues the MateMate architecture development using the **SE4 me
 ## Related Content
 
 - [MateMate Service Elicitation Results](../matemate-service-elicitation-results/) - Results and analysis
-- [Bigger Application Core](../04-bigger-application-core/) (EarlyBird12)
+- [EarlyBird Application Core](../04-earlybird-application-core/) (EarlyBird12)
 
 ## MateMate System
 

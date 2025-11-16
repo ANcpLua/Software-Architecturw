@@ -60,7 +60,7 @@ Decisions become difficult to reverse due to:
 
 ## Related Content
 
-- [Architectural Decisions slide](../slides/Architectural_Decisions_or_not?_p13.png) - Page 13 reference
+- [Architectural Decisions slide](../slides/architectural-decisions-analysis-slide-p13.png) - Page 13 reference
 - Evening 2: Architecture Quality - Building on these concepts
 - Evening 3: Architecture Development - Applying decision-making
 

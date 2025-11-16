@@ -69,9 +69,9 @@ The design document analyzes three realistic change scenarios:
 
 ## See Also
 
-- [Mars Moons Application Core](../03-mars-moons-application-core/) - Small application core example
-- [ISearchProduct Interface](../02-isearchproduct-interface-specification/) - O-Interface design
-- [Building Block Quality](../01-building-block-quality-analysis/) - Cohesion measurement
+- [Mars Application Core](../03-mars-application-core/) - Small application core example
+- [ISearchProduct Interface](../../Evening 2 - Architectural Quality/02-isearchproduct-interface-specification/) - O-Interface design
+- [Building Block Quality](../../Evening 2 - Architectural Quality/01-building-block-quality-analysis/) - Cohesion measurement
 
 ---
 

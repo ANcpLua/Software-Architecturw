@@ -4,9 +4,8 @@
 
 **Related Exercises:**
 
-- [Charts/Products Architecture Analysis](../docs/Charts_Products_Case_Study.md)
-- [Climate Model Analysis](../02-climate-model-analysis/climate-model-analysis.md)
-- [Case Study PDF](home-exercise-and-case-study.pdf)
+- [Charts/Products Architecture Analysis](../../Evening 2 - Architectural Quality/07-charts-products-architecture-story/architectural-principles-analysis.md)
+- [Climate Model Analysis](../../Evening 2 - Architectural Quality/08-climate-model-architecture-analysis/climate-model-analysis.md)
 
 ---
 

@@ -1,4 +1,4 @@
-# Evening 4: Architecture Documentation
+# Evening 4 - Architecture Documentation
 
 **Focus:** Architecture Frameworks (arc42 + C4 Model)
 **Type:** Documentation Examples & Exercises
@@ -15,7 +15,7 @@ Evening 4 demonstrates comprehensive architectural documentation using industry-
 
 ### 1. Architectural Frameworks (MateMate Example)
 
-**Location:** [architectural-frameworks/matemate/](architectural-frameworks/matemate/)
+**Location:** [02-custom-architecture-frameworks/matemate/](02-custom-architecture-frameworks/matemate/)
 
 **Description:** Complete architectural documentation example using MateMate (Desktop Chess Application) as the case study.
 
@@ -43,7 +43,7 @@ Complete documentation example.
 
 ### 2. Optional Home Exercise: Tools Corner
 
-**Location:** [Optional-Home-Exercise-Tools-Corner/](Optional-Home-Exercise-Tools-Corner/)
+**Location:** [01-tools-corner/](01-tools-corner/)
 
 **Description:** Kiro IDE Orchestrator architecture presentations
 
@@ -96,15 +96,15 @@ Document why decisions were made, not just what was decided
 
 ## Files
 
-- `architectural-frameworks/` - Complete MateMate documentation example
-- `Optional-Home-Exercise-Tools-Corner/` - Tools Corner presentations
+- `02-custom-architecture-frameworks/` - Complete MateMate documentation example
+- `01-tools-corner/` - Tools Corner presentations
 - `slides/` - Evening 4 slide deck and exercise slides
 
 ---
 
 ## See Also
 
-- [MateMate README](architectural-frameworks/matemate/README.md) - Framework overview
+- [MateMate README](02-custom-architecture-frameworks/matemate/README.md) - Framework overview
 - [arc42 Template](https://arc42.org/) - Official arc42 documentation
 - [C4 Model](https://c4model.com/) - Official C4 Model documentation
 

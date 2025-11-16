@@ -94,6 +94,6 @@ Use these questions when analyzing:
 
 ## See Also
 
-- [Charts/Products Analysis](../01-architecture-real-life-story/) - Another principle violation case study
+- [Charts/Products Analysis](../07-charts-products-architecture-story/) - Another principle violation case study
 - [Building Block Quality](../01-building-block-quality-analysis/) - Cohesion analysis methodology
 - [Heat Flow Analysis](../06-heat-flow-analysis-tell-dont-ask/) - Tell, Don't Ask principle

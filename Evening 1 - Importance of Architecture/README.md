@@ -66,6 +66,6 @@ This is a **group discussion exercise** - no coding, no written solution require
 
 ## Optional Exercise: Tools Corner
 
-See [optional/tools-corner](../optional/tools-corner) for details.
+See [tools-corner](../Evening 4 - Architecture Documentation/01-tools-corner) for details.
 
 **Task:** Present tools for developing/documenting architectures that you have practical experience with.

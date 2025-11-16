@@ -5,7 +5,7 @@
 **Related Exercises:**
 
 - [Charts/Products Architecture Analysis][exercise1]
-- [Mars Moons Application Core][exercise3]
+- [Mars Application Core][exercise3]
 - [Case Study PDF][case-study]
 
 ---
@@ -330,11 +330,11 @@ graph TB
 
 <!-- Reference Links -->
 
-[exercise1]: ../01-architecture-real-life-story/architectural-principles-analysis.md
+[exercise1]: ../07-charts-products-architecture-story/architectural-principles-analysis.md
 
-[exercise3]: ../03-Mars-moons-application-core/application-core-design.md
+[exercise3]: ../../Evening 3 - Architecture Development/03-mars-application-core/
 
-[case-study]: ../03-Mars-moons-application-core/home-exercise-and-case-study.pdf
+[case-study]: ../../Evening 3 - Architecture Development/03-mars-application-core/home-exercise-and-case-study.pdf
 
 <!-- Principle Links -->
 

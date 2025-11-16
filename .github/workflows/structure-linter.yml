@@ -1,4 +1,4 @@
-name: Repository Structure & Link Validator
+name: Repository Structure Linter
 
 on:
   push:

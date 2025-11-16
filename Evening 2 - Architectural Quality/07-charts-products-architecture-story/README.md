@@ -28,7 +28,6 @@ Analyze a real-world architecture evolution story where copy-paste architecture 
 ## Files
 
 - [architectural-principles-analysis.md](architectural-principles-analysis.md) - Complete analysis of violated principles
-- [class-group-exercise-architecture-real-life-story.pdf](class-group-exercise-architecture-real-life-story.pdf) - Exercise specification
 - `slides/` - Exercise slides showing the architecture evolution
 
 ---
@@ -64,5 +63,5 @@ This exercise tests knowledge of:
 
 ## See Also
 
-- [Climate Model Analysis](../02-climate-model-analysis/) - Another architectural quality exercise
+- [Climate Model Analysis](../08-climate-model-architecture-analysis/) - Another architectural quality exercise
 - [Building Block Quality](../01-building-block-quality-analysis/) - Quality assessment methodology
