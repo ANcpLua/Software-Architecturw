@@ -234,8 +234,8 @@ Console.WriteLine($"Total products: {allProducts.Count}");
 
 ## See Also
 
-- [Interface quality checklist](../02-interface-quality-review/interface-quality-checklist.md)
+- [Interface quality checklist](../03-isearchproduct-peer-review/interface-quality-checklist.md)
   – Use this checklist to evaluate interface quality
-- [Example peer review](../02-interface-quality-review/peer-review-isearchproduct.md)
+- [Example peer review](../03-isearchproduct-peer-review/peer-review-isearchproduct.md)
   – Sample ISearchProduct review (scored 41/100)
 - [exercise-slide-140.pdf](exercise-slide-140.pdf) - Exercise slide 140 (ISearchProduct specification)

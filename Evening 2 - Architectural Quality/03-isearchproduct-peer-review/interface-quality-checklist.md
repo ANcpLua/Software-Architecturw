@@ -101,5 +101,5 @@ for a complete review applying this checklist to a sample `ISearchProduct` inter
 
 - [Sample peer review](peer-review-isearchproduct.md)
   – Applying this checklist (scored 41/100)
-- [High-quality interface example](../01-isearchproduct-specification/isearchproduct-interface.md)
+- [High-quality interface example](../02-isearchproduct-interface-specification/isearchproduct-interface.md)
 - [exercise-slide-145.pdf](exercise-slide-145.pdf) - Exercise slide 145 (interface quality checklist)

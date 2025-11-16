@@ -204,6 +204,6 @@ With the recommended changes, the interface could reach a "Good" (≥ 70/100) qu
 ## See Also
 
 - [interface-quality-checklist.md](interface-quality-checklist.md) - The 11-question evaluation methodology
-- [High-quality interface example](../01-isearchproduct-specification/isearchproduct-interface.md)
+- [High-quality interface example](../02-isearchproduct-interface-specification/isearchproduct-interface.md)
   for comparison
 - [exercise-slide-145.pdf](exercise-slide-145.pdf) - Exercise slide 145 (interface quality review)
