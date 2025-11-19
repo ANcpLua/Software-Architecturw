@@ -84,7 +84,7 @@ The design document analyzes three realistic change scenarios:
 **Finished EarlyBird Projects:**
 
 - [EarlyBird - Application Core Architecture](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/04-application-core-architecture/application-core-design.md) - Complete implementation and design document
-- [EarlyBird SDD - Software Design Document](https://github.com/ANcpLua/earlybird-sdd) - Full software design documentation
+- [EarlyBird SDD - Application Core Document](https://github.com/ANcpLua/earlybird-sdd/blob/main/EarlyBird/EarlyBird_Application_Core.md) - Software design documentation for application core
 
 ---
 
