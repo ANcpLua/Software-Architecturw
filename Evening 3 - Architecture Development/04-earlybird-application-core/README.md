@@ -75,11 +75,16 @@ The design document analyzes three realistic change scenarios:
 
 ## See Also
 
+**Related Exercises:**
+
 - [Mars Application Core](../03-mars-application-core/) - Small application core example
-- [ISearchProduct Interface](../../Evening 2 - Architectural Quality/02-isearchproduct-interface-specification/) -
-  O-Interface design
-- [Building Block Quality](../../Evening 2 - Architectural Quality/01-building-block-quality-analysis/) - Cohesion
-  measurement
+- [ISearchProduct Interface](../../Evening%202%20-%20Architectural%20Quality/02-isearchproduct-interface-specification/) - O-Interface design
+- [Building Block Quality](../../Evening%202%20-%20Architectural%20Quality/01-building-block-quality-analysis/) - Cohesion measurement
+
+**Finished EarlyBird Projects:**
+
+- [EarlyBird - Application Core Architecture](https://github.com/ANcpLua/EarlyBird/blob/main/EarlyBird/04-application-core-architecture/application-core-design.md) - Complete implementation and design document
+- [EarlyBird SDD - Software Design Document](https://github.com/ANcpLua/earlybird-sdd) - Full software design documentation
 
 ---
 
