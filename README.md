@@ -33,7 +33,7 @@ This repository contains my exercise solutions, personal notes, and interpretati
 <details open>
 <summary><b>1 Exercise</b></summary>
 
-- **01-architectural-decisions-hard-to-change** - Decision significance analysis, ADR templates, cost-of-change frameworks
+- **[01-architectural-decisions-hard-to-change](Evening%201%20-%20Importance%20of%20Architecture/01-architectural-decisions-hard-to-change)** - Decision significance analysis, ADR templates, cost-of-change frameworks
 
 </details>
 
@@ -43,14 +43,14 @@ This repository contains my exercise solutions, personal notes, and interpretati
 <details open>
 <summary><b>8 Exercises</b></summary>
 
-- **01-building-block-quality-analysis** - Dependency matrix analysis and cohesion measurement
-- **02-isearchproduct-interface-specification** - O-Interface specification methodology
-- **03-isearchproduct-peer-review** - Interface quality checklist (11-question framework)
-- **04-ilist-interface-design** - Generic IList interface design
-- **05-ilist-peer-review** - Peer review of IList specification
-- **06-heat-flow-analysis-tell-dont-ask** - Tell, Don't Ask principle demonstration
-- **07-charts-products-architecture-story** - Real-world copy-paste architecture case study (SRP, CCP, DIP violations)
-- **08-climate-model-architecture-analysis** - Stability analysis with change frequency (SDP violations)
+- **[01-building-block-quality-analysis](Evening%202%20-%20Architectural%20Quality/01-building-block-quality-analysis)** - Dependency matrix analysis and cohesion measurement
+- **[02-isearchproduct-interface-specification](Evening%202%20-%20Architectural%20Quality/02-isearchproduct-interface-specification)** - O-Interface specification methodology
+- **[03-isearchproduct-peer-review](Evening%202%20-%20Architectural%20Quality/03-isearchproduct-peer-review)** - Interface quality checklist (11-question framework)
+- **[04-ilist-interface-design](Evening%202%20-%20Architectural%20Quality/04-ilist-interface-design)** - Generic IList interface design
+- **[05-ilist-peer-review](Evening%202%20-%20Architectural%20Quality/05-ilist-peer-review)** - Peer review of IList specification
+- **[06-heat-flow-analysis-tell-dont-ask](Evening%202%20-%20Architectural%20Quality/06-heat-flow-analysis-tell-dont-ask)** - Tell, Don't Ask principle demonstration
+- **[07-charts-products-architecture-story](Evening%202%20-%20Architectural%20Quality/07-charts-products-architecture-story)** - Real-world copy-paste architecture case study (SRP, CCP, DIP violations)
+- **[08-climate-model-architecture-analysis](Evening%202%20-%20Architectural%20Quality/08-climate-model-architecture-analysis)** - Stability analysis with change frequency (SDP violations)
 
 </details>
 
@@ -60,12 +60,12 @@ This repository contains my exercise solutions, personal notes, and interpretati
 <details open>
 <summary><b>6 Exercises</b></summary>
 
-- **01-disease-architecture-from-class-diagram** - Hospital management system (26 classes → 6 subsystems)
-- **02-ai-driven-requirement-clustering** - AI-driven architecture using embeddings (44 requirements → 11 components)
-- **03-mars-application-core** - Pure application core implementation (Python)
-- **04-earlybird-application-core** - Evolution scenario analysis for EarlyBird system
-- **05-matemate-service-based-architecture** - SE4 method application (chess application)
-- **matemate-service-elicitation-results** - Service elicitation phase results (10 services)
+- **[01-disease-architecture-from-class-diagram](Evening%203%20-%20Architecture%20Development/01-disease-architecture-from-class-diagram)** - Hospital management system (26 classes → 6 subsystems)
+- **[02-ai-driven-requirement-clustering](Evening%203%20-%20Architecture%20Development/02-ai-driven-requirement-clustering)** - AI-driven architecture using embeddings (44 requirements → 11 components)
+- **[03-mars-application-core](Evening%203%20-%20Architecture%20Development/03-mars-application-core)** - Pure application core implementation (Python)
+- **[04-earlybird-application-core](Evening%203%20-%20Architecture%20Development/04-earlybird-application-core)** - Evolution scenario analysis for EarlyBird system
+- **[05-matemate-service-based-architecture](Evening%203%20-%20Architecture%20Development/05-matemate-service-based-architecture)** - SE4 method application (chess application)
+- **[matemate-service-elicitation-results](Evening%203%20-%20Architecture%20Development/matemate-service-elicitation-results)** - Service elicitation phase results (10 services)
 
 </details>
 
@@ -78,8 +78,8 @@ This repository contains my exercise solutions, personal notes, and interpretati
 <details open>
 <summary><b>2 Exercises</b></summary>
 
-- **01-tools-corner** - Kiro IDE orchestrator (optional home exercise)
-- **02-custom-architecture-frameworks** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
+- **[01-tools-corner](Evening%204%20-%20Architecture%20Documentation/01-tools-corner)** - Kiro IDE orchestrator (optional home exercise)
+- **[02-custom-architecture-frameworks](Evening%204%20-%20Architecture%20Documentation/02-custom-architecture-frameworks)** - Complete MateMate example using arc42 (7 chapters) + C4 Model (C1, C2)
 
 </details>
 
