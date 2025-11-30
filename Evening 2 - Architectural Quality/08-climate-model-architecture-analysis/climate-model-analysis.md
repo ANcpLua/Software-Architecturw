@@ -149,7 +149,6 @@ graph TB
     end
 
     Legend["<b>📋 ARROW LEGEND</b><br/><br/>━━ Dark Blue solid<br/>→ Normal dependencies<br/><br/>╌╌ Orange dashed<br/>→ Violations (SDP)"]
-
     DE -->|uses| DE1
     APC -->|reads| APPG
     DYN -->|reads ⚠️| APPG
@@ -158,44 +157,40 @@ graph TB
     FCA -->|uses| STL
     FCA -->|uses| NNW
     CHK -->|validates ⚠️| FCA
-
     DYNNote["<b>⚠️ SDP VIOLATION</b><br/><br/>DYN (1x/year stable)<br/>depends on<br/>APPG (5x/year moderate)<br/><br/>Physics algorithms shouldn't<br/>depend on data format changes"]
     APPGNote["<b>⚠️ HIGH FAN-IN RISK</b><br/><br/>Used by APC, DYN, FCA<br/><br/><b>⚠️ ISP VIOLATION</b><br/><br/>Provides air pressure AND<br/>population data<br/>(FCA may not need population)"]
     CHKNote["<b>⚠️ SDP VIOLATION</b><br/><br/>CHK (5x/year moderate)<br/>depends on<br/>FCA (150x/year volatile)<br/><br/>Every FCA change risks<br/>breaking CHK"]
     FCANote["<b>⚠️ CCP VIOLATION</b><br/><br/>FCA changes 150x/year<br/>while dependencies change<br/>only 1-12x/year<br/><br/>Suggests mixed responsibilities<br/>needing component split"]
-
     DYN -.-> DYNNote
     APPG -.-> APPGNote
     CHK -.-> CHKNote
     FCA -.-> FCANote
-
-    style DE fill:#85BBF0,stroke:#1976d2,stroke-width:3px,color:#000
-    style DE1 fill:#85BBF0,stroke:#1976d2,stroke-width:3px,color:#000
-    style STL fill:#85BBF0,stroke:#1976d2,stroke-width:3px,color:#000
-    style DYN fill:#85BBF0,stroke:#1976d2,stroke-width:3px,color:#000
-    style APPG fill:#FFE082,stroke:#F57C00,stroke-width:3px,color:#000
-    style APC fill:#FFE082,stroke:#F57C00,stroke-width:3px,color:#000
-    style CHK fill:#FFE082,stroke:#F57C00,stroke-width:3px,color:#000
-    style NNW fill:#FFE082,stroke:#F57C00,stroke-width:3px,color:#000
-    style FCA fill:#FFCDD2,stroke:#C62828,stroke-width:3px,color:#000
-    style DYNNote fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#000
-    style APPGNote fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#000
-    style CHKNote fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#000
-    style FCANote fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#000
-    style Legend fill:#E8F5E9,stroke:#2e7d32,stroke-width:3px,color:#000
-
-    linkStyle 0 stroke:#0D47A1,stroke-width:4px
-    linkStyle 1 stroke:#0D47A1,stroke-width:4px
-    linkStyle 2 stroke:#0D47A1,stroke-width:4px
-    linkStyle 3 stroke:#0D47A1,stroke-width:4px
-    linkStyle 4 stroke:#0D47A1,stroke-width:4px
-    linkStyle 5 stroke:#0D47A1,stroke-width:4px
-    linkStyle 6 stroke:#0D47A1,stroke-width:4px
-    linkStyle 7 stroke:#0D47A1,stroke-width:4px
-    linkStyle 8 stroke:#FF8C00,stroke-width:4px,stroke-dasharray:5
-    linkStyle 9 stroke:#FF8C00,stroke-width:4px,stroke-dasharray:5
-    linkStyle 10 stroke:#FF8C00,stroke-width:4px,stroke-dasharray:5
-    linkStyle 11 stroke:#FF8C00,stroke-width:4px,stroke-dasharray:5
+    style DE fill: #85BBF0, stroke: #1976d2, stroke-width: 3px, color: #000
+    style DE1 fill: #85BBF0, stroke: #1976d2, stroke-width: 3px, color: #000
+    style STL fill: #85BBF0, stroke: #1976d2, stroke-width: 3px, color: #000
+    style DYN fill: #85BBF0, stroke: #1976d2, stroke-width: 3px, color: #000
+    style APPG fill: #FFE082, stroke: #F57C00, stroke-width: 3px, color: #000
+    style APC fill: #FFE082, stroke: #F57C00, stroke-width: 3px, color: #000
+    style CHK fill: #FFE082, stroke: #F57C00, stroke-width: 3px, color: #000
+    style NNW fill: #FFE082, stroke: #F57C00, stroke-width: 3px, color: #000
+    style FCA fill: #FFCDD2, stroke: #C62828, stroke-width: 3px, color: #000
+    style DYNNote fill: #FFF9C4, stroke: #F57F17, stroke-width: 3px, color: #000
+    style APPGNote fill: #FFF9C4, stroke: #F57F17, stroke-width: 3px, color: #000
+    style CHKNote fill: #FFF9C4, stroke: #F57F17, stroke-width: 3px, color: #000
+    style FCANote fill: #FFF9C4, stroke: #F57F17, stroke-width: 3px, color: #000
+    style Legend fill: #E8F5E9, stroke: #2e7d32, stroke-width: 3px, color: #000
+    linkStyle 0 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 1 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 2 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 3 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 4 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 5 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 6 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 7 stroke: #0D47A1, stroke-width: 4px
+    linkStyle 8 stroke: #FF8C00, stroke-width: 4px, stroke-dasharray: 5
+    linkStyle 9 stroke: #FF8C00, stroke-width: 4px, stroke-dasharray: 5
+    linkStyle 10 stroke: #FF8C00, stroke-width: 4px, stroke-dasharray: 5
+    linkStyle 11 stroke: #FF8C00, stroke-width: 4px, stroke-dasharray: 5
 ```
 
 ---
@@ -329,21 +324,13 @@ graph TB
 ---
 
 <!-- Reference Links -->
-
 [exercise1]: ../07-charts-products-architecture-story/architectural-principles-analysis.md
-
-[exercise3]: ../../Evening 3 - Architecture Development/03-mars-application-core/
-
-[case-study]: ../../Evening 3 - Architecture Development/03-mars-application-core/home-exercise-and-case-study.pdf
+[exercise3]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/
+[case-study]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/home-exercise-and-case-study.pdf
 
 <!-- Principle Links -->
-
 [sdp]: #1-sdp-stable-dependencies-principle-violations
-
 [ccp]: #2-ccp-common-closure-principle-issue
-
 [adp]: #1-sdp-stable-dependencies-principle-violations
-
 [isp]: #4-isp-interface-segregation-potential-violation
-
 [dip]: https://en.wikipedia.org/wiki/Dependency_inversion_principle

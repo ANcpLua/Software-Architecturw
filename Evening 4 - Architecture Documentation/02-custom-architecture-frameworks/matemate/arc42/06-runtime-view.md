@@ -267,15 +267,15 @@ MateMate is **single-threaded** with **event-driven** architecture.
 
 ```
 Main Thread (Game Loop):
-┌────────────────────────────────────┐
-│ 1. Poll K1 for input events        │ ← K1: InputAdapter
-│ 2. Process events via K3            │ ← K3: InteractionController
-│ 3. Update game state via K4, K5     │ ← K4, K5: Logic + State
-│ 4. Render frame via K2              │ ← K2: RenderingEngine
-│ 5. Sleep to maintain 60 FPS         │
-└────────────────────────────────────┘
-         │
-         └─ Loop forever
+┌─────────────────────────────────────────────────────────────────┐
+│  1. Poll K1 for input events       ← K1: InputAdapter          │
+│  2. Process events via K3          ← K3: InteractionController │
+│  3. Update game state via K4, K5   ← K4, K5: Logic + State     │
+│  4. Render frame via K2            ← K2: RenderingEngine       │
+│  5. Sleep to maintain 60 FPS                                   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              └─── Loop forever
 ```
 
 **No concurrency issues:**
@@ -339,13 +339,14 @@ interface Move {
 
 ```
 Total: 45ms (P50)
-├── Input capture: 2ms (4%)
-├── Square translation: <1ms (2%)
-├── Legal move calculation: 15ms (33%)  ← Bottleneck
-├── Highlight rendering: 8ms (18%)
-├── Move validation: 3ms (7%)
-├── Position update: 5ms (11%)
-└── Board rendering: 12ms (27%)
+│
+├── Input capture .............. 2ms  ( 4%)
+├── Square translation ......... <1ms ( 2%)
+├── Legal move calculation ..... 15ms (33%)  ◄── Bottleneck
+├── Highlight rendering ........ 8ms  (18%)
+├── Move validation ............ 3ms  ( 7%)
+├── Position update ............ 5ms  (11%)
+└── Board rendering ............ 12ms (27%)
 ```
 
 **Optimization Opportunities:**

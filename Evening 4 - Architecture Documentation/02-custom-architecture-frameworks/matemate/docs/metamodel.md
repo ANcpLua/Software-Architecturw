@@ -2,8 +2,25 @@
 
 ## Purpose
 
-This document explicitly defines all architectural concepts used in MateMate documentation, their relationships, and
-their semantics. This metamodel provides the vocabulary for understanding the architecture.
+This document explicitly defines all architectural concepts used in MateMate documentation, their relationships, and their semantics. This metamodel provides the vocabulary for understanding the architecture.
+
+## Table of Contents
+
+1. [Core Concepts](#core-concepts)
+   - [Subsystem](#1-subsystem)
+   - [Service](#2-service)
+   - [Blood Type](#3-blood-type)
+   - [Dependency](#4-dependency)
+   - [Allowed-to-Use Matrix](#5-allowed-to-use-matrix)
+   - [Change Impact](#6-change-impact)
+   - [Quality Attribute](#7-quality-attribute)
+   - [Architecture Decision Record](#8-architecture-decision-record-adr)
+2. [Relationships Between Concepts](#relationships-between-concepts)
+3. [Subsystem Decomposition Rules](#subsystem-decomposition-rules)
+4. [Service Allocation Rules](#service-allocation-rules)
+5. [Visual Semantic System](#visual-semantic-system)
+6. [Metamodel Validation](#metamodel-validation)
+7. [Terminology Glossary](#terminology-glossary)
 
 ---
 
@@ -15,21 +32,23 @@ their semantics. This metamodel provides the vocabulary for understanding the ar
 
 **Properties:**
 
-- **ID:** Unique identifier (e.g., K1, K2, K3, K4, K5)
-- **Name:** Human-readable label (e.g., InputAdapter, RenderingEngine)
-- **Blood Type:** Classification (T, A, or 0)
-- **LOC:** Lines of code
-- **Services:** Number of services provided
-- **Dependencies:** List of other subsystems this one depends on
+| Property         | Description                                      |
+|------------------|--------------------------------------------------|
+| **ID**           | Unique identifier (e.g., K1, K2, K3, K4, K5)     |
+| **Name**         | Human-readable label (e.g., InputAdapter)        |
+| **Blood Type**   | Classification (T, A, or 0)                      |
+| **LOC**          | Lines of code                                    |
+| **Services**     | Number of services provided                      |
+| **Dependencies** | List of other subsystems this one depends on     |
 
 **Example:**
 
 ```
 K4: AnalysisService
-├── Blood Type: A (Application)
-├── LOC: ~2,500
-├── Services: 6 (GetLegalMoves, IsMoveLegal, IsCheckmate, etc.)
-└── Dependencies: [K5]
+ ├── Blood Type: A (Application)
+ ├── LOC: ~2,500
+ ├── Services: 6 (GetLegalMoves, IsMoveLegal, IsCheckmate, etc.)
+ └── Dependencies: [K5]
 ```
 
 **Notation:**
@@ -48,19 +67,21 @@ graph LR
 
 **Properties:**
 
-- **ID:** Numeric identifier (1-20)
-- **Question:** Natural language query (e.g., "Whose turn is it to move?")
-- **Owner:** Subsystem that provides this service
-- **Parameters:** Inputs required
-- **Returns:** Output type
+| Property       | Description                                           |
+|----------------|-------------------------------------------------------|
+| **ID**         | Numeric identifier (1-20)                             |
+| **Question**   | Natural language query (e.g., "Whose turn is it?")    |
+| **Owner**      | Subsystem that provides this service                  |
+| **Parameters** | Inputs required                                       |
+| **Returns**    | Output type                                           |
 
 **Example:**
 
 ```
 Service #9: "Whose turn is it to move?"
-├── Owner: K5 (PositionStore)
-├── Parameters: None
-└── Returns: Color (WHITE or BLACK)
+ ├── Owner: K5 (PositionStore)
+ ├── Parameters: None
+ └── Returns: Color (WHITE or BLACK)
 ```
 
 **Design Rule:** Each service owned by **exactly one** subsystem (no shared ownership).
@@ -71,34 +92,40 @@ Service #9: "Whose turn is it to move?"
 
 **Definition:** Classification of subsystem by its primary change driver.
 
-**Types:**
+#### TYPE T (Technical)
 
-**TYPE T (Technical):**
+| Attribute              | Value                                           |
+|------------------------|-------------------------------------------------|
+| **Change Driver**      | Technology evolution                            |
+| **Examples**           | Operating system APIs, graphics libraries       |
+| **MateMate Instances** | K1 (InputAdapter), K2 (RenderingEngine)         |
+| **Color**              | Blue                                            |
 
-- **Change Driver:** Technology evolution
-- **Examples:** Operating system APIs, graphics libraries, input devices
-- **MateMate Instances:** K1 (InputAdapter), K2 (RenderingEngine)
-- **Color:** 🟦 Blue
+#### TYPE A (Application)
 
-**TYPE A (Application):**
+| Attribute              | Value                                           |
+|------------------------|-------------------------------------------------|
+| **Change Driver**      | Business rules / domain logic                   |
+| **Examples**           | Game flow, chess rules, validation logic        |
+| **MateMate Instances** | K3 (InteractionController), K4 (AnalysisService)|
+| **Color**              | Purple                                          |
 
-- **Change Driver:** Business rules / domain logic
-- **Examples:** Game flow, chess rules, validation logic
-- **MateMate Instances:** K3 (InteractionController), K4 (AnalysisService)
-- **Color:** 🟪 Purple
+#### TYPE 0 (Core)
 
-**TYPE 0 (Core):**
+| Attribute              | Value                                           |
+|------------------------|-------------------------------------------------|
+| **Change Driver**      | Universal concepts (rarely change)              |
+| **Examples**           | Fundamental data structures                     |
+| **MateMate Instances** | K5 (PositionStore)                              |
+| **Color**              | Orange                                          |
 
-- **Change Driver:** Universal concepts (rarely change)
-- **Examples:** Fundamental data structures, mathematical constants
-- **MateMate Instances:** K5 (PositionStore)
-- **Color:** 🟧 Orange
+#### Dependency Rules
 
-**Dependency Rules:**
-
-- **Rule 1:** TYPE T MUST NOT depend on TYPE A or TYPE 0
-- **Rule 2:** TYPE A MAY depend on TYPE T and TYPE 0
-- **Rule 3:** TYPE 0 MUST NOT depend on anything
+| Rule   | Description                                    |
+|--------|------------------------------------------------|
+| Rule 1 | TYPE T MUST NOT depend on TYPE A or TYPE 0     |
+| Rule 2 | TYPE A MAY depend on TYPE T and TYPE 0         |
+| Rule 3 | TYPE 0 MUST NOT depend on anything             |
 
 **Why These Rules?**
 
@@ -112,9 +139,7 @@ Service #9: "Whose turn is it to move?"
 
 **Definition:** A subsystem requires functionality from another subsystem.
 
-**Types:**
-
-**Compile-Time Dependency (Solid Arrow):**
+#### Compile-Time Dependency (Solid Arrow)
 
 ```csharp
 // K3 depends on K4 (compile-time)
@@ -124,10 +149,12 @@ public class InteractionController
 }
 ```
 
-- **Visual:** Solid arrow (→)
-- **Binding:** Compile-time (explicit import/using)
+| Attribute   | Value                          |
+|-------------|--------------------------------|
+| **Visual**  | Solid arrow (->)               |
+| **Binding** | Compile-time (explicit import) |
 
-**Runtime Dependency (Dashed Arrow):**
+#### Runtime Dependency (Dashed Arrow)
 
 ```csharp
 // K1 sends events to K3 (runtime)
@@ -137,13 +164,17 @@ public class InputAdapter
 }
 ```
 
-- **Visual:** Dashed arrow (⇢)
-- **Binding:** Runtime (events, callbacks, pub/sub)
+| Attribute   | Value                           |
+|-------------|---------------------------------|
+| **Visual**  | Dashed arrow (-->)              |
+| **Binding** | Runtime (events, callbacks)     |
 
-**Forbidden Dependency (Red Arrow):**
+#### Forbidden Dependency (Red Arrow)
 
-- **Visual:** Red arrow with ❌
-- **Meaning:** Dependency violates Allowed-to-Use Matrix
+| Attribute   | Value                                |
+|-------------|--------------------------------------|
+| **Visual**  | Red arrow with X                     |
+| **Meaning** | Dependency violates Allowed-to-Use Matrix |
 
 ---
 
@@ -154,19 +185,22 @@ public class InputAdapter
 **Format:** Rows = dependents, Columns = dependencies
 
 **Example:**
-| | K1 | K2 | K3 | K4 | K5 |
-|-----|----|----|----|----|-----|
-| **K1** | — | ✗ | ✗ | ✗ | ✗ |
-| **K2** | ✗ | — | ✗ | ✗ | ✗ |
-| **K3** | ✓ | ✓ | — | ✓ | ✗ |
-| **K4** | ✗ | ✗ | ✗ | — | ✓ |
-| **K5** | ✗ | ✗ | ✗ | ✗ | — |
 
-**Interpretation:**
+|        | K1 | K2 | K3 | K4 | K5 |
+|--------|----|----|----|----|-----|
+| **K1** | -  | X  | X  | X  | X   |
+| **K2** | X  | -  | X  | X  | X   |
+| **K3** | V  | V  | -  | V  | X   |
+| **K4** | X  | X  | X  | -  | V   |
+| **K5** | X  | X  | X  | X  | -   |
 
-- ✓ = Dependency allowed
-- ✗ = Dependency forbidden
-- — = Self-reference (N/A)
+**Legend:**
+
+| Symbol | Meaning              |
+|--------|----------------------|
+| V      | Dependency allowed   |
+| X      | Dependency forbidden |
+| -      | Self-reference (N/A) |
 
 **Verification:** Can be automated (static analysis of imports).
 
@@ -176,17 +210,20 @@ public class InputAdapter
 
 **Definition:** Measure of how many subsystems are affected when a specific change scenario occurs.
 
-**Notation:**
+**Impact Levels:**
 
-- 🟩 **Green (✗):** No impact - Subsystem untouched
-- 🟨 **Yellow (✓):** Medium impact - Minor changes needed
-- 🟥 **Red (✓✓):** High impact - Component requires rework
+| Level  | Symbol | Description                    |
+|--------|--------|--------------------------------|
+| None   | Green  | No impact - Subsystem untouched |
+| Medium | Yellow | Minor changes needed           |
+| High   | Red    | Component requires rework      |
 
-**Example Scenario:**
-| Scenario: Renderer swap | K1 | K2 | K3 | K4 | K5 |
-|-------------------------|----|----|----|----|-----|
-| Impact | 🟩 | 🟥 | 🟨 | 🟩 | 🟩 |
-| Effort | 0h | 60h | 20h | 0h | 0h |
+**Example Scenario: Renderer Swap**
+
+| Subsystem | K1    | K2   | K3     | K4    | K5    |
+|-----------|-------|------|--------|-------|-------|
+| Impact    | None  | High | Medium | None  | None  |
+| Effort    | 0h    | 60h  | 20h    | 0h    | 0h    |
 
 ---
 
@@ -196,11 +233,13 @@ public class InputAdapter
 
 **ISO 25010 Categories:**
 
-- **Maintainability:** How easy to modify
-- **Correctness:** How accurate
-- **Performance:** How fast/efficient
-- **Usability:** How easy to use
-- **Reliability:** How stable
+| Attribute           | Description        |
+|---------------------|--------------------|
+| **Maintainability** | How easy to modify |
+| **Correctness**     | How accurate       |
+| **Performance**     | How fast/efficient |
+| **Usability**       | How easy to use    |
+| **Reliability**     | How stable         |
 
 **MateMate Focus:** Maintainability, Correctness, Performance (see Quality Tree in arc42 Ch10)
 
@@ -226,10 +265,12 @@ What problem are we solving?
 What did we decide?
 
 ### Consequences
+
 #### Positive
-- ✅ Benefit 1
+- Benefit 1
+
 #### Negative
-- ❌ Trade-off 1
+- Trade-off 1
 
 ### Alternatives Considered
 1. Alternative A - Why rejected
@@ -261,68 +302,42 @@ graph TB
     S4 --> Svc2[Service #2]
     S4 --> Svc4[Service #4]
 
-    S3 -.depends on.-> S1
-    S3 -.depends on.-> S2
-    S3 -.depends on.-> S4
-    S4 -.depends on.-> S5
+    S3 -. depends on .-> S1
+    S3 -. depends on .-> S2
+    S3 -. depends on .-> S4
+    S4 -. depends on .-> S5
 
-    Matrix[Allowed-to-Use Matrix] -.governs.-> S3
-    Matrix -.governs.-> S4
+    Matrix[Allowed-to-Use Matrix] -. governs .-> S3
+    Matrix -. governs .-> S4
 
-    ADR1[ADR-001: Blood Types] -.justifies.-> BT_T1
-    ADR1 -.justifies.-> BT_A1
-    ADR1 -.justifies.-> BT_0
+    ADR1[ADR-001: Blood Types] -. justifies .-> BT_T1
+    ADR1 -. justifies .-> BT_A1
+    ADR1 -. justifies .-> BT_0
 
-    Quality[Quality Requirements] -.measures.-> System
+    Quality[Quality Requirements] -. measures .-> System
 ```
 
 ---
 
 ## Subsystem Decomposition Rules
 
-**Rule 1: Single Responsibility**
-
-- Each subsystem has **one clear job** (expressible in one sentence)
-- Example: K1 = "Capture user input events"
-
-**Rule 2: High Cohesion**
-
-- All services within a subsystem relate to the same concern
-- Example: K4 services all relate to chess rules
-
-**Rule 3: Low Coupling**
-
-- Minimize dependencies between subsystems
-- MateMate: Avg 3.6 dependencies per subsystem (industry avg: 8-12)
-
-**Rule 4: Acyclic Dependencies**
-
-- No circular dependencies allowed
-- Enforced by Allowed-to-Use Matrix
-
-**Rule 5: Blood Type Consistency**
-
-- All services in a subsystem share the same blood type
-- Example: K4 services all driven by chess rules (TYPE A)
+| Rule | Name                  | Description                                          | Example                              |
+|------|-----------------------|------------------------------------------------------|--------------------------------------|
+| 1    | Single Responsibility | Each subsystem has one clear job                     | K1 = "Capture user input events"     |
+| 2    | High Cohesion         | All services relate to the same concern              | K4 services all relate to chess rules|
+| 3    | Low Coupling          | Minimize dependencies between subsystems             | MateMate: Avg 3.6 (industry: 8-12)   |
+| 4    | Acyclic Dependencies  | No circular dependencies allowed                     | Enforced by Allowed-to-Use Matrix    |
+| 5    | Blood Type Consistency| All services share the same blood type               | K4 services all TYPE A               |
 
 ---
 
 ## Service Allocation Rules
 
-**Rule 1: Exclusive Ownership**
-
-- Each service owned by exactly **one** subsystem
-- No shared ownership
-
-**Rule 2: Knowledge Encapsulation**
-
-- Service only accessible via owner subsystem
-- Example: "Whose turn is it?" → Must ask K5 (PositionStore)
-
-**Rule 3: Interface Segregation**
-
-- Subsystems expose only services needed by dependents
-- Example: K3 doesn't expose internal coordinate conversion (private method)
+| Rule | Name                   | Description                                   | Example                                |
+|------|------------------------|-----------------------------------------------|----------------------------------------|
+| 1    | Exclusive Ownership    | Each service owned by exactly one subsystem   | No shared ownership                    |
+| 2    | Knowledge Encapsulation| Service only accessible via owner subsystem   | "Whose turn?" -> Must ask K5           |
+| 3    | Interface Segregation  | Expose only services needed by dependents     | K3 hides internal coordinate conversion|
 
 ---
 
@@ -330,22 +345,22 @@ graph TB
 
 ### Color Encoding
 
-| Color     | Meaning              | Example |
-|-----------|----------------------|---------|
-| 🟦 Blue   | TYPE T (Technical)   | K1, K2  |
-| 🟪 Purple | TYPE A (Application) | K3, K4  |
-| 🟧 Orange | TYPE 0 (Core)        | K5      |
+| Color  | Meaning              | Example |
+|--------|----------------------|---------|
+| Blue   | TYPE T (Technical)   | K1, K2  |
+| Purple | TYPE A (Application) | K3, K4  |
+| Orange | TYPE 0 (Core)        | K5      |
 
-**Note:** All colored diagram elements use black text for optimal readability on light backgrounds.
+> **Note:** All colored diagram elements use black text for optimal readability.
 
 ### Frame Style Encoding
 
-| Style        | Meaning                                | Example          |
-|--------------|----------------------------------------|------------------|
-| Solid (──)   | Stable subsystem (< 5 changes/year)    | K1, K4, K5       |
-| Dashed (- -) | Evolving subsystem (5-20 changes/year) | K2, K3           |
-| Dotted (···) | Volatile subsystem (> 20 changes/year) | None in MateMate |
-| Thick (4px)  | Security/architectural boundary        | System boundary  |
+| Style   | Meaning                             | Example          |
+|---------|-------------------------------------|------------------|
+| Solid   | Stable subsystem (< 5 changes/year) | K1, K4, K5       |
+| Dashed  | Evolving subsystem (5-20/year)      | K2, K3           |
+| Dotted  | Volatile subsystem (> 20/year)      | None in MateMate |
+| Thick   | Security/architectural boundary     | System boundary  |
 
 ### Size Encoding
 
@@ -355,21 +370,20 @@ graph TB
 | Height    | Dependencies  | Proportional to fan-in + fan-out |
 
 **Example:**
-
-- K4 (2,500 LOC, 5 dependencies) → Large width, medium height
-- K1 (500 LOC, 2 dependencies) → Small width, small height
+- K4 (2,500 LOC, 5 dependencies) -> Large width, medium height
+- K1 (500 LOC, 2 dependencies) -> Small width, small height
 
 ### Arrow Encoding
 
-| Style        | Meaning                      | Example                   |
-|--------------|------------------------------|---------------------------|
-| Solid (→)    | Compile-time dependency      | K3 → K4 (explicit import) |
-| Dashed (⇢)   | Runtime dependency           | K1 ⇢ K3 (event)           |
-| 🟩 Green     | Allowed dependency           | K3 → K4 (passes matrix)   |
-| 🟥 Red       | Forbidden dependency         | K1 → K4 (violates matrix) |
-| Thick (3px)  | High coupling (> 10 calls)   | K3 → K4 (12 calls)        |
-| Medium (2px) | Medium coupling (3-10 calls) | K3 → K2 (5 calls)         |
-| Thin (1px)   | Low coupling (1-2 calls)     | K3 → K1 (2 calls)         |
+| Style  | Meaning                      | Example                   |
+|--------|------------------------------|---------------------------|
+| Solid  | Compile-time dependency      | K3 -> K4 (explicit import)|
+| Dashed | Runtime dependency           | K1 --> K3 (event)         |
+| Green  | Allowed dependency           | K3 -> K4 (passes matrix)  |
+| Red    | Forbidden dependency         | K1 -> K4 (violates matrix)|
+| Thick  | High coupling (> 10 calls)   | K3 -> K4 (12 calls)       |
+| Medium | Medium coupling (3-10 calls) | K3 -> K2 (5 calls)        |
+| Thin   | Low coupling (1-2 calls)     | K3 -> K1 (2 calls)        |
 
 ---
 
@@ -377,12 +391,14 @@ graph TB
 
 **How to verify architecture adheres to metamodel:**
 
-1. **Subsystem Count:** 3-7 subsystems ✅ (MateMate: 5)
-2. **Blood Type Distribution:** Mix of T/A/0 ✅ (2×T, 2×A, 1×0)
-3. **Service Ownership:** Each service owned by exactly one ✅ (20 services, no conflicts)
-4. **Dependency Rules:** Blood type rules enforced ✅ (0 violations)
-5. **Allowed-to-Use Matrix:** All actual dependencies allowed ✅ (100% compliance)
-6. **Visual Semantics:** Color/frame/size have meaning ✅ (documented in this metamodel)
+| Check                    | Rule                            | MateMate Status         |
+|--------------------------|---------------------------------|-------------------------|
+| Subsystem Count          | 3-7 subsystems                  | 5 - PASS                |
+| Blood Type Distribution  | Mix of T/A/0                    | 2xT, 2xA, 1x0 - PASS    |
+| Service Ownership        | Each service owned by one       | 20 services - PASS      |
+| Dependency Rules         | Blood type rules enforced       | 0 violations - PASS     |
+| Allowed-to-Use Matrix    | All dependencies allowed        | 100% compliance - PASS  |
+| Visual Semantics         | Color/frame/size have meaning   | Documented - PASS       |
 
 ---
 
@@ -392,43 +408,43 @@ graph TB
 graph LR
     K4["K4: AnalysisService<br/>[TYPE A]<br/>~2,500 LOC<br/>5 dependencies"]:::typeA_stable
     K5[("K5: PositionStore<br/>[TYPE 0]<br/>~600 LOC<br/>0 dependencies")]:::type0_stable
-
-    K4 -->|"8 calls<br/>✅ Allowed"| K5
-
+    K4 -->|"8 calls<br/>Allowed"| K5
     classDef typeA_stable fill:#D9B3FF,stroke:#6A3FB2,stroke-width:2px,color:#000
     classDef type0_stable fill:#FFD699,stroke:#CC8800,stroke-width:2px,color:#000
 ```
 
 **Interpretation:**
 
-- **K4 color (purple):** TYPE A = Application subsystem (change driver: chess rules)
-- **K4 frame (solid):** Stable subsystem (< 5 changes/year)
-- **K4 size (large):** 2,500 LOC (largest subsystem)
-- **K4 dependencies (5):** Depends on K5 only (shown), + 4 implied
-- **Arrow (solid):** Compile-time dependency (K4 imports K5 interface)
-- **Arrow thickness (medium):** 8 method calls (medium coupling)
-- **Arrow color (implicit green):** Dependency allowed by Allowed-to-Use Matrix
-- **K5 color (orange):** TYPE 0 = Core subsystem (universal concepts)
-- **K5 shape (cylinder):** Data store
-- **K5 dependencies (0):** No dependencies (pure core)
+| Element                | Meaning                                        |
+|------------------------|------------------------------------------------|
+| K4 color (purple)      | TYPE A = Application subsystem                 |
+| K4 frame (solid)       | Stable subsystem (< 5 changes/year)            |
+| K4 size (large)        | 2,500 LOC (largest subsystem)                  |
+| K4 dependencies (5)    | Depends on K5 only (shown), + 4 implied        |
+| Arrow (solid)          | Compile-time dependency                        |
+| Arrow thickness        | 8 method calls (medium coupling)               |
+| Arrow color (green)    | Dependency allowed by matrix                   |
+| K5 color (orange)      | TYPE 0 = Core subsystem                        |
+| K5 shape (cylinder)    | Data store                                     |
+| K5 dependencies (0)    | No dependencies (pure core)                    |
 
 ---
 
 ## Terminology Glossary
 
-| Term                  | Definition                            | Example                                     |
-|-----------------------|---------------------------------------|---------------------------------------------|
-| **Subsystem**         | Deployable unit with clear boundaries | K1, K2, K3, K4, K5                          |
-| **Service**           | Capability provided by subsystem      | "Whose turn is it?"                         |
-| **Blood Type**        | Change driver classification          | T, A, 0                                     |
-| **Dependency**        | Subsystem requires another            | K3 → K4                                     |
-| **Allowed**           | Dependency permitted by matrix        | K3 → K4 ✅                                   |
-| **Forbidden**         | Dependency violates matrix            | K1 → K4 ❌                                   |
-| **Coupling**          | Strength of dependency                | Low (1-2 calls), Medium (3-10), High (> 10) |
-| **Cohesion**          | Relatedness of subsystem services     | High (all relate to same concern)           |
-| **Change Impact**     | Subsystems affected by scenario       | Renderer swap: K2 (high), K3 (medium)       |
-| **Quality Attribute** | Non-functional requirement            | Maintainability, Correctness, Performance   |
-| **ADR**               | Architecture decision record          | ADR-001, ADR-002, etc.                      |
+| Term              | Definition                            | Example                               |
+|-------------------|---------------------------------------|---------------------------------------|
+| Subsystem         | Deployable unit with clear boundaries | K1, K2, K3, K4, K5                    |
+| Service           | Capability provided by subsystem      | "Whose turn is it?"                   |
+| Blood Type        | Change driver classification          | T, A, 0                               |
+| Dependency        | Subsystem requires another            | K3 -> K4                              |
+| Allowed           | Dependency permitted by matrix        | K3 -> K4                              |
+| Forbidden         | Dependency violates matrix            | K1 -> K4                              |
+| Coupling          | Strength of dependency                | Low (1-2), Medium (3-10), High (>10)  |
+| Cohesion          | Relatedness of subsystem services     | High = all relate to same concern     |
+| Change Impact     | Subsystems affected by scenario       | Renderer swap: K2 high, K3 medium     |
+| Quality Attribute | Non-functional requirement            | Maintainability, Correctness          |
+| ADR               | Architecture decision record          | ADR-001, ADR-002                      |
 
 ---
 
@@ -457,6 +473,8 @@ This metamodel defines **11 core concepts:**
 
 **Usage:**
 
-- When documenting: Use these concepts consistently
-- When reviewing: Check adherence to metamodel rules
-- When teaching: Start with metamodel to establish vocabulary
+| Context       | Action                              |
+|---------------|-------------------------------------|
+| Documenting   | Use these concepts consistently     |
+| Reviewing     | Check adherence to metamodel rules  |
+| Teaching      | Start with metamodel for vocabulary |

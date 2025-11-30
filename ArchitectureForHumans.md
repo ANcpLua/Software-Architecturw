@@ -1,204 +1,231 @@
-# SOFTWARE ARCHITECTURE STRATEGIES
+# Software Architecture Strategies
 
-## CORE ARCHITECTURE COMPETENCIES
-
-A software architect must master four key areas:
-
-1. **The Importance of Architecture** - Understanding what architecture is and why it matters
-2. **Architectural Quality** - Recognizing good architecture
-3. **Architecture Development** - Methods to create good architectures
-4. **Architecture Documentation** - Effectively communicating architecture decisions
-
-**Core Definition:**
-Architecture = the technical decisions that are hard to change
-
-*"Big design up front is dumb.
-No design up front is even dumber."*
-— Dave Thomas
+A comprehensive guide to software architecture principles, development methods, and documentation frameworks.
 
 ---
 
-## SOFTWARE BLOOD TYPES - FUNDAMENTAL SEPARATION
+## Table of Contents
 
-The most critical architectural principle:
-separate application logic from technology concerns.
+- [Core Architecture Competencies](#core-architecture-competencies)
+- [Software Blood Types](#software-blood-types---fundamental-separation)
+- [Architectural Quality Principles](#architectural-quality-principles)
+- [Interface Design Principles](#interface-design-principles)
+- [Architecture Development Methods](#architecture-development-methods)
+- [Architecture Documentation](#architecture-documentation-approaches)
+- [Architecture Evaluation](#architecture-evaluation-methods)
+- [Case Studies](#case-studies-with-architectural-lessons)
+- [Practical Recommendations](#practical-recommendations-for-architects)
 
-### TYPE A (APPLICATION/BUSINESS)
+---
 
-Implements **functional requirements** from the business domain.
+## Core Architecture Competencies
 
-**Constraints:**
+A software architect must master four key areas:
 
-- Should NOT "know" about: OS, web frameworks, databases, UI technologies
+| Competency | Description |
+|------------|-------------|
+| **Importance** | Understanding what architecture is and why it matters |
+| **Quality** | Recognizing good architecture |
+| **Development** | Methods to create good architectures |
+| **Documentation** | Effectively communicating architecture decisions |
+
+> [!IMPORTANT]
+> **Core Definition:** Architecture = the technical decisions that are hard to change
+
+*"Big design up front is dumb. No design up front is even dumber."* — Dave Thomas
+
+---
+
+## Software Blood Types - Fundamental Separation
+
+The most critical architectural principle: **separate application logic from technology concerns.**
+
+<table>
+<tr>
+<th>TYPE A (Application)</th>
+<th>TYPE T (Technology)</th>
+<th>TYPE 0 (Universal)</th>
+</tr>
+<tr>
+<td>
+
+**Implements:** Functional requirements
+
+**Constraints:** Should NOT know about OS, web frameworks, databases, UI
 
 **Examples:**
-
 - Order validation
 - Price calculation
 - Business rules
 
-**Diagram Color:** Purple
+**Color:** Purple
 
-### TYPE T (TECHNOLOGY/INFRASTRUCTURE)
+</td>
+<td>
 
-Implements **non-functional requirements**.
+**Implements:** Non-functional requirements
 
-**Handles:**
-
-- Databases
-- Web servers
-- Message queues
-- OS interaction
+**Handles:** Databases, web servers, message queues, OS interaction
 
 **Examples:**
-
 - HTTP handlers
 - Database adapters
 - Logging infrastructure
 
-**Diagram Color:** Blue
+**Color:** Blue
 
-### TYPE 0 (UNIVERSAL/ETERNAL)
+</td>
+<td>
 
-"Eternal truths of computer science"
+**Definition:** "Eternal truths of computer science"
 
 **Examples:**
-
 - String manipulation
 - Math libraries
 - Differential equation solvers
 
 **Change Rate:** Minimal
 
-**Diagram Color:** Orange
+**Color:** Orange
 
-> [!IMPORTANT]
-> **CRITICAL RULE:**
-> Building blocks must be A OR T, never both!
+</td>
+</tr>
+</table>
 
-**Application Core Pattern:**
+> [!CAUTION]
+> **Critical Rule:** Building blocks must be A OR T, never both!
 
-- Core = A-software only (grows with functional scope)
-- Ring = T-software around core (size stays constant)
-- Foundation of Clean Architecture and Domain-Driven Design
+### Application Core Pattern
 
-**Microservices Principle:**
-Microservices are A-services, not T-services.
-"Built around business capabilities" (Martin Fowler)
+| Layer | Content | Behavior |
+|-------|---------|----------|
+| **Core** | A-software only | Grows with functional scope |
+| **Ring** | T-software around core | Size stays constant |
+
+This is the foundation of Clean Architecture and Domain-Driven Design.
+
+> [!NOTE]
+> **Microservices Principle:** Microservices are A-services, not T-services. "Built around business capabilities" — Martin Fowler
 
 ---
 
-## ARCHITECTURAL QUALITY PRINCIPLES
+## Architectural Quality Principles
 
-### 1. COHESION PRINCIPLES
+<details open>
+<summary><b>1. Cohesion Principles</b></summary>
 
-**Single Responsibility Principle (SRP)**
+### Single Responsibility Principle (SRP)
 
-- Each building block does ONE job only
-- Can describe in simple sentence without "and" or "or"
-- "Responsible to one and only one actor" — Robert C. Martin
-- **Test:** If you can't describe it simply, split it
+| Aspect | Description |
+|--------|-------------|
+| **Rule** | Each building block does ONE job only |
+| **Test** | Can describe in simple sentence without "and" or "or" |
+| **Quote** | "Responsible to one and only one actor" — Robert C. Martin |
 
-**Separation of Concerns (SOC)**
+### Separation of Concerns (SOC)
 
-Each building block has one concern.
+Each building block has one concern. Applies to:
 
-**Applies to:**
+<table>
+<tr>
+<td>Components</td>
+<td>If-statements</td>
+<td>Branches</td>
+</tr>
+<tr>
+<td>Databases</td>
+<td>Sprints</td>
+<td>Prompts</td>
+</tr>
+</table>
 
-- Components
-- If-statements
-- Branches
-- Databases
-- Sprints
-- Prompts
-
-**Don't Repeat Yourself (DRY)**
+### Don't Repeat Yourself (DRY)
 
 - Each job implemented only once
 - "Designs without duplication tend to be easy to change" — Kent Beck
 
-**Cohesion Applied Everywhere:**
+### Cohesion Applied Everywhere
 
-- **Code:** Extract till you drop - small functions with one purpose
-- **Git Branches:** Use Gitflow - one feature per branch
-- **Databases:** Normalize - eliminate redundancy
-- **Sprints:** One sprint goal, coherent work
-- **Prompts:** Chain prompting - one task per prompt
+| Domain | Application |
+|--------|-------------|
+| **Code** | Extract till you drop - small functions with one purpose |
+| **Git Branches** | Use Gitflow - one feature per branch |
+| **Databases** | Normalize - eliminate redundancy |
+| **Sprints** | One sprint goal, coherent work |
+| **Prompts** | Chain prompting - one task per prompt |
 
----
+</details>
 
-### 2. COUPLING PRINCIPLES
+<details open>
+<summary><b>2. Coupling Principles</b></summary>
 
-**Low Coupling Goal**
+### Low Coupling Goal
 
-- "Check and minimize dependencies. Each avoided dependency is a victory" — Siedersleben
-- "Coupling is what kills all software" — Ian Cooper
-- "The bulk of software design is managing dependencies" — Kent Beck
+| Source | Quote |
+|--------|-------|
+| Siedersleben | "Check and minimize dependencies. Each avoided dependency is a victory" |
+| Ian Cooper | "Coupling is what kills all software" |
+| Kent Beck | "The bulk of software design is managing dependencies" |
 
-**Ripple Effect Management:**
+### Ripple Effect Management
 
 - Changes propagate along dependencies ("Lawineneffekt")
 - Use dependency firewalls to block propagation
 - Perform impact analysis before changes
 
-**Good Architecture = Weakly Coupled + Strongly Cohesive**
+> [!TIP]
+> **Good Architecture = Weakly Coupled + Strongly Cohesive**
+> - Many local dependencies (within components)
+> - Few non-local dependencies (between components)
 
-- Many local dependencies (within components)
-- Few non-local dependencies (between components)
+</details>
 
----
-
-### 3. ACYCLIC DEPENDENCIES PRINCIPLE (ADP)
+<details open>
+<summary><b>3. Acyclic Dependencies Principle (ADP)</b></summary>
 
 > [!WARNING]
 > No cycles allowed in architecture!
 
 Cycles mean components must be:
 
-- Understood together
-- Changed together
-- Tested together
-- Deployed together
+| Constraint | Impact |
+|------------|--------|
+| Understood together | Increased cognitive load |
+| Changed together | No independent evolution |
+| Tested together | Complex test setup |
+| Deployed together | Monolithic deployment |
 
-**Detection:**
-Use dependency analysis tools to find and break cycles
+**Detection:** Use dependency analysis tools to find and break cycles
 
----
+</details>
 
-### 4. COMMON CLOSURE PRINCIPLE (CCP)
+<details open>
+<summary><b>4. Common Closure Principle (CCP)</b></summary>
 
-**Definition:**
-"Things that change together should be in the same module"
+| Aspect | Description |
+|--------|-------------|
+| **Definition** | "Things that change together should be in the same module" |
+| **Original** | "A change that affects a package affects all the classes in that package" — Robert C. Martin |
+| **Extended** | Typical change request should affect FEW building blocks, not many |
+| **Key Insight** | Put code with same change rate in same building block |
 
-**Original:**
-"A change that affects a package affects all the classes in that package" — Robert C. Martin
+</details>
 
-**Extended:**
-Typical change request should affect FEW building blocks,
-not many
+<details open>
+<summary><b>5. Common Reuse Principle (CRP)</b></summary>
 
-**Key Insight:**
-Put code with same change rate in same building block
+| Aspect | Description |
+|--------|-------------|
+| **Principle** | Put frequently reused-together items in one building block |
+| **Benefit** | Splitting reduces impact analysis scope |
+| **Example** | Don't bundle rarely-used utilities with frequently-used core logic |
 
----
+</details>
 
-### 5. COMMON REUSE PRINCIPLE (CRP)
+<details open>
+<summary><b>6. Tell Don't Ask (TDA)</b></summary>
 
-**Principle:**
-Put frequently reused-together items in one building block
-
-**Benefit:**
-Splitting reduces impact analysis scope
-
-**Example:**
-Don't bundle rarely-used utilities with frequently-used core logic
-
----
-
-### 6. TELL DON'T ASK (TDA)
-
-**Core OOP Principle:**
-Move behavior close to data
+**Core OOP Principle:** Move behavior close to data
 
 **Bad (Ask):**
 
@@ -214,55 +241,64 @@ if temperature > threshold:
 sensor.regulate(threshold, regulator)
 ```
 
-**Result:**
-Data doesn't travel through system.
-Compute at source.
+**Result:** Data doesn't travel through system. Compute at source.
+
+</details>
 
 ---
 
-## INTERFACE DESIGN PRINCIPLES
+## Interface Design Principles
 
 ### Decoupling Through Interfaces
 
-**Greatest Invention in Computer Science:**
-
-- Split into: interface (what others need) + implementation (hidden)
-- Information hiding
-- Enables independent evolution
+> [!NOTE]
+> **Greatest Invention in Computer Science:**
+> - Split into: interface (what others need) + implementation (hidden)
+> - Information hiding
+> - Enables independent evolution
 
 **Change Management Value:**
 
-- New consumer: no provider change needed
-- New provider: no consumer change needed
-- Firewalls against change propagation
+| Scenario | Impact |
+|----------|--------|
+| New consumer | No provider change needed |
+| New provider | No consumer change needed |
+| Result | Firewalls against change propagation |
 
 ### Interface Quality Criteria
 
-**Not Underspecified:**
+<table>
+<tr>
+<th>Not Underspecified</th>
+<th>Not Overspecified (Minimal)</th>
+</tr>
+<tr>
+<td>
 
-Specify everything needed for cooperation.
-
-**Includes:**
-
+Specify everything needed for cooperation:
 - Syntax
 - Semantics
 - Error handling
 - Performance
 
-**Not Overspecified (Minimal):**
+</td>
+<td>
 
 - Need-to-know principle only
 - Allow maximum freedom to evolve
 - Can be under- AND over-specified simultaneously!
 
-**Most Important:**
-"Easy to use correctly, hard to use incorrectly" — Scott Meyers
+</td>
+</tr>
+</table>
+
+> [!IMPORTANT]
+> "Easy to use correctly, hard to use incorrectly" — Scott Meyers
 
 ### Interface Changes
 
 > [!CAUTION]
-> **AVOID INTERFACE CHANGES!**
->
+> **Avoid Interface Changes!**
 > - Trigger big ripple effects
 > - Backward compatibility is "guiding principle" (Kent Beck)
 > - No changes to existing promises, only additions
@@ -272,60 +308,46 @@ Specify everything needed for cooperation.
 
 **Prefer several small interfaces over one big interface**
 
-**Advantages:**
-
-1. Independent deployment, smaller deployments
-2. Independent access rights per interface
-3. Better testability
+| Advantage | Description |
+|-----------|-------------|
+| 1. Deployment | Independent deployment, smaller deployments |
+| 2. Access Rights | Independent access rights per interface |
+| 3. Testability | Better testability |
 
 **Applications:**
-
 - Separate admin from operation interfaces
 - Separate test-only interfaces
 - Limited Access Principle (LAP): Each client accesses only needed services
 
 ### Interface Blood Types
 
-**A-Interface (Good):**
-
-- Uses domain language (promoteToVIP, blacklist)
-- Uses business concepts
-- Technology-free
-
-**T-Interface (Bad for A-components):**
-
-- Technology-specific (writeToDB2, saveToRedis)
-- Couples A to T
-
-**0-Interface (Universal):**
-
-- Technology-free abstractions (persist, save)
-- Safe for A-components to depend on
+| Type | Description | Examples |
+|------|-------------|----------|
+| **A-Interface** (Good) | Uses domain language, business concepts, technology-free | promoteToVIP, blacklist |
+| **T-Interface** (Bad for A) | Technology-specific, couples A to T | writeToDB2, saveToRedis |
+| **0-Interface** (Universal) | Technology-free abstractions, safe for A-components | persist, save |
 
 > [!NOTE]
-> **Rule:**
-> A-components depend on A-interfaces and 0-interfaces,
-> NOT T-interfaces
+> **Rule:** A-components depend on A-interfaces and 0-interfaces, NOT T-interfaces
 
-**Dependency Inversion:**
-Introduce abstractions to reverse dependencies on concrete implementations
+**Dependency Inversion:** Introduce abstractions to reverse dependencies on concrete implementations
 
 ---
 
-## ARCHITECTURE DEVELOPMENT METHODS
+## Architecture Development Methods
 
-### 1. USE CASE DRIVEN DEVELOPMENT
+<details open>
+<summary><b>1. Use Case Driven Development</b></summary>
 
-**Primary Use Cases:**
-Services to external actors (e.g., Transfer Funds)
-
-**Secondary Use Cases:**
-Services between building blocks (e.g., Identify Card)
+| Use Case Type | Description | Example |
+|---------------|-------------|---------|
+| **Primary** | Services to external actors | Transfer Funds |
+| **Secondary** | Services between building blocks | Identify Card |
 
 **Service Elicitation from Requirements:**
 
 ```text
-Requirement: "Order OK if ≤100 items and no alcohol for minors"
+Requirement: "Order OK if <=100 items and no alcohol for minors"
 
 Secondary Services:
   - CheckOrder(Order)
@@ -333,729 +355,463 @@ Secondary Services:
   - IsAdult(Customer)
 ```
 
-**Packaging Goal:**
-Minimize arrows between packages (arrows need interfaces)
+**Packaging Goal:** Minimize arrows between packages (arrows need interfaces)
 
----
+</details>
 
-### 2. DOMAIN DRIVEN DESIGN (DDD)
+<details open>
+<summary><b>2. Domain Driven Design (DDD)</b></summary>
 
 **Three Core Principles:**
 
-1. Focus on the core domain
-2. Collaborate with domain practitioners
-3. Speak ubiquitous language within bounded context
+| # | Principle |
+|---|-----------|
+| 1 | Focus on the core domain |
+| 2 | Collaborate with domain practitioners |
+| 3 | Speak ubiquitous language within bounded context |
 
-**Bounded Contexts:**
-Linguistically defined boundaries
+**Bounded Contexts:** Linguistically defined boundaries
 
-**Example:**
-"Customer" means different things in Marketing vs. Delivery contexts
+> [!TIP]
+> **Example:** "Customer" means different things in Marketing vs. Delivery contexts
 
 **Finding Aggregates via:**
-
 - Existence dependence/compositions
 - Global search patterns
 - Transactional business rules
 - Navigable relationships
 
-**Aggregate Canvas:**
-Document A-components with:
-name,
-description,
-lifecycle,
-business rules,
-services,
-events
+**Aggregate Canvas:** Document A-components with name, description, lifecycle, business rules, services, events
 
----
+</details>
 
-### 3. CRUD MATRIX APPROACH
+<details open>
+<summary><b>3. CRUD Matrix Approach</b></summary>
 
 **Steps:**
 
-1. Create matrix: services (rows) × classes (columns)
-2. Mark CRUD operations (Create, Read, Update, Delete)
-3. Exchange rows/columns to move filled cells near diagonal
-4. Define components as diagonal squares
-5. Maximize letters inside squares (cohesion), minimize outside (coupling)
+| Step | Action |
+|------|--------|
+| 1 | Create matrix: services (rows) x classes (columns) |
+| 2 | Mark CRUD operations (Create, Read, Update, Delete) |
+| 3 | Exchange rows/columns to move filled cells near diagonal |
+| 4 | Define components as diagonal squares |
+| 5 | Maximize letters inside squares (cohesion), minimize outside (coupling) |
 
-**Quality Metric:**
-Cohesion / Coupling ratio
+**Quality Metric:** Cohesion / Coupling ratio
 
-**Example:**
-12 intra-component cells / 3 inter-component cells = 4.0 (good)
+**Example:** 12 intra-component cells / 3 inter-component cells = 4.0 (good)
 
----
+</details>
 
-### 4. EVOLUTIONARY COUPLING REFACTORING
+<details open>
+<summary><b>4. Evolutionary Coupling Refactoring</b></summary>
 
-**Measure:**
-Which components changed together in past?
-
-**Example:**
-Components "ord" and "gos" changed together 96% of time
+| Aspect | Description |
+|--------|-------------|
+| **Measure** | Which components changed together in past? |
+| **Example** | Components "ord" and "gos" changed together 96% of time |
 
 **Refactoring Strategies:**
-
 - Split building blocks with different change rates
 - Merge blocks with strong evolutionary coupling
 - Requires good change management system
 
----
+</details>
 
-### 5. AI/EMBEDDING APPROACH
+<details open>
+<summary><b>5. AI/Embedding Approach</b></summary>
 
 **Modern Method:**
 
-1. Feed functional requirement embeddings into vector database
-2. Cluster requirements automatically
-3. Each cluster → one component
-4. LLM generates cluster names
+| Step | Action |
+|------|--------|
+| 1 | Feed functional requirement embeddings into vector database |
+| 2 | Cluster requirements automatically |
+| 3 | Each cluster = one component |
+| 4 | LLM generates cluster names |
+
+</details>
 
 ---
 
-## ARCHITECTURE DOCUMENTATION APPROACHES
+## Architecture Documentation Approaches
 
 ### The Four Standard Views
 
-1. **Meta View:** Types of parts (class diagram, metamodel)
-2. **Structure View:** Parts and connections (component/class diagram)
-3. **Behavior View:** Runtime cooperation (sequence/activity diagram)
-4. **Network View:** Distribution on network (deployment diagram)
+| View | Purpose | Diagram Type |
+|------|---------|--------------|
+| **Meta View** | Types of parts | Class diagram, metamodel |
+| **Structure View** | Parts and connections | Component/class diagram |
+| **Behavior View** | Runtime cooperation | Sequence/activity diagram |
+| **Network View** | Distribution on network | Deployment diagram |
 
-**Metamodel Importance:**
-"Common vocabulary to describe software architecture" — Simon Brown
+> [!IMPORTANT]
+> **Metamodel Importance:** "Common vocabulary to describe software architecture" — Simon Brown
 
-**Define consistently:**
+Define consistently: Component, System, Layer, Module
 
-- Component
-- System
-- Layer
-- Module
-
----
-
-### C4 MODEL (Simon Brown)
+### C4 Model (Simon Brown)
 
 **Four Levels of Abstraction:**
 
-1. **Context Diagram:** System and its interfaces to external actors
-2. **Container Diagram:** Big T-building blocks (web server, database, message queue)
-3. **Component Diagram:** Big A-building blocks (business components)
-4. **Class Diagram:** Detailed design within components
+| Level | Name | Content |
+|-------|------|---------|
+| 1 | **Context** | System and its interfaces to external actors |
+| 2 | **Container** | Big T-building blocks (web server, database, message queue) |
+| 3 | **Component** | Big A-building blocks (business components) |
+| 4 | **Class** | Detailed design within components |
 
-**Plus:**
-Communication diagrams for dynamic behavior
+**Plus:** Communication diagrams for dynamic behavior
 
-**Principle:**
-Each level zooms into the previous level
+**Principle:** Each level zooms into the previous level
 
----
-
-### arc42 FRAMEWORK
+### arc42 Framework
 
 Free template at http://www.arc42.org/
 
-**12 Essential Sections:**
+<details>
+<summary><b>12 Essential Sections</b></summary>
 
-1. **Functional Requirements** - Use cases
-2. **Constraints** - Technical, organizational, legal limitations
-3. **Business Context** - External interfaces and partners
-4. **Solution Strategy** - Key decisions and patterns
-5. **Building Block View** - Blackbox/Whitebox decomposition
-6. **Runtime View** - Cooperation scenarios
-7. **Deployment View** - Infrastructure mapping
-8. **Cross-Cutting Concepts** - Recurring patterns (logging, security, error handling)
-9. **Architecture Decisions** - ADRs (Architecture Decision Records)
-10. **Quality Scenarios** - Test cases including non-functional requirements
-11. **Risks** - Technical debt, known issues
-12. **Glossary** - Ubiquitous language
+| # | Section | Content |
+|---|---------|---------|
+| 1 | **Functional Requirements** | Use cases |
+| 2 | **Constraints** | Technical, organizational, legal limitations |
+| 3 | **Business Context** | External interfaces and partners |
+| 4 | **Solution Strategy** | Key decisions and patterns |
+| 5 | **Building Block View** | Blackbox/Whitebox decomposition |
+| 6 | **Runtime View** | Cooperation scenarios |
+| 7 | **Deployment View** | Infrastructure mapping |
+| 8 | **Cross-Cutting Concepts** | Recurring patterns (logging, security, error handling) |
+| 9 | **Architecture Decisions** | ADRs (Architecture Decision Records) |
+| 10 | **Quality Scenarios** | Test cases including non-functional requirements |
+| 11 | **Risks** | Technical debt, known issues |
+| 12 | **Glossary** | Ubiquitous language |
+
+</details>
 
 **Architecture Decision Records (ADR) Format:**
-
 - Context and problem statement
 - Options considered with pros/cons
 - Decision made
 - Rationale and consequences
 
----
-
 ### Documentation Best Practices (Simon Brown)
 
-- ✅ Consistent notation and positioning
-- ✅ Similar abstraction levels within diagram
-- ✅ Explain all notation used
-- ✅ Use color/shape to complement, not replace labels
-- ✅ Favor unidirectional lines with annotations
-- ✅ Narrative complements diagram, doesn't just explain it
-- ✅ Use icons to supplement text
-- ✅ Documentation constantly evolves (not write-once)
+| Practice | Description |
+|----------|-------------|
+| Consistent notation | Same symbols mean same things |
+| Similar abstraction levels | Within each diagram |
+| Explain all notation | Legend for readers |
+| Color/shape complement | Don't replace labels |
+| Unidirectional lines | With annotations |
+| Narrative complements diagram | Doesn't just explain it |
+| Icons supplement text | Visual recognition |
+| Documentation evolves | Not write-once |
 
 ---
 
-## ARCHITECTURE EVALUATION METHODS
+## Architecture Evaluation Methods
 
-### Initial Reviews
+### Initial Reviews (Design Time)
 
-**1. Checklist-Based Review**
+| Method | Description | Requires |
+|--------|-------------|----------|
+| **Checklist-Based** | Verify architectural quality principles (SRP, ADP, CCP, blood types) | Component diagram with A/T information |
+| **Scenario-Based** | Walk through use cases step-by-step, verify components can perform use case | Use case diagram/list + component diagram |
+| **CRUD Analysis** | Evaluate ratio: CRUD-cells within components / CRUD-cells between | CRUD matrix |
+| **Reusability Test** | "What can be sold separately?" | Component boundaries |
+| **ATAM** | Architecture Tradeoff Analysis Method - evaluate quality attribute tradeoffs | Quality scenarios + stakeholders |
+| **Risk Assessment** | Identify and prioritize architectural risks and technical debt | Architecture documentation |
 
-- Verify architectural quality principles (SRP, ADP, CCP, blood types)
-- Requires: component diagram with A/T information
+### Continuous Reviews (Runtime)
 
-**2. Scenario-Based Review**
+| Method | Description | Requires |
+|--------|-------------|----------|
+| **Compliance Checking** | Automated scripts find allowed-to-use violations | Documented allowed-to-use specification |
+| **Metrics Monitoring** | Track coupling/cohesion metrics, dependency depth, cyclomatic complexity | Static analysis tools |
+| **Fitness Functions** | Automated tests verifying architectural characteristics continuously | CI/CD pipeline integration |
 
-- Walk through use cases step-by-step
-- Verify components can perform use case across interfaces
-- Requires: use case diagram/list + component diagram
-
-**3. CRUD Analysis**
-
-- Evaluate ratio: CRUD-cells within components / CRUD-cells between
-- Higher ratio = better quality
-
-**4. Reusability Test**
-
-- "What can be sold separately?"
-- Example: Chess engine reusable for Go? Puzzle solver?
-
-### Later Reviews - Compliance Checking
-
-**Automated Violation Detection:**
-
-- Script finds allowed-to-use violations
-- Resolution: move logic between components
-- Requires: documented allowed-to-use specification
+> [!TIP]
+> **Resolution for violations:** Move logic between components, introduce interfaces, or update allowed-to-use specification
 
 ---
 
-## COMMUNICATION STYLES
+## Communication Styles
 
 **Key Decisions for Interfaces:**
 
-1. **Wait or continue?** → Synchronous / Asynchronous
-2. **Session bundling?** → Stateful / Stateless
-3. **Transaction support?** → Transactional / Not transactional
-4. **Work per call?** → Fine-grained / Coarse-grained
-5. **Location?** → Local / Network
+| Decision | Options |
+|----------|---------|
+| Wait or continue? | Synchronous / Asynchronous |
+| Session bundling? | Stateful / Stateless |
+| Transaction support? | Transactional / Not transactional |
+| Work per call? | Fine-grained / Coarse-grained |
+| Location? | Local / Network |
 
 **Coupling Impact:**
 
-- More coupled: synchronous, stateful, transactional, fine-grained, local
-- Less coupled: asynchronous, stateless, not transactional, coarse-grained, network
+| More Coupled | Less Coupled |
+|--------------|--------------|
+| Synchronous | Asynchronous |
+| Stateful | Stateless |
+| Transactional | Not transactional |
+| Fine-grained | Coarse-grained |
+| Local | Network |
 
-**Performance Tip:**
-Use coarse-grained interfaces for network calls
+> [!TIP]
+> **Performance Tip:** Use coarse-grained interfaces for network calls
 
 ---
 
-## ALLOWED-TO-USE SPECIFICATION
+## Allowed-to-Use Specification
 
-**Definition:**
-Information about allowed/forbidden dependencies between components
+**Definition:** Information about allowed/forbidden dependencies between components
 
 **Enforcement:**
 
-- Ex ante: Permission requests before coding
-- Ex post: Source code scanning tools
+| Type | Description |
+|------|-------------|
+| **Ex ante** | Permission requests before coding |
+| **Ex post** | Source code scanning tools |
 
-**Common Patterns:**
+### Common Patterns
 
-**Layered Architecture:**
+| Pattern            | Rule                                    | Example                           |
+|--------------------|-----------------------------------------|-----------------------------------|
+| **Layered**        | Block n cannot use lower-numbered blocks| Book(1), Librarian(2), BookShelf(3)|
+| **Strictly Layered**| Block n only uses n-1                  | Each layer talks only to adjacent |
 
-- Building block n cannot use lower-numbered blocks
-- Example: Book(1), Librarian(2), BookShelf(3)
+### Benefits
 
-**Strictly Layered:**
-
-- Building block n only uses n-1
-
-**Benefits:**
-
-- Better testability (fewer stubs/drivers needed)
-- Controlled dependency management
-- Easier change impact analysis
+| Benefit                     | Description                           |
+|-----------------------------|---------------------------------------|
+| Better testability          | Fewer stubs/drivers needed            |
+| Controlled dependencies     | Clear dependency management           |
+| Easier impact analysis      | Predictable change propagation        |
 
 ---
 
-## KEY ANTI-PATTERNS TO AVOID
+## Key Anti-Patterns to Avoid
 
 > [!WARNING]
 > Violating these principles leads to architectural erosion and technical debt.
 
-1. **Mixing A and T:** A-component knowing about databases, web frameworks
-2. **A-person receiving T-messages:** Error codes instead of user-friendly messages
-3. **CRUD language in A-software:** "Create Employee" instead of "Hire Employee"
-4. **Cyclic dependencies:** Components tightly bound together
-5. **Conway's Law inversion:** Let orgchart determine architecture (should be opposite!)
-6. **Underspecified interfaces:** Missing necessary cooperation information
-7. **Overspecified interfaces:** Too much detail, prevents evolution
+| Anti-Pattern | Description |
+|--------------|-------------|
+| **Mixing A and T** | A-component knowing about databases, web frameworks |
+| **A-person receiving T-messages** | Error codes instead of user-friendly messages |
+| **CRUD language in A-software** | "Create Employee" instead of "Hire Employee" |
+| **Cyclic dependencies** | Components tightly bound together |
+| **Conway's Law inversion** | Let orgchart determine architecture |
+| **Underspecified interfaces** | Missing necessary cooperation information |
+| **Overspecified interfaces** | Too much detail, prevents evolution |
 
 ---
 
-## ADDITIONAL CRITICAL PRINCIPLES
+## Additional Critical Principles
 
-### Stable Dependencies Principle (SDP)
-
-Better to depend on low-change-rate building blocks than high-change-rate ones.
-
-**Requires:**
-Requirements stability classification
-
-### Stable Abstractions Principle (SAP)
-
-Abstract building blocks should have lower change rates than concrete ones.
-
-**Example:**
-"Person" changes less than "Patient"
-
-### Separate Normal from Exception Processing
-
-Don't mix normal behavior and exception handling in same code paths.
-
-**Use cases:**
-Include (normal) vs. Extend (exceptional)
-
-### Balance Principles
-
-- **Interface-Implementation Imbalance:** Interface much smaller/simpler than implementation
-- **Building Block Balance:** Avoid one big block + many small blocks
-
-### Ubiquitous Language
-
-Naming in A-architecture uses EXACTLY the terminology of the requirements.
-
-**Foundation:**
-Domain-Driven Design
-
-### Environmental Impact
-
-Good software architectures need less energy.
-
-**Research:**
-Bjorna Kalaja, 2024
+| Principle | Description | Example/Note |
+|-----------|-------------|--------------|
+| **Stable Dependencies (SDP)** | Depend on low-change-rate blocks over high-change-rate | Requires stability classification |
+| **Stable Abstractions (SAP)** | Abstract blocks should change less than concrete ones | "Person" changes less than "Patient" |
+| **Separate Normal/Exception** | Don't mix normal behavior and exception handling | Include (normal) vs. Extend (exceptional) |
+| **Interface-Implementation Imbalance** | Interface much smaller/simpler than implementation | Hide complexity behind simple API |
+| **Building Block Balance** | Avoid one big block + many small blocks | Aim for similar-sized components |
+| **Ubiquitous Language** | A-architecture uses requirement terminology exactly | Foundation of DDD |
+| **Environmental Impact** | Good architectures need less energy | Bjorna Kalaja, 2024 |
 
 ---
 
-## COMMAND QUERY SEPARATION PATTERNS
+## Command Query Separation Patterns
 
 ### CQS (Command Query Separation) - Method Level
 
 Each method either:
 
-- Reads attributes and returns value, OR
-- Changes state and returns nothing
+| Type | Behavior |
+|------|----------|
+| **Query** | Reads attributes and returns value |
+| **Command** | Changes state and returns nothing |
 
-**Never both!**
+> [!CAUTION]
+> Never both!
 
 ### CQRS (Command Query Responsibility Segregation) - Building Block Level
 
 Separate building blocks for:
 
-- Commands (write operations)
-- Queries (read operations)
-
-**Benefits:**
-Independent scaling,
-optimization,
-and security models
+| Type | Purpose | Benefits |
+|------|---------|----------|
+| **Commands** | Write operations | Independent scaling |
+| **Queries** | Read operations | Independent optimization |
 
 ---
 
-## CASE STUDIES WITH ARCHITECTURAL LESSONS
+## Case Studies with Architectural Lessons
 
-### EarlyBird: Breakfast Delivery System
+<details open>
+<summary><b>EarlyBird: Breakfast Delivery System</b></summary>
 
-**Business Context:**
+**Business Context:** A food delivery company guaranteeing breakfast delivery in <25 minutes.
 
-A food delivery company guaranteeing breakfast delivery in <25 minutes.
-Customers order prepackaged or custom breakfasts (croissants, coffee, eggs, etc.).
-Orders are placed,
-packed,
-delivered,
-and paid for.
+**Evolution Challenge:** Originally phone-based ordering with manual processing. Now moving to web-based automation with SMS ordering capability.
 
-**Evolution Challenge:**
+**Key Lessons:**
 
-Originally phone-based ordering with manual text processing for labels/invoices and spreadsheets for route optimization.
-Now moving to web-based automation with SMS ordering capability.
+| Lesson | Description |
+|--------|-------------|
+| **A/T Separation** | A-Components (Order, Product, Customer) stay stable when T-Components (Web, SMS) change |
+| **Interface Segregation** | ISearchProduct interface used by both web UI and phone system |
+| **DDD Aggregates** | Order Aggregate enforces business rules at boundaries |
+| **External Integration** | Use coarse-grained interfaces with minimal data |
+| **Evolution Without Breaking** | Good architecture enables gradual migration |
 
-**Key Architectural Lessons:**
+> [!TIP]
+> When phone clerks are eliminated, only T-layer changes. A-layer remains unchanged.
 
-1. **A-Software vs T-Software Separation**
-    - **A-Components:** Order, Product, Customer, Invoice, Itinerary (business logic)
-    - **T-Components:** Web interface, SMS gateway, payment system integration, printer management
-    - **Why it matters:** When changing from phone to web to SMS, A-components stay stable. Only T-components change.
+</details>
 
-2. **Interface Segregation in Practice**
-    - **ISearchProduct interface:** Search by characteristics (calories, price) - used by both web UI and phone system
-    - **Separate interfaces for:** OrderPlacement, ProductCatalog, CustomerAuthentication, PaymentIntegration
-    - **Lesson:** Multiple small interfaces allow independent evolution of ordering channels
+<details open>
+<summary><b>Mars: Moon Visibility Calculator</b></summary>
 
-3. **Domain-Driven Design Aggregates**
-    - **Order Aggregate:** Order (root) → OrderItems → Products, with business rules:
-        - "Order total = sum of all OrderItem values"
-        - "No alcohol orders for minors (5 min violation acceptable)"
-    - **Customer Aggregate:** Customer (root) → Address, Password, OrderHistory
-    - **Lesson:** Aggregates enforce business rules at boundaries, protecting invariants
+**Business Context:** NASA Mars mission calculating time-overlap when both moons are visible.
 
-4. **External System Integration**
-    - Payment system receives interface records: `{customerNumber, orderNumber, amountInEuros, expectedDate}`
-    - **Anti-coupling pattern:** EarlyBird doesn't know HOW payment processes, just sends expected payment records
-    - **Lesson:** Use coarse-grained interfaces with minimal data for external integrations
+**Key Lessons:**
 
-5. **Evolution Without Breaking**
-    - Original: phone ordering → labels printed manually
-    - Future: web/SMS ordering → automated label generation
-    - **Architecture allows:** Both systems run simultaneously during transition
-    - **Lesson:** Good architecture enables gradual migration, not big-bang rewrites
+| Lesson | Description |
+|--------|-------------|
+| **Pure Application Core** | Interval calculation completely technology-free |
+| **Separation of Core from Interface** | Same A-component works in production and testing |
+| **Type 0 (Universal Truth)** | Time interval overlap is universal mathematics |
+| **Edge Case Handling** | "Twilight rule" is an A-requirement in A-layer |
+| **Testability** | Clean interface enables different T-adapters |
 
-**Practical Takeaway:**
+> [!NOTE]
+> Mars demonstrates the ultimate goal: application core so pure it works anywhere with any interface.
 
-When phone clerks are eliminated,
-only T-layer changes.
-A-layer (Order, Product, Customer logic) remains unchanged.
-This is the power of blood type separation.
+</details>
 
----
+<details open>
+<summary><b>MateMate: Chess Application Evolution</b></summary>
 
-### Mars: Moon Visibility Calculator
+**Business Context:** Chess software playing against humans, calculating optimal moves.
 
-**Business Context:**
+**Key Lessons:**
 
-NASA Mars mission measuring gravitational wave interference.
-Measurements only work when both moons (Deimos and Phobos) are simultaneously visible.
-Must calculate time-overlap of two time intervals to decide if powering up measurement equipment is worth the energy
-cost.
+| Lesson | Description |
+|--------|-------------|
+| **Service Elicitation** | 20 secondary services identified from chess rules |
+| **Software 1.0 to 2.0** | Swap evaluation implementations without touching other components |
+| **SE4 Method** | Service -> Subsystem -> Evaluation systematic approach |
+| **Reusability Test** | Chess engine separable from game history tracking |
 
-**Technical Challenge:**
+> [!TIP]
+> When AlphaZero beats Stockfish, it's just swapping one IPositionEvaluator implementation for another.
 
-Mars day = 88,775 Earth seconds.
-Simplified to 25 Mars-hours × 100 Mars-minutes.
-Intervals can wrap around midnight (e.g., [24:44, 7:50] means rise at 24:44, set at 7:50 next day).
+</details>
 
-**Key Architectural Lessons:**
-
-1. **Pure Application Core Example**
-    - **Input:** Two Mars-intervals: D[13:91, 23:05], P[22:05, 24:45]
-    - **Output:** Integer (overlap in Mars-minutes) → 100 minutes
-    - **A-Software:** Interval calculation logic (completely technology-free)
-    - **T-Software:** Minimal - just interface to NASA's experiment coordination system
-
-2. **Separation of Core Logic from Interface**
-    - **On Mars:** No GUI, called directly by NASA experiment software (production T-interface)
-    - **On Earth:** Needs HCI for testing (test T-interface)
-    - **Architecture:** Core calculation component has ZERO knowledge of how it's invoked
-    - **Lesson:** Same A-component works in production (automated) and testing (manual) without modification
-
-3. **Software Blood Type 0 (Universal Truth)**
-    - Time interval overlap calculation is universal mathematics
-    - Works on Earth, Mars, or any planet
-    - No business context, no technology context
-    - **Lesson:** Identify Type-0 components - they're infinitely reusable
-
-4. **Twilight Rule: Edge Case Handling**
-    - Requirement: "If intervals touch at one point, return 1 minute, not 0"
-    - Example: D[12:32, 17:06], P[17:06, 19:78] → 1 minute overlap
-    - **Lesson:** Edge cases are A-requirements, must be in A-layer specifications
-
-5. **Testability Through Interface Design**
-    - Same function signature for production and test interfaces
-    - Test interface adds HCI wrapper around core calculation
-    - Production interface adds NASA system adapter around core calculation
-    - **Lesson:** Design A-core with clean interface, wrap with different T-adapters
-
-**Practical Takeaway:**
-
-Mars demonstrates the ultimate goal:
-application core so pure it works anywhere with any interface.
-Four cohesive A-components calculate overlap.
-Zero knowledge of NASA systems,
-GUIs,
-or even Earth vs. Mars context.
-
----
-
-### MateMate: Chess Application Evolution
-
-**Business Context:**
-
-Chess software playing against humans,
-calculating optimal moves by evaluating positions and thinking ahead.
-
-**Key Architectural Lessons:**
-
-1. **Service Elicitation from Requirements**
-    - Identified 20 secondary services from chess rules:
-        - **Core:** `CalculateOptimalMove()`, `EvaluatePosition()`, `DetectCheckmate()`
-        - **Input:** `ScreenPositionToSquare()`, `ParseMove()`
-        - **Output:** `DrawPiece()`, `HighlightSquare()`
-    - **Lesson:** Use case analysis reveals secondary services that become component interfaces
-
-2. **Software 1.0 → Software 2.0 Evolution**
-    - **Version 1.0:** Traditional evaluation function (handcrafted heuristics: material, position, king safety)
-    - **Version 2.0:** Stockfish neural network (learned evaluation)
-    - **Architecture win:** Evaluation component has `IPositionEvaluator` interface
-    - **Result:** Swap implementations without touching move generation, UI, or game rules
-    - **Lesson:** Unstable requirements (evaluation algorithm) hidden behind stable interface
-
-3. **SE4 Method: Service → Subsystem → Evaluation**
-    - **Step 1:** Elicit services from requirements (20 services identified)
-    - **Step 2:** Package services into cohesive subsystems (Move Generation, Position Evaluation, UI, Game State)
-    - **Step 3:** Evaluate architecture (walk through use cases, check CRUD matrix)
-    - **Lesson:** Systematic method prevents ad-hoc design
-
-4. **Reusability Test: What Can Be Sold Separately?**
-    - Chess engine (position evaluation, move generation) → Reusable for chess puzzle solver
-    - Game history tracking → NOT reusable for puzzles (no game to track)
-    - **Decision:** Separate ChessEngine from GameHistory components
-    - **Lesson:** Reusability analysis drives component boundaries
-
-**Practical Takeaway:**
-
-When AlphaZero beats Stockfish,
-it's just swapping one IPositionEvaluator implementation for another.
-UI,
-rules,
-move generation unchanged.
-This is CCP + ISP in action.
-
----
-
-### Industry Anti-Pattern: Charts Component Duplication
+<details>
+<summary><b>Industry Anti-Pattern: Charts Component Duplication</b></summary>
 
 **What Happened:**
+1. Common Core contained financial calculations for Product1 and Product2
+2. Charts functionality added for Product1
+3. Product2 needs charts - sources COPIED into Charts2
+4. Charts2 massively enhanced - interface changed
+5. Product1 can't use new charts without rewriting
 
-1. **Common Core** contained financial calculations needed by Product1 and Product2
-2. **Chart functionality** (bar chart, pie chart) added for Product1 → created Charts component
-3. Product2 needs charts → **Charts sources COPIED** into Charts2 component
-4. Charts2 massively enhanced → **iChart2 interface changed** (new mandatory attributes)
-5. **Problem:** Product1 can't use new charts without rewriting to new interface
+**Principles Violated:**
 
-**Architectural Principles Violated:**
+| Principle | Violation |
+|-----------|-----------|
+| DRY | Chart logic duplicated |
+| CRP | Chart features not packaged together |
+| ISP | One big interface forced breaking changes |
+| Backward Compatibility | Breaking old interface |
 
-1. **DRY (Don't Repeat Yourself):** Chart logic duplicated instead of shared
-2. **CRP (Common Reuse Principle):** Chart features used together weren't packaged together from start
-3. **ISP (Interface Segregation):** One big interface forced breaking changes on all clients
-4. **Downward Compatibility:** Breaking old interface instead of extending it
+</details>
 
-**What Should Have Been Done:**
+<details>
+<summary><b>Vienna Transit Boards: ISP Violation</b></summary>
 
-1. **Shared IChartRenderer interface** with basic operations
-2. **Two implementations:** BasicCharts (for Product1), AdvancedCharts (for Product2)
-3. **Both products use same interface** → either implementation works
-4. **New features:** Extend interface with new optional methods, don't break existing ones
+**What Happened:** Apps parsing destination data suddenly showed "Save the Climate" as train destinations.
 
-**Lesson:**
+**Root Cause:** Display interface bundled destination data with promotional messages.
 
-Copying code instead of sharing components is technical debt.
-Eventually forces coordination across copies or abandons old clients.
+**Solution:** Separate IDestinationProvider from IPublicMessageProvider
 
----
-
-### Vienna Transit Boards: ISP Violation
-
-**What Happened:**
-
-Vienna's public transit destination boards showed "Save the Climate" messages mixed with actual destinations.
-Apps parsing destination data suddenly showed "Save the Climate" as a train destination.
-
-**Root Cause:**
-
-Display interface bundled:
-
-- Destination information (operational data)
-- Climate awareness messages (promotional data)
-
-**ISP Violation:**
-
-- Apps needed destination data only
-- Forced to receive promotional messages through same interface
-- No way to filter different data types
-
-**Solution:**
-
-- **IDestinationProvider:** Provides only destination/arrival data
-- **IPublicMessageProvider:** Provides promotional messages
-- Display boards use both; apps use only IDestinationProvider
-
-**Lesson:**
-
-Mix different concerns in one interface → clients can't opt out of irrelevant data → unexpected failures when data
-format changes.
+</details>
 
 ---
 
-### Evolutionary Coupling: Components Changing Together 96%
+## What Case Studies Teach
 
-**Observation:**
-
-Components "ord" (Orders) and "gos" (GoodsOnShelf) changed together in 96% of commits over 2 years.
-
-**Analysis:**
-
-- Originally designed as separate components
-- Reality: Every order change required inventory update
-- Every inventory update required order status change
-- **High evolutionary coupling** despite architectural separation
-
-**Refactoring Decision:**
-
-**Merge into OrderInventory component** because:
-
-- CCP violated: changing together but not packaged together
-- High coordination overhead between teams
-- Integration bugs from interface changes
-
-**Lesson:**
-
-Architecture should follow empirical change patterns.
-Version control reveals coupling that design documents hide.
+| Case Study | Lesson |
+|------------|--------|
+| **EarlyBird** | A/T separation enables technology migration without touching business logic |
+| **Mars** | Pure application cores work anywhere with any interface |
+| **MateMate** | Unstable algorithms behind stable interfaces enable evolution |
+| **Vienna Transit** | ISP violations cause production failures in unexpected places |
+| **Evolutionary Coupling** | Design intent != change reality. Measure actual coupling. |
+| **Compliance Violations** | Architecture erosion is invisible without automated governance |
 
 ---
 
-### Allowed-to-Use Violations in Production
+## Practical Recommendations for Architects
 
-**Automated Scan Found:**
-
-- OrderExecution component using CustomerManagement component
-- Violates architecture rule: "OrderExecution → ProductCatalog only"
-- Specific violation: SOG subcomponent in OrderExecution using SON subcomponent in CustomerManagement
-
-**Why It Happened:**
-
-- Developer needed customer credit check during order processing
-- Instead of requesting CustomerManagement expose ICreditCheck interface to OrderExecution
-- Directly called internal CustomerManagement methods
-- **Result:** Hidden dependency, bypassed architectural governance
-
-**Resolution:**
-
-Move `CreditCheck` logic from CustomerManagement to SharedServices component that both OrderExecution and
-CustomerManagement can legally use.
-
-**Lesson:**
-
-Without automated architecture compliance checking,
-violations accumulate.
-Technical debt grows invisible until system becomes unmaintainable.
+| # | Recommendation | Key Actions |
+|---|----------------|-------------|
+| 1 | **Always Separate A and T** | First question: Is this A or T? Never mix in same component |
+| 2 | **Design for Change** | Use CCP (change together = belong together), CRP (reuse together = belong together), classify by stability |
+| 3 | **Minimize Dependencies** | Each avoided dependency is a victory; use dependency inversion; keep allowed-to-use spec |
+| 4 | **Document Multiple Views** | C4 (Context, Container, Component, Class); Structure, Behavior, Network views |
+| 5 | **Review Systematically** | Checklist-based, scenario-based, CRUD analysis, automated compliance checking |
+| 6 | **Use Ubiquitous Language** | A-interfaces use domain terms only; avoid CRUD in business layer; maintain glossary |
+| 7 | **Embrace Modern Methods** | AI/embeddings for clustering; evolutionary coupling analysis; automated validation |
+| 8 | **Record Decisions** | Use ADRs; document options, decision, rationale; maintain in version control |
+| 9 | **Focus on the Core** | Application core (A) grows with features; Technical ring (T) stays constant |
+| 10 | **Think Long-Term** | Architecture = framework for change; Maintenance = 75% of cost; Good architecture = high changeability |
 
 ---
 
-## WHAT THESE CASE STUDIES TEACH
+## Timeless Wisdom
 
-**From EarlyBird:**
-A/T separation enables technology migration without touching business logic
+> *"The rules of software architecture are universal and changeless. They have been the same since Alan Turing wrote the first code in 1946."* — Robert C. Martin
 
-**From Mars:**
-Pure application cores work anywhere with any interface
+> *"On the Criteria to be Used in Decomposing Systems into Modules" (David Parnas, 1972) - still relevant today*
 
-**From MateMate:**
-Unstable algorithms behind stable interfaces enable evolution
+> *"Architecture = the technical decisions that are hard to change"*
 
-**From Vienna Transit:**
-ISP violations cause production failures in unexpected places
-
-**From Evolutionary Coupling:**
-Design intent ≠ change reality.
-Measure actual coupling,
-refactor accordingly.
-
-**From Compliance Violations:**
-Architecture erosion is invisible without automated governance
+> *"The code doesn't tell the whole story."* — Simon Brown
 
 ---
 
-## PRACTICAL RECOMMENDATIONS FOR ARCHITECTS
+## Further Reading
 
-1. **Always Separate A and T**
-    - First question: Is this A-software or T-software?
-    - Never mix in same component
+### Essential Books
 
-2. **Design for Change**
-    - Use CCP: things that change together belong together
-    - Use CRP: things reused together belong together
-    - Classify requirements by stability
+| Author | Title |
+|--------|-------|
+| Eric Evans | Domain-Driven Design (2003) |
+| Robert C. Martin | Clean Architecture |
+| Simon Brown | Software Architecture for Developers |
+| Vaughn Vernon | Implementing Domain-Driven Design |
+| John Ousterhout | A Philosophy of Software Design |
+| Johannes Siedersleben | Moderne Software-Architektur |
+| Nicolai Josuttis | SOA in Practice |
 
-3. **Minimize Dependencies**
-    - Each avoided dependency is a victory
-    - Use dependency inversion for A→T dependencies
-    - Keep allowed-to-use specification
+### Key Articles
 
-4. **Document Multiple Views**
-    - Context, Container, Component, Class (C4)
-    - Structure, Behavior, Network views
-    - Use consistent notation
+| Author | Article | Source |
+|--------|---------|--------|
+| Martin Fowler | [Microservices](https://martinfowler.com/articles/microservices.html) | martinfowler.com |
+| Cesare Pautasso et al. | Microservices in Practice | IEEE Software 2017 |
 
-5. **Review Systematically**
-    - Checklist-based (principles)
-    - Scenario-based (use cases)
-    - CRUD analysis (cohesion/coupling ratio)
-    - Automated compliance checking
+### Frameworks & Templates
 
-6. **Use Ubiquitous Language**
-    - A-interfaces use domain terms only
-    - Avoid CRUD language in business layer
-    - Maintain glossary with requirements team
-
-7. **Embrace Modern Methods**
-    - AI/embeddings for component clustering
-    - Evolutionary coupling analysis
-    - Automated architecture validation
-
-8. **Record Decisions**
-    - Use ADRs (Architecture Decision Records)
-    - Document options, decision, rationale
-    - Maintain in version control
-
-9. **Focus on the Core**
-    - Application core (A) grows with features
-    - Technical ring (T) stays relatively constant
-    - Most architecture courses wrongly focus on T
-
-10. **Think Long-Term**
-    - Architecture = framework for change (Tom DeMarco)
-    - Maintenance = 75% of software cost
-    - Good architecture → high changeability → low maintenance → long life
-
----
-
-## TIMELESS WISDOM
-
-*"The rules of software architecture are universal and changeless.
-They have been the same since Alan Turing wrote the first code in 1946."*
-— Robert C. Martin
-
-*"On the Criteria to be Used in Decomposing Systems into Modules" (David Parnas, 1972) - still relevant today*
-
-*"Architecture = the technical decisions that are hard to change"*
-
-*"The code doesn't tell the whole story."*
-— Simon Brown
-
----
-
-## FURTHER READING
-
-**Essential Books:**
-
-- **Eric Evans:** Domain-Driven Design (2003)
-- **Robert C. Martin:** Clean Architecture
-- **Simon Brown:** Software Architecture for Developers
-- **Vaughn Vernon:** Implementing Domain-Driven Design
-- **John Ousterhout:** A Philosophy of Software Design
-- **Johannes Siedersleben:** Moderne Software-Architektur
-- **Nicolai Josuttis:** SOA in Practice
-
-**Key Articles:**
-
-- Martin Fowler: Microservices (martinfowler.com/articles/microservices.html)
-- Cesare Pautasso et al.: Microservices in Practice (IEEE Software 2017)
-
-**Frameworks & Templates:**
-
-- arc42.org - Free architecture documentation template
-- C4 Model - c4model.com
-- iSAQB - International Software Architecture Qualification Board
-
----
+| Resource | URL | Description |
+|----------|-----|-------------|
+| arc42 | [arc42.org](https://arc42.org) | Free architecture documentation template |
+| C4 Model | [c4model.com](https://c4model.com) | Visualizing software architecture |
+| iSAQB | [isaqb.org](https://isaqb.org) | International Software Architecture Qualification Board |

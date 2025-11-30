@@ -186,32 +186,31 @@ The class diagram shows a comprehensive hospital management system with the foll
 ## Architecture Diagram (Subsystem View)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│              Dis*Ease Hospital Management System             │
-├─────────────────────────────────────────────────────────────┤
-│                                                               │
-│  ┌──────────────────┐         ┌──────────────────┐          │
-│  │  Patient         │         │  Medical         │          │
-│  │  Management      │◄───────►│  Procedures      │          │
-│  │                  │         │  & Workflow      │          │
-│  └────────┬─────────┘         └────────┬─────────┘          │
-│           │                            │                     │
-│           │                            │                     │
-│           ▼                            ▼                     │
-│  ┌──────────────────┐         ┌──────────────────┐          │
-│  │  Organization    │         │  Staff           │          │
-│  │  & Facilities    │◄───────►│  Management      │          │
-│  │                  │         │                  │          │
-│  └──────────────────┘         └──────────────────┘          │
-│           │                            │                     │
-│           │                            │                     │
-│           └────────────┬───────────────┘                     │
-│                        ▼                                     │
-│              ┌──────────────────┐                            │
-│              │  Shared Domain   │                            │
-│              │  Model           │                            │
-│              └──────────────────┘                            │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                Dis*Ease Hospital Management System               │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   ┌───────────────────┐              ┌───────────────────┐       │
+│   │      Patient      │              │      Medical      │       │
+│   │    Management     │◄────────────►│    Procedures     │       │
+│   │                   │              │    & Workflow     │       │
+│   └─────────┬─────────┘              └─────────┬─────────┘       │
+│             │                                  │                 │
+│             ▼                                  ▼                 │
+│   ┌───────────────────┐              ┌───────────────────┐       │
+│   │   Organization    │              │       Staff       │       │
+│   │   & Facilities    │◄────────────►│    Management     │       │
+│   │                   │              │                   │       │
+│   └─────────┬─────────┘              └─────────┬─────────┘       │
+│             │                                  │                 │
+│             └──────────────┬───────────────────┘                 │
+│                            ▼                                     │
+│                  ┌───────────────────┐                           │
+│                  │   Shared Domain   │                           │
+│                  │       Model       │                           │
+│                  └───────────────────┘                           │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -309,12 +308,26 @@ Classes that change together are packaged together:
 No circular dependencies between subsystems:
 
 ```
-Patient Mgmt → Medical Procedures → Staff Mgmt → Organization → Shared
-     ↓              ↓                    ↓              ↓
-     └──────────────┴────────────────────┴──────────────┘
-                    ↓
-              Shared Domain Model
+                    ┌─────────────────┐
+                    │ Patient Mgmt    │
+                    └────────┬────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              ▼              ▼              ▼
+    ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+    │ Medical         │ │ Organization    │ │ Staff           │
+    │ Procedures      │ │ & Facilities    │ │ Management      │
+    └────────┬────────┘ └────────┬────────┘ └────────┬────────┘
+             │                   │                   │
+             └───────────────────┼───────────────────┘
+                                 ▼
+                    ┌─────────────────┐
+                    │ Shared Domain   │
+                    │ Model           │
+                    └─────────────────┘
 ```
+
+**Dependency direction:** Always downward toward stable abstractions.
 
 ---
 
@@ -420,36 +433,38 @@ Patient Mgmt → Medical Procedures → Staff Mgmt → Organization → Shared
 Each subsystem should follow layered architecture:
 
 ```
-┌─────────────────────────────────┐
-│  REST API / User Interface      │  (Presentation)
-├─────────────────────────────────┤
-│  Application Services           │  (Use Cases)
-├─────────────────────────────────┤
-│  Domain Model (Classes)         │  (Business Logic)
-├─────────────────────────────────┤
-│  Data Access / Persistence      │  (Infrastructure)
-└─────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                    Presentation Layer                     │
+│              REST API / User Interface                    │
+├───────────────────────────────────────────────────────────┤
+│                    Application Layer                      │
+│              Use Cases / Application Services             │
+├───────────────────────────────────────────────────────────┤
+│                      Domain Layer                         │
+│              Business Logic / Domain Model                │
+├───────────────────────────────────────────────────────────┤
+│                  Infrastructure Layer                     │
+│              Data Access / Persistence / External APIs    │
+└───────────────────────────────────────────────────────────┘
 ```
+
+| Layer | Blood Type | Responsibility |
+|-------|------------|----------------|
+| Presentation | T | HTTP handling, UI rendering |
+| Application | A | Use case orchestration |
+| Domain | A | Business rules, entities |
+| Infrastructure | T | Database, messaging, external services |
 
 ### Technology Stack Suggestions
 
-**Backend:**
-
-- Java/Spring Boot or C#/.NET for each subsystem
-- JPA/Hibernate or Entity Framework for ORM
-- REST APIs for inter-subsystem communication
-
-**Database:**
-
-- PostgreSQL or SQL Server
-- One schema per subsystem (or separate databases)
-- Shared schema for Shared Domain Model
-
-**Integration:**
-
-- Message bus (RabbitMQ/Kafka) for asynchronous events
-- REST for synchronous queries
-- Event-driven architecture for procedure workflow
+| Layer | Options | Notes |
+|-------|---------|-------|
+| **Backend** | Java/Spring Boot, C#/.NET | One service per subsystem |
+| **ORM** | JPA/Hibernate, Entity Framework | Database abstraction |
+| **API** | REST | Inter-subsystem communication |
+| **Database** | PostgreSQL, SQL Server | One schema per subsystem |
+| **Messaging** | RabbitMQ, Kafka | Async events between subsystems |
+| **Integration** | Event-driven | Procedure workflow coordination |
 
 ---
 
@@ -457,28 +472,19 @@ Each subsystem should follow layered architecture:
 
 ### Access Control by Subsystem
 
-**Patient Management:**
-
-- Doctors: Read/Write patient records
-- Nurses: Read/Write vital signs, limited demographics
-- Admin: Read-only access to demographics
-
-**Medical Procedures:**
-
-- Doctors: Order procedures, view results
-- Nurses: Execute procedure steps
-- Technologists: Perform imaging procedures
-
-**Staff Management:**
-
-- HR Admin: Full access
-- Department heads: Read-only for their department
-- Staff: Read-only for their own record
-
-**Organization & Facilities:**
-
-- Admin: Full access
-- All staff: Read-only access
+| Subsystem | Role | Access Level |
+|-----------|------|--------------|
+| **Patient Management** | Doctors | Read/Write patient records |
+| | Nurses | Read/Write vital signs, limited demographics |
+| | Admin | Read-only demographics |
+| **Medical Procedures** | Doctors | Order procedures, view results |
+| | Nurses | Execute procedure steps |
+| | Technologists | Perform imaging procedures |
+| **Staff Management** | HR Admin | Full access |
+| | Department heads | Read-only for their department |
+| | Staff | Read-only for own record |
+| **Organization & Facilities** | Admin | Full access |
+| | All staff | Read-only access |
 
 ---
 
@@ -486,17 +492,21 @@ Each subsystem should follow layered architecture:
 
 ### HIPAA Compliance
 
-- Patient Management: Audit logging required
-- Medical Procedures: Procedure tracking for compliance
-- Staff Management: Access control enforcement
-- All subsystems: Encryption at rest and in transit
+| Subsystem | Requirement |
+|-----------|-------------|
+| Patient Management | Audit logging required |
+| Medical Procedures | Procedure tracking for compliance |
+| Staff Management | Access control enforcement |
+| All subsystems | Encryption at rest and in transit |
 
 ### HL7 FHIR Integration
 
-- Patient Management: Patient resource
-- Medical Procedures: Procedure, DiagnosticReport resources
-- Staff Management: Practitioner, PractitionerRole resources
-- Organization: Organization, Location resources
+| Subsystem | FHIR Resources |
+|-----------|----------------|
+| Patient Management | Patient |
+| Medical Procedures | Procedure, DiagnosticReport |
+| Staff Management | Practitioner, PractitionerRole |
+| Organization | Organization, Location |
 
 ---
 
@@ -504,27 +514,39 @@ Each subsystem should follow layered architecture:
 
 The proposed 6-subsystem architecture (or 4-subsystem alternative) provides:
 
-✅ **Clear separation of concerns**
-✅ **Independent deployability**
-✅ **Team autonomy**
-✅ **Scalability for growth**
-✅ **Compliance-ready structure**
-✅ **Technology flexibility**
+| Quality | How Achieved |
+|---------|--------------|
+| **Clear separation of concerns** | Each subsystem has single responsibility |
+| **Independent deployability** | Loosely coupled via well-defined interfaces |
+| **Team autonomy** | Clear ownership boundaries per subsystem |
+| **Scalability for growth** | Subsystems can scale independently |
+| **Compliance-ready structure** | HIPAA/HL7 FHIR alignment built-in |
+| **Technology flexibility** | T-layer decisions isolated from A-layer |
 
 Each class from the requirements diagram is assigned to exactly one subsystem, meeting the exercise constraint while
 maintaining architectural quality.
 
 ---
 
-## Exercise Deliverables
+## Summary
 
-1. **Architecture Diagram** - Subsystem view with dependencies
-2. **Class-to-Subsystem Mapping Table** - All classes assigned
-3. **Dependency Analysis** - Justification for subsystem relationships
-4. **Evolution Scenarios** - Validate architecture with change scenarios
-5. **Design Principles** - SRP, SDP, CCP, ADP application
+| Metric | Value |
+|--------|-------|
+| **Subsystems Identified** | 6 (or 4 for coarse-grained alternative) |
+| **Classes Mapped** | 26 classes across all subsystems |
+| **Principles Applied** | SRP, SDP, CCP, ADP |
+| **Evolution Scenarios Validated** | 3 (Telemedicine, Insurance, Multi-Hospital) |
 
 ---
 
-**Subsystems Identified:** 6 (or 4 for coarse-grained alternative)
-**Classes Mapped:** 26 classes across all subsystems
+## Exercise Deliverables
+
+| # | Deliverable | Description |
+|---|-------------|-------------|
+| 1 | **Architecture Diagram** | Subsystem view with dependencies |
+| 2 | **Class-to-Subsystem Mapping** | All 26 classes assigned to building blocks |
+| 3 | **Dependency Analysis** | Justification for subsystem relationships |
+| 4 | **Evolution Scenarios** | Validate architecture with change scenarios |
+| 5 | **Design Principles** | SRP, SDP, CCP, ADP application |
+
+---

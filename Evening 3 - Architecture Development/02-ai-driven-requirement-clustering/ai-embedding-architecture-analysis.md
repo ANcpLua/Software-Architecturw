@@ -188,20 +188,20 @@ Analyze each cluster and assign meaningful component names based on:
 ### Application Core Components (Derived from Clustering)
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│           EarlyBird Application Core                     │
-│                                                           │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  Product     │  │  Shopping    │  │  Order       │  │
-│  │  Catalog     │──│  Basket      │──│  Management  │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-│         │                                      │         │
-│         │                                      │         │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  Customer    │  │  Delivery    │  │  Payment     │  │
-│  │  Account     │  │  Logistics   │  │  Processing  │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│                   EarlyBird Application Core                   │
+│                                                                │
+│   ┌────────────────┐   ┌────────────────┐   ┌────────────────┐ │
+│   │    Product     │   │    Shopping    │   │     Order      │ │
+│   │    Catalog     │──▶│    Basket      │──▶│   Management   │ │
+│   └────────────────┘   └────────────────┘   └────────────────┘ │
+│           │                    │                    │          │
+│           │                    │                    │          │
+│   ┌────────────────┐   ┌────────────────┐   ┌────────────────┐ │
+│   │    Customer    │   │    Delivery    │   │    Payment     │ │
+│   │    Account     │   │    Logistics   │   │   Processing   │ │
+│   └────────────────┘   └────────────────┘   └────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
 ```
 
 ### Component Responsibilities

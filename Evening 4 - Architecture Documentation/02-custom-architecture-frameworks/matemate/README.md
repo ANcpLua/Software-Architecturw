@@ -178,8 +178,7 @@ Each review produces:
 - **[Metamodel](docs/metamodel.md)** - Architectural concepts and relationships
 - **[Allowed-to-Use Matrix](docs/allowed-to-use-matrix.md)** - Dependency permission matrix
 - **[Change Impact Heatmap](docs/change-impact-heatmap.md)** - Scenario-based blast radius
-- **[Sustainability & Resource Impact](docs/sustainability-and-resource-impact.md)** - Runtime footprint
-- **[FinOps & Cost Governance](docs/finops-and-cost-governance.md)** - Cost drivers
+- **[FinOps, Cost & Sustainability](docs/finops-and-cost-governance.md)** - Runtime footprint and cost drivers
 - **[New Concepts](docs/new-concepts.md)** - Summary of framework extensions
 
 ---
@@ -278,7 +277,7 @@ Desktop chess application with full FIDE rule compliance and graphical user inte
 1. Check [Allowed-to-Use Matrix](docs/allowed-to-use-matrix.md) - Any violations?
 2. Review [Change Impact Heatmap](docs/change-impact-heatmap.md) - Blast radius acceptable?
 3. Check [Quality Requirements](arc42/10-quality-requirements.md) - Scenarios verified?
-4. Review [Sustainability View](docs/sustainability-and-resource-impact.md) - Resource usage reasonable?
+4. Review [FinOps & Sustainability](docs/finops-and-cost-governance.md) - Resource usage reasonable?
 
 ---
 

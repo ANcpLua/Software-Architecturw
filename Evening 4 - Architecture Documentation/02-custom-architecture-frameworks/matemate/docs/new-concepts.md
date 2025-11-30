@@ -1,6 +1,6 @@
 # Innovative Additions (Not in C4 or arc42)
 
-Four concepts added to standard C4/arc42 that we treat as first-class:
+Three concepts added to standard C4/arc42 that we treat as first-class:
 
 ## 1. Allowed-to-Use Matrix
 
@@ -16,21 +16,14 @@ Used for planning and risk discussion before doing work.
 C4 and arc42 do not provide a per-scenario impact table.
 See [change-impact-heatmap.md](change-impact-heatmap.md)
 
-## 3. Sustainability & Resource Impact View
+## 3. FinOps, Cost Governance & Sustainability View
 
-Shows runtime footprint per subsystem:
+Shows runtime footprint and cost pressure per subsystem:
 
-- always-on vs. on-demand
-- CPU/GPU intensity
-- data that keeps growing
-  C4 and arc42 do not label components by runtime cost to run.
-  See [sustainability-and-resource-impact.md](sustainability-and-resource-impact.md)
+- Always-on vs. on-demand operation mode
+- CPU/GPU intensity and compute costs
+- Data growth over time
+- Cost drivers and scaling behavior
 
-## 4. FinOps & Cost Governance View
-
-Shows cost pressure per subsystem:
-
-- main cost driver (CPU, GPU, storage, etc.)
-- does cost scale per user / per move, or is it basically fixed
-  C4 and arc42 do not attach cost drivers to architecture elements.
-  See [finops-and-cost-governance.md](finops-and-cost-governance.md)
+C4 and arc42 do not label components by runtime cost or attach cost drivers to architecture elements.
+See [finops-and-cost-governance.md](finops-and-cost-governance.md)

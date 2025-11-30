@@ -1,17 +1,21 @@
-# Exercise: Requirements Class Diagram Based Architecture Development
+# Dis*Ease Hospital Management System
 
 **Exercise ID:** Dis*Ease01
-**Source:** 1_Architecture_Development_V702.pdf, Page 95
-**Type:** Exercise
+**Title:** Requirements Class Diagram Based Architecture Development
 
-## Overview
+Design a software architecture for a hospital management system starting from a requirements class diagram.
 
-This exercise demonstrates how to develop a software architecture starting from a requirements class diagram. The Dis*
-Ease system serves as a case study for understanding the transition from requirements modeling to architectural design.
+---
 
-## Exercise Description
+## Exercise Overview
 
-**Task:** Design the architecture for the hospital management system (Dis*Ease).
+This exercise demonstrates how to develop a software architecture starting from a **requirements class diagram**. The
+Dis*Ease system serves as a case study for understanding the transition from requirements modeling to architectural
+design.
+
+### The Exercise Task
+
+Design the architecture for the hospital management system (Dis*Ease) based on the requirements class diagram.
 
 **Constraints:**
 
@@ -19,117 +23,108 @@ Ease system serves as a case study for understanding the transition from require
 - Each class from the requirements class diagram should be assigned to **exactly one building block**
 - Building blocks should be cohesive and follow architectural principles
 
-**Time:** Group exercise (45-60 minutes)
+**Expected Result:** A subsystem architecture where each building block groups cohesive domain classes.
 
-## Learning Objectives
+---
 
-- Transforming requirements class diagrams into architectural components
-- Identifying architectural building blocks from requirements
-- Mapping domain concepts to architectural elements
-- Understanding the relationship between requirements and architecture
-- Applying systematic architecture development methods
+## Approach
 
-## The Dis*Ease System
+1. **Requirements Analysis:** Understand the domain model classes and relationships
+2. **Component Identification:** Group classes into cohesive building blocks
+3. **Dependency Analysis:** Define relationships between subsystems
+4. **Architecture Validation:** Ensure all classes mapped, principles applied
 
-The Dis*Ease system is a comprehensive hospital management system that handles:
+---
 
-- **Patient Management** - Patient records, admissions, personal information
-- **Medical Procedures** - Procedure planning, scheduling, execution, and tracking
-- **Staff Management** - Hospital personnel (doctors, nurses, technicians, administrative staff)
-- **Facility Management** - Hospital departments, rooms, and resources
-- **Imaging Services** - Medical imaging requests and procedures
-- **Clinical Documentation** - Service episodes, visits, and clinical records
+## Result
 
-### Requirements Class Diagram
+**6 subsystems** for 26 domain classes (~4 classes per subsystem)
 
-The system's domain model includes:
+- **Design Principles:** SRP, SDP, CCP, ADP applied
+- **Alternative:** 4-subsystem coarse-grained architecture also provided
+- **Evolution Scenarios:** Validated with telemedicine, insurance, multi-hospital
 
-**Patient & Person Management:**
+See [**architecture-analysis.md**](architecture-analysis.md) for full analysis.
 
-- `Person` - Base class with personal information (name, birthdate, gender, contact details)
-- `Patient` - Extends Person, represents hospital patients
-- `Hospital` - Hospital information and location
-- `Department` - Hospital departments
-- `Staff` - Hospital personnel (Operations, Administrative, Technical)
-    - `Doctor`, `Nurse`, `Surgeon` (Operations Staff)
-    - `Front Desk Staff`, `Receptionist` (Administrative Staff)
-    - `Technician`, `Technologist`, `Surgical Technologist` (Technical Staff)
+---
 
-**Medical Procedures:**
+## Architecture
 
-- `Procedure Plan` - Planned medical procedures
-- `Requested Procedure` - Procedures requested by physicians
-- `Scheduled Procedure Step` - Scheduled steps in a procedure
-- `Procedure Type` - Types of medical procedures
-- `Modality Performed Procedure Step` - Executed procedure steps
-- `Protocol Code` - Procedure protocols
-- `Series` - Imaging series data
+See [**architecture-analysis.md**](architecture-analysis.md) for subsystem descriptions:
 
-**Service & Episodes:**
+- Subsystem 1: Patient Management (8 classes)
+- Subsystem 2: Medical Procedures & Workflow (8 classes)
+- Subsystem 3: Staff Management (13 classes)
+- Subsystem 4: Organization & Facilities (3 classes)
+- Subsystem 5: Shared Domain Model (1 class)
+- Alternative: Imaging & Diagnostics (could be separated)
 
-- `Service Episode` - Patient care episodes
-- `Visit` - Patient visits to hospital
-- `Facility` - Hospital facilities
-
-**Clinical Documents:**
-
-- `Clinical Document` - Medical documentation
-- `Imaging Service Request` - Requests for imaging services
-
-### Key Relationships
-
-- Patients have service episodes and visits
-- Visits include requested procedures
-- Staff members perform procedures
-- Procedures are scheduled in facilities
-- Imaging requests specify procedures and modalities
-
-## Methodology
-
-This exercise likely follows a systematic approach:
-
-1. **Requirements Analysis** - Understanding the class diagram
-2. **Component Identification** - Deriving architectural components
-3. **Interface Design** - Defining component interfaces
-4. **Architecture Validation** - Ensuring requirements coverage
+---
 
 ## Files
 
-- `README.md` - This file
-- `architecture-analysis.md` - ✅ Complete architecture analysis
-- `slides/slide_disease_exercise.png` - Exercise specification with class diagram
-- `slides/` - Exercise slides and diagrams
+### Documentation
 
-## Solution Overview
+- **README.md** - This file
+- **architecture-analysis.md** - Complete architecture analysis
 
-The analysis proposes a **6-subsystem architecture**:
+### Reference Materials
 
-1. **Patient Management** - Patient lifecycle, visits, clinical documents (8 classes)
-2. **Medical Procedures & Workflow** - Procedure planning, scheduling, execution (8 classes)
-3. **Staff Management** - All staff types: Operations, Administrative, Technical (13 classes)
-4. **Organization & Facilities** - Hospital, departments, facilities (3 classes)
-5. **Shared Domain Model** - Person base class and common entities (1 class)
-6. **Alternative: Imaging & Diagnostics** - Could be separated if needed
+- **slides/** - Exercise slides and diagrams
+- **slides/slide_disease_exercise.png** - Exercise specification with class diagram
 
-**Alternative:** 4-subsystem coarse-grained architecture also provided.
+---
 
-**Key Principles Applied:**
+## The Dis*Ease System
 
-- Single Responsibility Principle (SRP)
-- Stable Dependencies Principle (SDP)
-- Common Closure Principle (CCP)
-- Acyclic Dependencies Principle (ADP)
+The Dis*Ease system is a comprehensive hospital management system:
 
-See [architecture-analysis.md](architecture-analysis.md) for:
+**Patient Management:**
+- Patient records, admissions, personal information
+- Service episodes and clinical documentation
+
+**Medical Procedures:**
+- Procedure planning, scheduling, execution
+- Imaging service requests and protocols
+
+**Staff Management:**
+- Hospital personnel (doctors, nurses, technicians)
+- Administrative and technical staff
+
+**Facility Management:**
+- Hospital departments, rooms, resources
+- Organizational structure
+
+---
+
+## Learning Outcomes
+
+This exercise demonstrates:
+
+1. **Requirements-to-Architecture:** Transforming class diagrams into components
+2. **Component Identification:** Deriving building blocks from domain concepts
+3. **Dependency Management:** Managing subsystem relationships
+4. **Architecture Principles:** Applying SRP, SDP, CCP, ADP
+5. **Architecture Validation:** Ensuring requirements coverage
+
+---
+
+## Related Materials
+
+See [**architecture-analysis.md**](architecture-analysis.md) for:
 
 - Complete subsystem design with architecture diagram
 - Class-to-subsystem mapping (all 26 classes)
 - Dependency analysis and rationale
-- Evolution scenarios (telemedicine, insurance, multi-hospital)
-- Implementation recommendations (layered architecture, tech stack)
+- Evolution scenarios validation
+- Implementation recommendations
 - Security and compliance considerations (HIPAA, HL7 FHIR)
+
+---
 
 ## Related Exercises
 
-- [Service Based Architecture Development](../05-matemate-service-based-architecture/) (MateMate02)
 - [Using AI to Develop an Architecture](../02-ai-driven-requirement-clustering/) (ArchitectureDevelopment02)
+- [Service Based Architecture Development](../05-matemate-service-based-architecture/) (MateMate02)
+
+---
