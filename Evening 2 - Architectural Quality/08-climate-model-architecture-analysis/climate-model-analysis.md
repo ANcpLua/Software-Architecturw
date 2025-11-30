@@ -326,7 +326,7 @@ graph TB
 <!-- Reference Links -->
 [exercise1]: ../07-charts-products-architecture-story/architectural-principles-analysis.md
 [exercise3]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/
-[case-study]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/home-exercise-and-case-study.pdf
+[case-study]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/slides/03-mars-moons-application-core.pdf
 
 <!-- Principle Links -->
 [sdp]: #1-sdp-stable-dependencies-principle-violations

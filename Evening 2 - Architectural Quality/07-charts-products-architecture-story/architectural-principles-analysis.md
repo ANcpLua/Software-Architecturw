@@ -321,9 +321,9 @@ can evolve independently.
 
 [exercise2]: ../08-climate-model-architecture-analysis/climate-model-analysis.md
 
-[exercise3]: ../../Evening 3 - Architecture Development/03-mars-application-core/application-core-design.md
+[exercise3]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/application-core-design.md
 
-[case-study]: ../../Evening 3 - Architecture Development/03-mars-application-core/home-exercise-and-case-study.pdf
+[case-study]: ../../Evening%203%20-%20Architecture%20Development/03-mars-application-core/slides/03-mars-moons-application-core.pdf
 
 <!-- Principle Links -->
 
